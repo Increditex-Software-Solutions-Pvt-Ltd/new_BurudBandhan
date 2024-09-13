@@ -1,15 +1,19 @@
-import React from 'react'
-import TopSection from '../Components/Home/TopSection'
+import React, { useState } from 'react'
+import TopSection from '../Components/Home/TopSection';
+import Steps from '../Components/Home/Steps';
+import Footer from '../Components/Footer';
+
+
+
 
 const Home = () => {
+
   return (
-    <div>
+    <div className=''>
       {/* <TopSection /> */}
 
-      <div>
-        <p>आता सोप्या पद्धतीने तुमचा परिपूर्ण जोडीदार शोधा</p>
-        <p></p>
-      </div>
+      <Steps/>
+      <Footer/>
 
     </div>
   )
