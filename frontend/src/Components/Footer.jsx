@@ -97,7 +97,7 @@ const Footer = () => {
         </div>
         
         <div className='border-t border-gray-600 mt-[50px] '>
-            <div className='flex gap-[5px] items-center  justify-center p-[20px]'>
+            <div className='text-gray-400 flex gap-[5px] items-center  justify-center p-[20px]'>
                 <MdCopyright /> 
                 <p>
                     Copyright BurudBandhan. Designed by @Increditex Software Solutions Pvt. Ltd. All right reserved.
