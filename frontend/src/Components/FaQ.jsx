@@ -35,13 +35,18 @@ const FaQ = () => {
     const [faqs, setFaqs] = useState(inifaq);
 
   return (
-    <div>
-        {
-            faqs.map((item,indx)=>(
-                <QuestionAndAnswer key={indx} data = {item} />
-            ))
-        }
+    <div className='w-full bg-gray-100 py-12'>
+        <h1 className='text-4xl font-bold text-sky-950 mb-8'>FAQs</h1>
+        {/* content */}
+        <div className='w-4/5 m-auto mt-[50px] flex flex-col gap-[20px]'>
+            {
+                faqs.map((item,indx)=>(
+                    <QuestionAndAnswer key={indx} data = {item} />
+                ))
+            }
+        </div>
     </div>
+    
   )
 }
 
