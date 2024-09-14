@@ -3,6 +3,7 @@ import TopSection from '../Components/Home/TopSection';
 import Steps from '../Components/Home/Steps';
 import Footer from '../Components/Footer';
 import LatestProfiles from '../Components/Home/LatestProfiles';
+import FaQ from '../Components/FaQ';
 
 
 
@@ -14,8 +15,8 @@ const Home = () => {
       {/* <TopSection /> */}
 
       <Steps/>
-      <LatestProfiles />
-
+      {/* <LatestProfiles /> */}
+      <FaQ />
       <Footer/>
 
     </div>
