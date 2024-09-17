@@ -1,40 +1,24 @@
 import React from 'react'
-import LoginForm from '../Components/Login/LoginForm'
+import Footer from '../Components/Footer'
 import banner2 from "../Assets/banner2.jpg";
-import Footer from '../Components/Footer';
+import LoginForm from '../Components/Login/LoginForm';
 
-const Login = () => {
+
+const Login1 = () => {
   return (
     <div>
-      {/* login section */}
-      <div
-      style={{
-        backgroundImage: `url(${banner2})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize:'cover',
-        backgroundPosition: 'center',
-        filter: 'opacity(50%)'
-      }}
-      className=''
-      >
-        <div
-        style={{
-          backgroundColor: 'black',
-          filter: 'opacity(75%)'
-        }} 
-        className='pb-[50px]'
-        >
-          <LoginForm />
+        <div className='relative'>
+            <img style={{
+                filter: 'invert(40%)',
+            }} className='w-full ' src={banner2} alt="background image" />
+
+            <LoginForm />
 
         </div>
-      </div>
-
-      {/* footer */}
-      <Footer />
+        <Footer />
 
     </div>
-    
   )
 }
 
-export default Login
+export default Login1

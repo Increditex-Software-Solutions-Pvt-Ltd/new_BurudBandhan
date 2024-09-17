@@ -14,24 +14,22 @@ const LoginForm = () => {
 
   return (
     <div 
-    style={{
-     
-      filter: 'opacity(100%)'
-    }}
-     className="  py-[80px] flex justify-center">
+    
+     className="w-[100%] absolute top-10 py-[80px] flex justify-center">
       
       <div >
-        <img className='h-[100%]' src={marriageImage} alt='marriage'/>
+        <img className='h-[100%] rounded-l' src={marriageImage} alt='marriage'/>
       </div>
+
       <form onSubmit={handleSubmit} 
         style={{
           backgroundColor: 'white',
           filter:"opacity(100%)"
         }}
-       className="w-[30%] bg-white p-6 shadow-lg  text-left">
+       className="w-[40%] bg-white p-10 shadow-lg  text-left rounded-r">
         <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
 
-        <div className="mb-4">
+        <div className="mb-6">
           <label htmlFor="email" className="block text-gray-700">Email</label>
           <input
             type="email"
@@ -43,7 +41,7 @@ const LoginForm = () => {
           />
         </div>
 
-        <div className="mb-4">
+        <div className="mb-6">
           <label htmlFor="password" className="block text-gray-700">Password</label>
           <input
             type="password"
@@ -55,7 +53,7 @@ const LoginForm = () => {
           />
         </div>
 
-        <div className='mb-4 flex items-center justify-between'>
+        <div className='mb-8 flex items-center justify-between'>
           <div className='flex items-center gap-1'>
             <input type='checkbox'/>
             <label htmlFor="password" className="block text-gray-700">Remember Password</label>
@@ -77,7 +75,7 @@ const LoginForm = () => {
         </button>
 
         <div >
-          <p className='text-center mt-4'>Are you new here? <a className='text-red-500' href='/register'>Register here</a> </p>
+          <p className='text-center mt-6'>Are you new here? <a className='text-red-500' href='/register'>Register here</a> </p>
         </div>
       </form>
     </div>
