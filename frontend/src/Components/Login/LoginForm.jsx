@@ -15,15 +15,20 @@ const LoginForm = () => {
   return (
     <div 
     style={{
-      
+     
       filter: 'opacity(100%)'
     }}
      className="  py-[80px] flex justify-center">
       
       <div >
-        <img src={marriageImage} alt='marriage'/>
+        <img className='h-[100%]' src={marriageImage} alt='marriage'/>
       </div>
-      <form onSubmit={handleSubmit} className="w-[30%] bg-white p-6 shadow-lg  text-left">
+      <form onSubmit={handleSubmit} 
+        style={{
+          backgroundColor: 'white',
+          filter:"opacity(100%)"
+        }}
+       className="w-[30%] bg-white p-6 shadow-lg  text-left">
         <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
 
         <div className="mb-4">
@@ -70,6 +75,10 @@ const LoginForm = () => {
         >
           Login
         </button>
+
+        <div >
+          <p className='text-center mt-4'>Are you new here? <a className='text-red-500' href='/register'>Register here</a> </p>
+        </div>
       </form>
     </div>
   );

@@ -1,30 +1,39 @@
 import React from 'react'
 import LoginForm from '../Components/Login/LoginForm'
 import banner2 from "../Assets/banner2.jpg";
+import Footer from '../Components/Footer';
 
 const Login = () => {
   return (
-    <div
-    style={{
-      backgroundImage: `url(${banner2})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize:'cover',
-      backgroundPosition: 'center',
-      filter: 'opacity(50%)'
-    }}
-    className='h-[100vh]'
-    >
+    <div>
+      {/* login section */}
       <div
       style={{
-        backgroundColor: 'black',
-        filter: 'opacity(75%)'
-      }} 
-      className='h-[100vh]'
+        backgroundImage: `url(${banner2})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize:'cover',
+        backgroundPosition: 'center',
+        filter: 'opacity(50%)'
+      }}
+      className=''
       >
-        <LoginForm />
+        <div
+        style={{
+          backgroundColor: 'black',
+          filter: 'opacity(75%)'
+        }} 
+        className='pb-[50px]'
+        >
+          <LoginForm />
 
+        </div>
       </div>
+
+      {/* footer */}
+      <Footer />
+
     </div>
+    
   )
 }
 
