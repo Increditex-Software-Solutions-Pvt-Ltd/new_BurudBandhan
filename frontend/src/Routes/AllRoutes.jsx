@@ -9,6 +9,7 @@ import SuccessVideos from '../Pages/SuccessVideos';
 import Profile from '../Pages/Profile';
 import Register from '../Pages/Register';
 import Login from '../Pages/Login';
+import SmsVerification from '../Pages/SmsVerification';
 
 const AllRoutes = () => {
   return (
@@ -21,6 +22,7 @@ const AllRoutes = () => {
           <Route path='/profile' element={<Profile />} />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/sms' element={<SmsVerification />} />
           <Route path='/*' element={<NotFound />} />
           
       </Routes>

@@ -4,9 +4,9 @@ import { BsPeopleFill } from "react-icons/bs";
 import { HiDocumentMagnifyingGlass } from "react-icons/hi2";
 
 const stepsData = [
-    {id:1, title: "वैयक्तिक माहिती", icon: <ImProfile className="text-[100px] text-gray-400"/>},
-    {id:2, title: "जोडीदाराबाबतच्या अपेक्षा", icon: <BsPeopleFill className="text-[100px] text-gray-400"/>},
-    {id:3, title: "कागदपत्रांची पडताळणी ", icon: <HiDocumentMagnifyingGlass className="text-[100px] text-gray-400"/>},
+    {id:1, title: "वैयक्तिक माहिती", icon: <ImProfile className="text-[100px] text-orange-400"/>},
+    {id:2, title: "जोडीदाराबाबतच्या अपेक्षा", icon: <BsPeopleFill className="text-[100px] text-orange-400"/>},
+    {id:3, title: "कागदपत्रांची पडताळणी ", icon: <HiDocumentMagnifyingGlass className="text-[100px] text-orange-400"/>},
 ]
 
 const Steps = () => {
@@ -28,6 +28,7 @@ const Steps = () => {
                 <div className=' font-bold flex justify-between items-center gap-[25px]'>
                   <p className=' text-white bg-sky-950 p-[5px] px-[8px] text-[12px] rounded-full'>0{i+1}</p>
                   <p className='text-sky-950 '>{item.title}</p>
+                  
                 </div>
               </div>
             ))

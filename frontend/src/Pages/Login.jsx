@@ -15,7 +15,6 @@ const Login1 = () => {
             <LoginForm />
 
         </div>
-        <Footer />
 
     </div>
   )

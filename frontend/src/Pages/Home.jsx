@@ -17,7 +17,6 @@ const Home = () => {
       <Steps/>
       {/* <LatestProfiles /> */}
       <FaQ />
-      <Footer/>
 
     </div>
   )
