@@ -1,16 +1,16 @@
 import React from 'react'
 import Footer from '../Components/Footer'
-import banner2 from "../Assets/banner2.jpg";
+import banner from "../Assets/banner.jpg";
 import LoginForm from '../Components/Login/LoginForm';
 
 
 const Login1 = () => {
   return (
     <div>
-        <div className='relative'>
+        <div className='relative h-[700px]'>
             <img style={{
                 filter: 'invert(40%)',
-            }} className='w-full ' src={banner2} alt="background image" />
+            }} className='w-full h-[100%]' src={banner} alt="background image" />
 
             <LoginForm />
 

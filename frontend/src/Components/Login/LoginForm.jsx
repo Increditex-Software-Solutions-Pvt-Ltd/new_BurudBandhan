@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import marriageImage from "../../Assets/marriage.jpeg";
+import marriageImage from "../../Assets/marriage.jpg";
 
 const LoginForm = () => {
   const [mobile, setMobile] = useState(null);
@@ -15,10 +15,10 @@ const LoginForm = () => {
   return (
     <div 
     
-     className="w-[100%] absolute top-10 py-[80px] flex justify-center">
+     className="  w-[60%] absolute top-10 left-0 right-0 m-auto py-[80px] flex justify-center">
       
-      <div >
-        <img className='h-[100%] rounded-l' src={marriageImage} alt='marriage'/>
+      <div className='w-[40%]'>
+        <img className=' h-[100%] rounded-l' src={marriageImage} alt='marriage'/>
       </div>
 
       <form onSubmit={handleSubmit} 
@@ -26,7 +26,7 @@ const LoginForm = () => {
           backgroundColor: 'white',
           filter:"opacity(100%)"
         }}
-       className="w-[40%] bg-white p-10 shadow-lg  text-left rounded-r">
+       className=" w-[60%] bg-white p-10 shadow-lg  text-left rounded-r">
 
         <h2 className="text-xl font-bold mb-4 text-center">लाॅगिन करण्यासाठी तुमचा मोबाईल नंबर आणि पासवर्ड टाका !</h2>
 
