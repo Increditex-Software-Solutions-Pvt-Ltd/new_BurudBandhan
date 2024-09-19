@@ -15,7 +15,7 @@ const Home = () => {
       <TopSection />
 
       <Steps/>
-      {/* <LatestProfiles /> */}
+      <LatestProfiles />
       <FaQ />
 
     </div>
