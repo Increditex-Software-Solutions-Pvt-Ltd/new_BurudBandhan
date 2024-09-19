@@ -31,7 +31,7 @@ const QuestionAndAnswer = ({data}) => {
         border
         font-semibold
         text-sky-950
-        rounded shadow
+        rounded 
         ' 
         onClick={handleAnswer}>
             <p>{data.que}</p>
