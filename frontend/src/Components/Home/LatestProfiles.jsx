@@ -20,7 +20,7 @@ const LatestProfiles = () => {
         <div className='w-[80%] m-auto mt-[50px] flex  justify-between '>
           {
             profiles.map((item, i) => (
-              <div key={i}>
+              <div className='cursor-pointer rounded-2xl hover:shadow-lg hover:shadow-red-300 p-4' key={i}>
                   <div className=''>
                     <img className='w-[200px] h-[200px] m-auto rounded-full' src={item.profile} alt={item.name} />
                   </div>
@@ -36,7 +36,7 @@ const LatestProfiles = () => {
           }
         </div>
 
-        <button className='w-fit mt-12 py-4 px-10 bg-red-500 text-white font-bold rounded-xl'>अधिक प्रोफाईल पहा</button>
+        <button className='w-fit mt-12 py-4 px-10 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl'>अधिक प्रोफाईल पहा</button>
 
         
     </div>
