@@ -13,7 +13,7 @@ const Steps = () => {
     const [steps, setSteps] = useState(stepsData);
 
   return (
-    <div className=''>
+    <div className='mb-[80px]'>
         <p className='text-red-700 text-[20px] font-bold'>आता सोप्या पद्धतीने तुमचा परिपूर्ण जोडीदार शोधा</p>
         <p className='text-[25px] font-bold text-sky-950'>अगदी सरळ व सोप्या ३ टप्प्यांमधे बुरूड समाज वधु वर प्लॅटफाॅर्म वर </p>
 
