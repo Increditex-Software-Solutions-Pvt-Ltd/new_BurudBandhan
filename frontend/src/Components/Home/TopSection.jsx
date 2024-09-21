@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import marriageVideo from "../../Assets/marriageVideo.mp4";
 import burudLogo from "../../Assets/burudBandhan_logo.jpeg";
 
 const TopSection = () => {
+  const [displayBox, setDisplayBox] = useState(false);
+  const myRef = useRef(null);
+
+  useEffect(()=>{
+    let id = setTimeout(()=>{
+      setDisplayBox(true);
+    },3000)
+
+    return ()=>{
+      clearTimeout(id);
+    }
+  })
+  
   return (
     <div>
       <div className='relative mb-[80px]'>
@@ -15,7 +28,11 @@ const TopSection = () => {
           <source src={marriageVideo} type='video/mp4' />
         </video>
 
-        <div className='rounded-xl absolute top-20 left-0 right-0 m-auto bg-white w-fit p-5'>
+        <div  
+        style={{
+          display:displayBox?'block':'none'
+        }}
+         className='rounded-xl absolute top-20 left-0 right-0 m-auto bg-white w-fit p-5'>
           <img className='rotate-image w-[150px] h-[150px] rounded-full m-auto' src={burudLogo} alt='logo' />
           <h1 className='text-[60px] font-bold  text-red-600'>महाराष्ट्रातील</h1>
           <p className='text-2xl text-sky-950 mt-4'>सर्व बुरूड बांधवांसाठी, नामांकित व विश्वसनीय ऑनलाइन विवाह संस्था </p>
