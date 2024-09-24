@@ -6,10 +6,11 @@ const PORT = process.env.PORT;
 
 const app = express();
 
-
+// middlewares
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
+// routes
 app.get('/', (req, res) => res.send('Hello'));
 
 app.listen(PORT, async() => {
@@ -17,7 +18,7 @@ app.listen(PORT, async() => {
         await connection;
         console.log('Connected with db');
     }catch(err){
-        console.log(err);
+        console.log(err.message);
     }
 
     console.log(`server started on http://localhost:${PORT}`)
