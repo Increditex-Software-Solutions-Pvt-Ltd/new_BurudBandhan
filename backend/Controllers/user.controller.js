@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 
 
 export const userController = {
-    async register(req, res){
+    async signup(req, res){
         try {
             const data = req.body;
             const email = data.email;
@@ -17,18 +17,24 @@ export const userController = {
                 return res.status(400).json({message: "Email is already exist!"});
             }
 
-            bcrypt.hash(data.password, 8, async(err, hash) =>{
-                const newUser = new User({
-                    ...data,
-                    password:hash
-                });
+            // hash password
+            const salt = await bcrypt.genSalt(10);
+            const hashedPassword = await bcrypt.hash(data.password, salt);
 
-                await newUser.save();
-                res.status(201).json({
-                    message: "User created successfully!",
-                    newUser
-                })
-            })
+            const newUser = new User({
+                ...data,
+                password:hashedPassword
+            });
+
+
+            // save user and generate token
+            const savedUser = await newUser.save();
+            const token = jwt.sign({id: savedUser._id}, process.env.JWT_KEY, {expiresIn: '1h'});
+
+            // send response
+            res.status(201).json({ token, user: newUser });
+
+           
         }catch(err){
             res.status(401).json({
                 message: err.message
@@ -43,7 +49,7 @@ export const userController = {
             console.log(user);
 
             if(!user){
-                return res.status(401).json({
+                return res.status(400).json({
                     message: "Email is not exist!"
                 })
             }
@@ -51,21 +57,16 @@ export const userController = {
             const checkPassword = await bcrypt.compare(password, user.password);
 
             if(!checkPassword){
-                return res.status(401).json({
+                return res.status(400).json({
                     message: "Incorrect password!"
                 });
             }
 
-            const token = jwt.sign({
-                userID: user._id
-            }, process.env.JWT_KEY)
+            const token = jwt.sign({ userID: user._id }, process.env.JWT_KEY, {expiresIn: '1h'});
 
-            res.status(200).json({
-                message: "Login successful",
-                token
-            })
+            res.status(200).json({ token, user });
         }catch(err){
-            res.status(401).json({message: err.message});
+            res.status(500).json({message: err.message});
         }
     }
 }

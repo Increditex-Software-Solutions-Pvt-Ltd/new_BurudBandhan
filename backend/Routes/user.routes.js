@@ -9,3 +9,6 @@ userRouter.post('/login', userController.login);
 
 // signup route
 userRouter.post('/signup', userController.signup);
+
+
+module.exports = {userRouter};
