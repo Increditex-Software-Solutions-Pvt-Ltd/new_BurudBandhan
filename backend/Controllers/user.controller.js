@@ -67,7 +67,15 @@ const userController = {
         }catch(err){
             res.status(500).json({message: err.message});
         }
+    },
+   async getProfile(req, res){
+    try{
+        const user = await User.findById(req.user.id);
+        res.json(user);
+    }catch(err){
+        res.status(500).json({error: err.message});
     }
+   }
 }
 
 

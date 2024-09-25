@@ -12,7 +12,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 // routes
-app.use('/user', userRouter);
+app.use('/api/user', userRouter);
+
 app.get('/', (req, res) => res.send('Hello'));
 
 app.listen(PORT, async() => {
