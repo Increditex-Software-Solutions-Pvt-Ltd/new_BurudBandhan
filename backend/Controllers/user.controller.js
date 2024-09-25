@@ -3,8 +3,7 @@ const { User } = require('../Models/user.model');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-
-export const userController = {
+const userController = {
     async signup(req, res){
         try {
             const data = req.body;
@@ -70,3 +69,6 @@ export const userController = {
         }
     }
 }
+
+
+module.exports = { userController };
