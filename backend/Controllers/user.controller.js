@@ -54,6 +54,7 @@ const userController = {
             }
 
             const checkPassword = await bcrypt.compare(password, user.password);
+            console.log(checkPassword);
 
             if(!checkPassword){
                 return res.status(400).json({
@@ -84,7 +85,8 @@ const userController = {
     } = req.body;
 
     try{
-        const user = await user.findById(req.user.id);
+        
+        const user = await User.findById(req.user.id);
 
         if(!user){
             return res.status(404).json({message: 'User not found!'});
@@ -93,7 +95,7 @@ const userController = {
         if(firstName) user.firstName = firstName;
         if(middleName) user.middleName = middleName;
         if(lastName) user.lastName = lastName;
-        if(email) user.email = lastName;
+        if(email) user.email = email;
         if(phone) user.phone = phone;
         if(gender) user.gender = gender;
         if(address) user.address = address;
@@ -103,7 +105,7 @@ const userController = {
         if(town) user.town = town;
         if(postalCode) user.postalCode = postalCode;
         if(country) user.country = country;
-        if(password) user.password = password;
+        // if(password) user.password = password;
 
         const updatedUser = await user.save();
 

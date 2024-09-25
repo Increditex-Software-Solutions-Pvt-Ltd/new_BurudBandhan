@@ -15,7 +15,7 @@ userRouter.get('/profile', auth, userController.getProfile);
 
 
 // update user profile
-userRouter.patch('editprofile', auth, userController.editProfile);
+userRouter.patch('/editprofile', auth, userController.editProfile);
 
 
 module.exports = {userRouter};
