@@ -53,7 +53,16 @@ const storyController = {
         }
     },
     async deleteStory(req, res){
+        try{
+            const story = await SuccessStory.findById(req.params.id);
+            if(!story)
+                return res.status(404).json({message:"Success Story not found"});
 
+            await SuccessStory.findByIdAndDelete(req.params.id);
+            res.status(200).json({message: "Success story deleted!"});
+        }catch(err){
+            res.status(500).json({message:err.message});
+        }
     }
 }
 

@@ -10,7 +10,7 @@ storyRouter.get("/", auth, storyController.getAllStories);
 storyRouter.post("/", auth, storyController.addStory);
 
 // edit story
-storyRouter.patch("/", auth, storyController.editStory);
+storyRouter.patch("/:id", auth, storyController.editStory);
 
 // delete story
-storyRouter.delete('/', auth, storyController.deleteStory);
+storyRouter.delete('/:id', auth, storyController.deleteStory);
