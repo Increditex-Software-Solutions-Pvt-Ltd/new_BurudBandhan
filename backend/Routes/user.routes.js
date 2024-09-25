@@ -16,8 +16,10 @@ userRouter.get('/profile', auth, userController.getProfile);
 // update user profile
 userRouter.patch('/editprofile', auth, userController.editProfile);
 
-
 // change password
 userRouter.patch("/change-password", auth, userController.changePassword);
+
+// delete user
+userRouter.delete('/delete', auth, userController.deleteUser);
 
 module.exports = {userRouter};
