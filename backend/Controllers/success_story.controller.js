@@ -16,7 +16,7 @@ const storyController = {
         const {weddingPicture, brideName, groomName, city, description} = req.body;
         try{
             const newStory = new SuccessStory({
-                weddingPicture, brideName, groomName, city, description
+                weddingPicture, brideName, groomName, city, description, user:req.user.id
             });
 
             await newStory.save();
