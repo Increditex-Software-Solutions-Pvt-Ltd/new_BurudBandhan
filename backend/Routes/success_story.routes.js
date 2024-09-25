@@ -1,8 +1,16 @@
 const express = require('express');
+const { storyController } = require('../Controllers/success_story.controller');
 
 const storyRouter = express.Router();
 
 // get all stories
+storyRouter.get("/", auth, storyController.getAllStories);
+
 // post story
+storyRouter.post("/", auth, storyController.addStory);
+
 // edit story
+storyRouter.patch("/", auth, storyController.editStory);
+
 // delete story
+storyRouter.delete('/', auth, storyController.deleteStory);

@@ -5,15 +5,11 @@ const successStorySchema = new mongoose.Schema({
     brideName: { type:String, required:true },
     groomName: { type:String, required:true },
     city: { type:String, required:true },
-    description:{type: String, required: true },
-    user: {
-        type:mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required:true
-    }
+    description:{type: String, required: true }
+    
 });
 
 
-const StoryModel = mongoose.model('Story', successStorySchema);
+const SuccessStory = mongoose.model('SuccessStory', successStorySchema);
 
-module.exports = { StoryModel };
+module.exports = { SuccessStory };
