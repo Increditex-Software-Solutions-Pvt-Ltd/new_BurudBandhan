@@ -30,7 +30,27 @@ const storyController = {
         }
     },
     async editStory(req, res){
+        const {weddingPicture, brideName, groomName, city, description} = req.body;
 
+        try{
+            const story = await SuccessStory.findById(req.params.id);
+            if(!story){
+                return res.status(404).json({message: 'Success Story not found'});
+            }
+
+            // update fields if provided
+            if(weddingPicture) story.weddingPicture = weddingPicture;
+            if(bridename) story.brideName = brideName;
+            if(groomName) story.groomName = groomName;
+            if(city) story.city = city;
+            if(description) story.description = description;
+
+            await story.save();
+            res.status(200).json({message:'Success story updated!', successStory:story });
+
+        }catch(err){
+            res.status(500).json({ message: err.message });
+        }
     },
     async deleteStory(req, res){
 
