@@ -1,5 +1,6 @@
 const express = require('express');
 const { storyController } = require('../Controllers/success_story.controller');
+const auth = require('../Middlewares/auth');
 
 const storyRouter = express.Router();
 
@@ -14,3 +15,6 @@ storyRouter.patch("/:id", auth, storyController.editStory);
 
 // delete story
 storyRouter.delete('/:id', auth, storyController.deleteStory);
+
+
+module.exports = { storyRouter };

@@ -3,6 +3,7 @@ const cors = require('cors');
 require('dotenv').config();
 const { connection } = require("./Config/db");
 const { userRouter } = require('./Routes/user.routes');
+const { storyRouter } = require('./Routes/success_story.routes');
 
 const PORT = process.env.PORT;
 
@@ -15,6 +16,7 @@ app.use(cors());
 
 // routes
 app.use('/api/user', userRouter);
+app.use('/api/success-stories', storyRouter);
 
 app.get('/', (req, res) => res.send('Hello'));
 
