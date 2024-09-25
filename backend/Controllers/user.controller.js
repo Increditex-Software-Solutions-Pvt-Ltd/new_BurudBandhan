@@ -62,7 +62,7 @@ const userController = {
                 });
             }
 
-            const token = jwt.sign({ userID: user._id }, process.env.JWT_KEY, {expiresIn: '1h'});
+            const token = jwt.sign({ id: user._id }, process.env.JWT_KEY, {expiresIn: '1h'});
 
             res.status(200).json({ token, user });
         }catch(err){
@@ -115,6 +115,36 @@ const userController = {
         res.status(500).json({error: err.message});
     }
 
+   },
+   async changePassword(req, res){
+    const {oldPassword, newPassword} = req.body;
+    try{
+        // find user by it's ID from token
+        const user = await User.findById(req.user.id);
+
+        if(!user){
+            return res.status(404).json({message: "User not found!"});
+        }
+
+        // check if old password matches the user's current password
+        const isMatch = await bcrypt.compare(oldPassword, user.password);
+
+        if(!isMatch){
+            return res.status(400).json({message:"Old password is incorrect"});
+        }
+
+        // hash new password
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(newPassword, salt);
+
+        // update user password
+        user.password = hashedPassword;
+        await user.save();
+
+        res.status(200).json({message: "Password changed successfully"});
+    }catch(err){
+        res.status(500).json({message: err.message});
+    }
    }
 }
 
