@@ -75,6 +75,44 @@ const userController = {
     }catch(err){
         res.status(500).json({error: err.message});
     }
+   },
+   async editProfile(req, res){
+    const {
+        firstName, middleName, lastName, email, phone,
+        gender, address, state, distrinct, taluka, town, postalCode, 
+        country, password
+    } = req.body;
+
+    try{
+        const user = await user.findById(req.user.id);
+
+        if(!user){
+            return res.status(404).json({message: 'User not found!'});
+        }
+
+        if(firstName) user.firstName = firstName;
+        if(middleName) user.middleName = middleName;
+        if(lastName) user.lastName = lastName;
+        if(email) user.email = lastName;
+        if(phone) user.phone = phone;
+        if(gender) user.gender = gender;
+        if(address) user.address = address;
+        if(state) user.state = state;
+        if(distrinct) user.distrinct = distrinct;
+        if(taluka) user.taluka = taluka;
+        if(town) user.town = town;
+        if(postalCode) user.postalCode = postalCode;
+        if(country) user.country = country;
+        if(password) user.password = password;
+
+        const updatedUser = await user.save();
+
+        res.json(updatedUser);
+      
+    } catch (err){
+        res.status(500).json({error: err.message});
+    }
+
    }
 }
 
