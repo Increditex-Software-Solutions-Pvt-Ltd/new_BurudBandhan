@@ -43,7 +43,23 @@ const successVideoController = {
         }
     },
     async updateSuccessVideo(req, res){
+        const {videoURL, year, description} = req.body;
 
+        try{
+            const video = await SuccessVideo.findById(req.params.id);
+            if(!video)
+                res.status(404).json({message: "video not found!"});
+            
+            // update feilds if provided
+            if(videoURL) video.videoURL = videoURL;
+            if(year) video.year = year;
+            if(description) video.description = description;
+
+            await video.save();
+            res.status(200).json({message: "Success video updated!", successVideo:video});
+        } catch(err){
+            res.status(500).json({message:err.message});
+        }
     },
     async deleteSuccessVideo(req, res){
 
