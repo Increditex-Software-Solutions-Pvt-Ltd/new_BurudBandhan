@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const successVideoSchema = new mongoose.Schema({
-    url:{type:String, required:true},
+    videoURL:{type:String, required:true},
     year: {type:String, required:true},
     description: {type:String, required:true},
     user: {
