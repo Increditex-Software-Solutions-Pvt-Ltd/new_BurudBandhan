@@ -12,6 +12,19 @@ const storyController = {
         }
 
     },
+    async getSingleStory(req, res){
+        try{
+            const story = await SuccessStory.findById(req.params.id);
+            if(!story){
+                res.status(404).json({message:"Story not found!"});
+            }
+
+            res.status(200).json({story});
+
+        }catch(err){
+            res.status(500).json({message:err.message});
+        }
+    },
     async addStory(req, res){
         const {weddingPicture, brideName, groomName, city, description} = req.body;
         try{

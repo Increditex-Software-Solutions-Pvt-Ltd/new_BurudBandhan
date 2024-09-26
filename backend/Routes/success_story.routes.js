@@ -7,6 +7,9 @@ const storyRouter = express.Router();
 // get all stories
 storyRouter.get("/", auth, storyController.getAllStories);
 
+// get single success story by id
+storyRouter.get('/:id', auth, storyController.getSingleStory);
+
 // post story
 storyRouter.post("/", auth, storyController.addStory);
 
