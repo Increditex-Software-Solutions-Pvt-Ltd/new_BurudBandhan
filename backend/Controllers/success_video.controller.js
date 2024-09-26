@@ -22,10 +22,25 @@ const successVideoController = {
         }
     },
     async getAllSuccessVideos(req, res){
-
+        try{
+            const successVideos = await SuccessVideo.find();
+            res.status(200).json(successVideos);
+        }catch(err){
+            res.status(500).json({message:err.message});
+        }
     },
     async getSingleSuccessVideo(req, res){
+        try{
+            const video = await SuccessVideo.findById(req.params.id);
+            if(!video){
+                res.status(404).json({message:"Video not found!"});
+            }
 
+            res.status(200).json({video});
+
+        }catch(err){
+            res.status(500).json({message:err.message});
+        }
     },
     async updateSuccessVideo(req, res){
 
