@@ -79,4 +79,4 @@ const storyController = {
     }
 }
 
-module.exports = { storyController };
+module.exports = { storyController }; 
