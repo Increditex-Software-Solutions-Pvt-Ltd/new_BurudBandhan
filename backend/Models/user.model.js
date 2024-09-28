@@ -1,16 +1,13 @@
 const mongoose = require('mongoose');
 
+// It will be change 
 const userSchema = new mongoose.Schema({
-    firstName: {
+    fullName: {
         type: String,
         required: true
     },
-    middleName: {
-        type: String,
-        required: true
-    },
-    lastName: {
-        type: String,
+    dateOfBirth: {
+        type: Date, 
         required: true
     },
     email: {
@@ -18,15 +15,36 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    phone: {
-        type: Number,
+    role: {
+        type: String,
+        enum: ["admin", "user"],
+        default: "user",
+        required: true
+    },
+    mobile: {
+        type: String,  
         required: true,
-        unique: true
+        unique: true,
+        validate: {
+            validator: function(v) {
+                return /^\d{10}$/.test(v);  // Example validation, adjust as necessary
+            },
+            message: props => `${props.value} is not a valid phone number!`
+        }
     },
     gender: {
         type: String,
-        enum: ["male", "female"],
+        enum: ["male", "female", "other"],  
         required: true
+    },
+    profileMadeFor: {
+        type: String,
+        enum: ["self", "daughter", "son", "sister", "brother", "friend"],  
+        required: true
+    },
+    profileImage: {
+        type: String,
+        default: "default-profile.png"
     },
     address: {
         type: String,
@@ -36,7 +54,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    distrinct:{
+    district: {  
         type: String,
         required: true
     },
@@ -64,10 +82,7 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
-    
-
 });
-
 
 const User = mongoose.model('User', userSchema);
 
