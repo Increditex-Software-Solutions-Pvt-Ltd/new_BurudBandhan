@@ -50,6 +50,17 @@ const memberController = {
     },
     async deleteMember(req, res){
         // delete member
+        try{
+            const member = await Member.findById(req.params.id);
+            if(!member)
+                res.status(404).json({message: "Member not found!"});
+        
+            await Member.findByIdAndDelete(req.params.id);
+            res.status(200).json({message: "Member deleted successfully!"});
+
+        }catch(err){
+            res.status(500).json({message: err.message});
+        }
     }
 }
 

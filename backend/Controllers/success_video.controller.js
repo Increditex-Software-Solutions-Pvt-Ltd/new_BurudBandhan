@@ -65,7 +65,7 @@ const successVideoController = {
         try{
             const video = await SuccessVideo.findById(req.params.id);
             if(!video)
-                return  res.status(404).json({message:"video not found!"});
+                return res.status(404).json({message:"video not found!"});
 
             await SuccessVideo.findByIdAndDelete(req.params.id);
             res.status(200).json({message:"Success Video deleted!"});
