@@ -8,7 +8,7 @@ const memberController = {
     async getAllMembers(req, res){
         // get all members
     },
-    async updateMembers(req, res){
+    async updateMember(req, res){
         // update required details about the members
     },
     async deleteMember(req, res){
