@@ -48,6 +48,17 @@ const profileController = {
     },
     async deleteProfile(req, res){
         // delete profile
+        try{
+            const profile = await Profile.findById(req.params.id);
+            if(!profile)
+                res.status(404).json({message: "Profile not found!"});
+
+            await Profile.findByIdAndDelete({_id: req.params.id});
+
+            res.status(200).json({message: "Profile deleted successfully!"});
+        } catch(err){
+            res.status(500).json({message: err.message});
+        }
     }
 
 }
