@@ -36,6 +36,12 @@ const profileController = {
     },
     async getSingleProfile(req, res){
         // get single Profile by id here
+        try{
+            const profile = await Profile.findById(req.params.id);
+            res.json(profile);
+        }catch(err){
+            res.status(500).json({error: err.message});
+        }
     },
     async updateProfile(req, res){
         // update your profile here
