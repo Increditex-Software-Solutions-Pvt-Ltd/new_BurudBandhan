@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cors());
 
 // routes
-app.use('/api/user', userRouter);
+app.use('/api/user/auth', userRouter);
 app.use('/api/success-stories', storyRouter);
 app.use('/api/success-videos', successVideoRouter);
 

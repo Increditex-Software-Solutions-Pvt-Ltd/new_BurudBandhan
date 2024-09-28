@@ -1,27 +1,35 @@
 require('dotenv').config();
-const { User } = require('../Models/profile.model');
+const  User = require('../Models/user.model');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 const userController = {
     async signup(req, res){
         try {
-            const data = req.body;
-            const email = data.email;
-            console.log(data);
+            const {fullName, email, gender, password, role } = req.body;
+            
+            // check if there's already an admin
+            if(role == 'admin'){
+                const existingAdmin = await User.findOne({role: 'admin'});
+                if(existingAdmin){
+                    return res.status(400).json({message: 'Admin user already exists!'});
+                }
+            }
+            
 
+            // check if email is already used by another user
             const existingUser = await User.findOne({email});
-
+           
             if(existingUser){
                 return res.status(400).json({message: "Email is already exist!"});
             }
 
             // hash password
             const salt = await bcrypt.genSalt(10);
-            const hashedPassword = await bcrypt.hash(data.password, salt);
+            const hashedPassword = await bcrypt.hash(password, salt);
 
             const newUser = new User({
-                ...data,
+                fullName, email, gender, role,
                 password:hashedPassword
             });
 
@@ -78,11 +86,9 @@ const userController = {
     }
    },
    async editProfile(req, res){
-    const {
-        firstName, middleName, lastName, email, phone,
-        gender, address, state, distrinct, taluka, town, postalCode, 
-        country, password
-    } = req.body;
+
+    const {fullName, gender} = req.body;
+    
 
     try{
         
@@ -92,20 +98,8 @@ const userController = {
             return res.status(404).json({message: 'User not found!'});
         }
 
-        if(firstName) user.firstName = firstName;
-        if(middleName) user.middleName = middleName;
-        if(lastName) user.lastName = lastName;
-        if(email) user.email = email;
-        if(phone) user.phone = phone;
+        if(fullName) user.fullName = fullName;
         if(gender) user.gender = gender;
-        if(address) user.address = address;
-        if(state) user.state = state;
-        if(distrinct) user.distrinct = distrinct;
-        if(taluka) user.taluka = taluka;
-        if(town) user.town = town;
-        if(postalCode) user.postalCode = postalCode;
-        if(country) user.country = country;
-        // if(password) user.password = password;
 
         const updatedUser = await user.save();
 
