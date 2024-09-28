@@ -29,6 +29,24 @@ const memberController = {
     },
     async updateMember(req, res){
         // update required details about the members
+        const {memberImage, fullName, position} = req.body;
+
+        try{
+            const member = await Member.findById(req.params.id);
+            if(!member)
+                res.status(404).json({message: "Member not found!"});
+
+            if(memberImage) member.memberImage = memberImage;
+            if(fullName) member.fullName = fullName;
+            if(position) member.position = position;
+
+            await Member.save();
+            res.status(200).json({message: "Member updated successfully!"});
+
+        }catch(err){
+            res.status(500).json({message: err.message});
+        }
+
     },
     async deleteMember(req, res){
         // delete member
