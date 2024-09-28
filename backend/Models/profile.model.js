@@ -72,15 +72,14 @@ const profileSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
     }
+    
+},{
+    timestamps:true
 });
 
 const Profile = mongoose.model('Profile', profileSchema);
 
-module.exports = { Profile };
+module.exports = Profile ;
 
 
