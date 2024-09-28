@@ -5,6 +5,7 @@ const User = require('../Models/user.model');
 const profileController = {
     async addProfile(req, res){
         // add your profile here
+        
     },
     async getAllProfiles(req, res){
         // get all profile here
