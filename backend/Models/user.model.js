@@ -1,89 +1,24 @@
 const mongoose = require('mongoose');
 
-// It will be change 
 const userSchema = new mongoose.Schema({
-    fullName: {
-        type: String,
-        required: true
+    fullName: {type:String, required:true},
+    email:{type:String, required:true, unique:true},
+    gender: {
+        type:String,
+        enum:["male", "female", "other"],
+        required: true, 
     },
-    dateOfBirth: {
-        type: Date, 
-        required: true
-    },
-    email: {
-        type: String,
-        required: true,
-        unique: true
-    },
+    password: {type:String, required:true},
     role: {
         type: String,
         enum: ["admin", "user"],
         default: "user",
         required: true
     },
-    mobile: {
-        type: String,  
-        required: true,
-        unique: true,
-        validate: {
-            validator: function(v) {
-                return /^\d{10}$/.test(v);  // Example validation, adjust as necessary
-            },
-            message: props => `${props.value} is not a valid phone number!`
-        }
-    },
-    gender: {
-        type: String,
-        enum: ["male", "female", "other"],  
-        required: true
-    },
-    profileMadeFor: {
-        type: String,
-        enum: ["self", "daughter", "son", "sister", "brother", "friend"],  
-        required: true
-    },
-    profileImage: {
-        type: String,
-        default: "default-profile.png"
-    },
-    address: {
-        type: String,
-        required: true
-    },
-    state: {
-        type: String,
-        required: true
-    },
-    district: {  
-        type: String,
-        required: true
-    },
-    taluka: {
-        type: String,
-        required: true
-    },
-    town: {
-        type: String,
-        required: true
-    },
-    postalCode: {
-        type: String,
-        required: true
-    },
-    country: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
-    }
+},{
+    timestamps:true
 });
 
 const User = mongoose.model('User', userSchema);
 
-module.exports = { User };
+module.exports = User;
