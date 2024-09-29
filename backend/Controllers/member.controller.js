@@ -40,7 +40,7 @@ const memberController = {
             if(fullName) member.fullName = fullName;
             if(position) member.position = position;
 
-            await Member.save();
+            await member.save();
             res.status(200).json({message: "Member updated successfully!"});
 
         }catch(err){

@@ -70,7 +70,7 @@ const profileSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
-    MotherName:{
+    motherName:{
         type:String,
         required:true,
     },
