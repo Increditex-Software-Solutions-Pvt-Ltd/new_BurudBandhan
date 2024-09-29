@@ -5,6 +5,22 @@ const User = require('../Models/user.model');
 const profileController = {
     async addProfile(req, res){
         // add your profile here
+        const data = req.body;
+
+        try{
+            const newProfile = new Profile({
+                ...data,
+                user:req.user.id
+            });
+            await newProfile.save();
+            res.status(201).json({
+                message: "Congratulations, You have created your profile successfully!",
+                profile:newProfile
+            });
+        }catch(err){
+            res.status(500).json({message:err.message});
+        }
+
         
     },
     async getAllProfiles(req, res){
@@ -46,6 +62,7 @@ const profileController = {
     },
     async updateProfile(req, res){
         // update your profile here
+        
     },
     async deleteProfile(req, res){
         // delete profile
