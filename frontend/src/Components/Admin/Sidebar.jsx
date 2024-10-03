@@ -19,7 +19,7 @@ const Sidebar = ({showContent, setShowContent}) => {
           <div style={{
             color: showContent=='dashboard' ? "#991b1b": "#4b5563",
             backgroundColor: showContent=='dashboard' ? "#fee2e2": "#fef2f2"
-
+            
            }} className='flex items-center gap-2 px-6 py-4 cursor-pointer hover:bg-red-100' onClick={()=>handleContent('dashboard')}>
             {/* dashboard icon */}
             <MdOutlineDashboard />

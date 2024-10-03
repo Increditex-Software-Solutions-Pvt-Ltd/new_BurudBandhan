@@ -6,9 +6,9 @@ import ContentManagement from './ContentManagement'
 
 const Container = ({showContent}) => {
   return (
-    <div className='w-[80%] '>
+    <div className='w-[85%] '>
         {/* admin navbar */}
-        <AdminNavbar />
+        {/* <AdminNavbar /> */}
       {
           (showContent == 'content_management')? <ContentManagement />
           : (showContent == 'users')? <Users/>

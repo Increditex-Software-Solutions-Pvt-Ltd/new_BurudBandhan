@@ -1,8 +1,11 @@
 import React from 'react'
+import Heading from './Heading';
 
 const ContentManagement = () => {
   return (
-    <div>ContentManagement</div>
+    <div>
+      <Heading innerText='Content Management' />
+    </div>
   )
 }
 

@@ -1,8 +1,11 @@
 import React from 'react'
+import Heading from './Heading';
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <div>
+        <Heading innerText='Dashboard' />
+    </div>
   )
 }
 

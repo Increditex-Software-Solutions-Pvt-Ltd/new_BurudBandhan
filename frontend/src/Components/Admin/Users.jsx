@@ -1,8 +1,11 @@
 import React from 'react'
+import Heading from './Heading';
 
 const Users = () => {
   return (
-    <div>Users</div>
+    <div>
+      <Heading innerText='Users' />
+    </div>
   )
 }
 
