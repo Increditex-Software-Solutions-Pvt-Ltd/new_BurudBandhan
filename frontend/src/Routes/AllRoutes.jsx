@@ -10,11 +10,13 @@ import Profile from '../Pages/Profile';
 import Register from '../Pages/Register';
 import Login from '../Pages/Login';
 import SmsVerification from '../Pages/SmsVerification';
+import Admin from '../Pages/Admin';
 
 const AllRoutes = () => {
   return (
       <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/admin' element={<Admin />} />
           <Route path='/about' element={<About />} />
           <Route path='/search' element={<Search />} />
           <Route path='/success_stories' element={<SuccessStories />} />
