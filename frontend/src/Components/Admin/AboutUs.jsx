@@ -1,6 +1,7 @@
 import React from 'react';
 import { MdAdd } from "react-icons/md";
 import HeadingAndparagraph from './HeadingAndparagraph';
+import { FaRegEdit } from "react-icons/fa";
 
 const aboutWebsite = {
     title: "About Website",
@@ -40,23 +41,32 @@ const AboutUs = () => {
         </div>
 
         {/* edit about us page */}
-        <div className='flex'>
+        <div className='flex '>
             {/* edit button */}
-            <div>
-                <div className='flex items-center gap-2'>
-                    {/* edit icon */}
+            <div className='p-4 w-[10%] '>
+                <div 
+                className=' w-fit flex items-center gap-2
+                text-white bg-sky-400 hover:bg-sky-500 p-2 rounded-md
+                cursor-pointer
+                
+                '>
+                    <FaRegEdit />
                     <p>Edit</p>
                 </div>
             </div>
 
-            <div>
+            <div className='w-[80%] p-4 flex flex-col gap-4'>
                 <div>
                     <HeadingAndparagraph content={aboutWebsite}  />
                 </div>
 
                 <div className='flex gap-4'>
-                    <HeadingAndparagraph content={presidentSpeech} />
-                    <HeadingAndparagraph content={sachivSpeech} />
+                    <div className='w-[50%]'>
+                        <HeadingAndparagraph content={presidentSpeech} />
+                    </div>
+                    <div className='w-[50%]'>
+                        <HeadingAndparagraph content={sachivSpeech} />
+                    </div>
                 </div>
             </div>
         </div>
