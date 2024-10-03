@@ -21,19 +21,19 @@ const ContentManagement = () => {
           backgroundColor: (content == "about_us") ? "#ea580c": "white",
           color:(content == "about_us") ? "white": "#ea580c"
         }}
-         className='  border border-orange-400 rounded-xl px-6 py-4 text-[18px] font-bold' onClick={()=>handleClick('about_us')}>About page</button>
+         className='border border-orange-400 rounded-xl px-6 py-4 text-[18px]' onClick={()=>handleClick('about_us')}>About page</button>
         <button 
         style={{
           backgroundColor: (content == "success_stories") ? "#ea580c": "white",
           color:(content == "success_stories") ? "white": "#ea580c"
         }}
-         className='border border-orange-400 rounded-xl px-6 py-4 text-[18px] font-bold' onClick={()=>handleClick('success_stories')}>Success stories</button>
+         className='border border-orange-400 rounded-xl px-6 py-4 text-[18px] ' onClick={()=>handleClick('success_stories')}>Success stories</button>
         <button 
         style={{
           backgroundColor: (content == "success_videos") ? "#ea580c": "white",
           color:(content == "success_videos") ? "white": "#ea580c"
         }}
-         className='border border-orange-400 rounded-xl px-6 py-4 text-[18px] font-bold' onClick={()=>handleClick('success_videos')}>Success Videos</button>
+         className='border border-orange-400 rounded-xl px-6 py-4 text-[18px]' onClick={()=>handleClick('success_videos')}>Success Videos</button>
       </div>
 
       {
