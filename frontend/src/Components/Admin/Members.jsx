@@ -1,19 +1,13 @@
 import React from 'react';
-import { FaRegEdit } from "react-icons/fa";
-import { MdDeleteOutline, MdOutlineSearch } from "react-icons/md";
+import { MdOutlineSearch } from "react-icons/md";
+import MembersTable from './MembersTable';
 
-const members = [
-    {name:"Krishna khaire", image: "", position:"Sachiv"},
-    {name:"mahendra palase", image: "", position:"Voice President"},
-    {name:"raghunath savant", image: "", position:"Sachiv"},
-    {name:"kailas hadge", image: "", position:"President"},
-    {name:"Mahesh Pawar", image: "", position:"Sachiv"},
-]
+
 const Members = () => {
   return (
     <div>
-        <h1>Members</h1>
-
+        <h1 className='text-left text-3xl font-bold text-sky-950 p-6'>Members</h1>
+ 
         {/* add filters */}
         <div className='flex justify-between items-center m-6'>
             {/* search here */}
@@ -35,40 +29,7 @@ const Members = () => {
         </div>
 
         {/* all members are here table */}
-        <table>
-            <thead>
-                <tr>
-                    <th>Action</th>
-                    <th>Member Photo</th>
-                    <th>Member Name</th>
-                    <th>Member Position</th>
-                </tr>
-            </thead>
-            <tbody>
-                {/* all members will see here */}
-                {
-                    members.map((member, index)=>(
-                        <tr key={index}>
-                            <td>
-                                <div>
-                                    <FaRegEdit />
-                                    <p>Edit</p>
-                                </div>
-                                <div>
-                                    <MdDeleteOutline />
-                                    <p>Delete</p>
-                                </div>
-                            </td>
-                            <td>
-                                <img src={member.image} alt="Member photo" />
-                            </td>
-                            <td>{member.name}</td>
-                            <td>{member.position}</td>
-                        </tr>
-                    ))
-                }
-            </tbody>
-        </table>
+        <MembersTable />
     </div>
   )
 }

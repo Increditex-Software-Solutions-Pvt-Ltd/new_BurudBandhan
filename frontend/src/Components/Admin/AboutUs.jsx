@@ -11,7 +11,7 @@ const AboutUs = () => {
     <div>
         {/* top section */}
         <div className='p-6 flex justify-between items-center'>
-            <h1 className='text-left text-3xl font-bold'>About us</h1>
+            <h1 className='text-left text-3xl font-bold text-sky-950'>About us</h1>
             <div className='
             flex gap-2
             justify-center 
