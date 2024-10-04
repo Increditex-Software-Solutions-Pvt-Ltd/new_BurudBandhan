@@ -15,18 +15,20 @@ const Members = () => {
         <h1>Members</h1>
 
         {/* add filters */}
-        <div>
-            <div>
-                <MdOutlineSearch />
-                <input placeholder='search here' />
+        <div className='flex justify-between items-center m-6'>
+            {/* search here */}
+            <div className='w-1/4 flex items-center gap-4 p-2 text-lg border rounded-xl'>
+                <MdOutlineSearch className='text-gray-400 text-2xl' />
+                <input className='focus:outline-none' placeholder='search here' />
             </div>
 
-            <div>
+            {/* select your position */}
+            <div className='w-1/4'>
                 <select>
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
+                    <option value="">All</option>
+                    <option value="">President</option>
+                    <option value="">Voice President</option>
+                    <option value="">Sachiv</option>
                 </select>
             </div>
             
