@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { FaRegEdit } from "react-icons/fa";
+import { MdDeleteOutline, MdOutlineSearch } from "react-icons/md";
 
 const members = [
     {name:"Krishna khaire", image: "", position:"Sachiv"},
@@ -15,6 +17,7 @@ const Members = () => {
         {/* add filters */}
         <div>
             <div>
+                <MdOutlineSearch />
                 <input placeholder='search here' />
             </div>
 
@@ -46,11 +49,11 @@ const Members = () => {
                         <tr key={index}>
                             <td>
                                 <div>
-                                    {/* edit icon */}
+                                    <FaRegEdit />
                                     <p>Edit</p>
                                 </div>
                                 <div>
-                                    {/* delete icon */}
+                                    <MdDeleteOutline />
                                     <p>Delete</p>
                                 </div>
                             </td>
