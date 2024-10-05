@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Heading from './Heading';
 import { MdOutlineSearch } from "react-icons/md";
+import UsersTable from './UsersTable';
 
 const Users = () => {
+  const [page, setPage] = useState(1);
+
+    const handleNextPage = ()=>{
+        setPage(prev=>prev+1);
+    };
+
+    const handlePrevPage = ()=>{
+        setPage(prev=>prev-1);
+    };
+
   return (
     <div>
       <Heading innerText="Users" />
@@ -25,6 +36,16 @@ const Users = () => {
                 </select>
             </div>
             
+        </div>
+
+        {/* users table */}
+        <UsersTable />
+
+        {/* pagination */}
+        <div className='m-6 p-4 flex justify-end items-center gap-2 '>
+            <button className='border bg-gray-200 hover:bg-gray-300 rounded-xl py-2 px-4' onClick={handlePrevPage}>Prev</button>
+            <button className='font-bold py-2 px-4'>{page}</button>
+            <button className='border bg-gray-200 hover:bg-gray-300 rounded-xl py-2 px-4' onClick={handleNextPage}>Next</button>
         </div>
     </div>
   )
