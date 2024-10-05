@@ -2,8 +2,10 @@ import React from 'react'
 
 const SuccessStories = () => {
   return (
-    <div>SuccessStories</div>
+    <div>
+      
+    </div>
   )
 }
 
-export default SuccessStories
+export default SuccessStories;
