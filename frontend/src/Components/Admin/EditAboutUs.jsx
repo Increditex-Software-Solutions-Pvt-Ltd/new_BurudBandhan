@@ -1,6 +1,7 @@
 import React from 'react';
 import HeadingAndparagraph from './HeadingAndparagraph';
 import { FaRegEdit } from "react-icons/fa";
+import { MdClose } from "react-icons/md";
 
 
 const aboutWebsite = {
@@ -31,8 +32,44 @@ const EditAboutUs = () => {
                 <FaRegEdit />
                 <p>Edit</p>
             </div>
-        </div>
 
+            {/* edit modal */}
+            <div>
+                <div>
+                    <p>Edit Content</p>
+                    {/* close icon */}
+                    <MdClose />
+                </div>
+
+                {/* form */}
+                <div>
+                    <form>
+                        <div>
+                            <label>आमच्याबद्दल माहिती</label>
+                            <input type="text" placeholder='आमच्याबद्दल माहिती लिहा' />
+                        </div>
+
+                        <div>
+                            <label>अध्यक्षांचे मनोगत</label>
+                            <input type="text" placeholder="अध्यक्षांचे मनोगत लिहा" />
+                        </div>
+
+                        <div>
+                            <label> सचिवांचे मनोगत</label>
+                            <input type="text" placeholder=" सचिवांचे मनोगत लिहा" />
+                        </div>
+
+                        <div>
+                            <input type='submit' />
+                        </div>
+
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+        
+        {/* you can see all content here */}
         <div className='w-[80%] p-4 flex flex-col gap-4'>
             <div>
                 <HeadingAndparagraph content={aboutWebsite}  />
