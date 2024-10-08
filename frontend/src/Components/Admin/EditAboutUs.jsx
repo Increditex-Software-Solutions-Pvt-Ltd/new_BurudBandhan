@@ -61,7 +61,7 @@ const EditAboutUs = () => {
 
                 {/* form */}
                 <div className='my-6'>
-                    <form className='flex flex-col gap-4 rounded-2xl'>
+                    <form onSubmit={handleUpdate} className='flex flex-col gap-4 rounded-2xl'>
                         <div >
                             <label className='text-lg  font-semibold text-sky-950'>आमच्याबद्दल माहिती</label><br/>
                             {/* <input type="text" placeholder='आमच्याबद्दल माहिती लिहा' /> */}
