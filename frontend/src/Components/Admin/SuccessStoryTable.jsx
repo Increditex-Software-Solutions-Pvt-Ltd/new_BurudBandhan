@@ -53,7 +53,7 @@ const SuccessStoryTable = () => {
                     stories.map((story, index)=>(
                         <tr className='border-b' key={index}>
                             {/* action */}
-                            <td className='p-4 flex items-center gap-4'>
+                            <td className='p-4 flex items-center gap-4 relative'>
                                 <div
                                 onClick={()=>onOpen(story)}
                                  className='w-fit flex items-center gap-2
