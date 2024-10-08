@@ -56,7 +56,7 @@ const SuccessStoryTable = () => {
                             <td className='p-4 flex items-center gap-4 relative'>
                                 <div
                                 onClick={()=>onOpen(story)}
-                                 className='w-fit flex items-center gap-2
+                                className='w-fit flex items-center gap-2
                                  text-white bg-sky-400 hover:bg-sky-500 p-2 rounded-md
                                     cursor-pointer' >
                                     <FaRegEdit />
