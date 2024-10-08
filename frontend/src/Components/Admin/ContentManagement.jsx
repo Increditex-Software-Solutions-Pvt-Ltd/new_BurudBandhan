@@ -15,7 +15,7 @@ const ContentManagement = () => {
     <div>
       {/* <Heading innerText='Content Management' /> */}
 
-      <div className='text-left flex items-center gap-6 p-6 border-b border-b-red-200'>
+      <div className='text-left flex items-center gap-6 p-6 py-10 border-b '>
         <button
         style={{
           backgroundColor: (content == "about_us") ? "#ea580c": "white",
