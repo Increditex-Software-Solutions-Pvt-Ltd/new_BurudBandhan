@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Navbar = () => {
-  const [option, sestOption] = useState("");
+  const [option, setOption] = useState("");
   const navigate = useNavigate();
 
   const handleSelect = (e)=>{

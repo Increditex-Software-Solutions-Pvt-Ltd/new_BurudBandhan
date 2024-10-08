@@ -10,12 +10,12 @@ const Sidebar = ({showContent, setShowContent}) => {
     setShowContent(content_name);
   }
   return (
-    <div className='min-h-[100vh] w-[15%] border-r border-r-gray-100 '>
-        <div className='p-6 '>
+    <div className='min-h-[100vh] w-[15%] border-r border-r-gray-100 bg-gray-50 '>
+        {/* <div className='p-6 '>
             <img className='w-[120px] h-[120px] object-cover' src={burudBandhan_logo} alt='logo' />
-        </div>
+        </div> */}
 
-        <div className='text-gray-600 text-xl flex flex-col '>
+        <div className='py-8 text-gray-600 text-xl flex flex-col '>
           <div 
           style={{
             // color: showContent=='dashboard' ? "#991b1b": "#4b5563",
