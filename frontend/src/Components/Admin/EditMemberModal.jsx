@@ -10,8 +10,7 @@ const EditMemberModal = ({member, selectedMember, isVisible, onClose, handleUpda
         setUpdatedMember({...updatedMember, [name]:value});
     }
 
-
-
+  
   return (
      <div 
         style={{

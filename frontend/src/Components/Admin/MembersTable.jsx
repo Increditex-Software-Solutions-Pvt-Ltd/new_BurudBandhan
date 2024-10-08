@@ -31,6 +31,10 @@ const MembersTable = () => {
         // add update logic here
     }
 
+    const handleDelete = (id)=>{
+        // add delete logic here
+    }
+
   return (
     <div className='m-6'>
         <table className='border text-left text-lg w-[100%]'>
@@ -55,6 +59,7 @@ const MembersTable = () => {
                                     <p>Edit</p>
                                 </div>
                                 <div
+                                onClick={()=>handleDelete(member.id)}
                                 className=' w-fit flex items-center gap-2
                                 text-white bg-red-400 hover:bg-red-500 p-2 rounded-md
                                 cursor-pointer'
