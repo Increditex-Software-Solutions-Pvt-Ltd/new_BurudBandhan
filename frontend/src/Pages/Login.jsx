@@ -17,7 +17,7 @@ const Login = () => {
         </div>
 
         <div className='lg:w-1/2 p-[20px] py-[40px]'>
-          <h1 className='font-bold text-xl lg:text-2xl text-sky-950'>एक पाऊल सुयोग्य जोडीदाराच्या स्थळाकडे</h1>
+          <h1 className='font-bold text-lg lg:text-2xl text-sky-950'>एक पाऊल सुयोग्य जोडीदाराच्या स्थळाकडे</h1>
           <LoginForm />
         </div>
       </div>
