@@ -6,7 +6,7 @@ import AllRoutes from './Routes/AllRoutes';
 
 function App() {
   const location = useLocation();
-  const hideHeaderFooterRoutes = ['/login', '/register', '/admin']; // Define paths where you don't want navbar/footer
+  const hideHeaderFooterRoutes = ['/admin']; // Define paths where you don't want navbar/footer
 
   return (
     <div className="App">
