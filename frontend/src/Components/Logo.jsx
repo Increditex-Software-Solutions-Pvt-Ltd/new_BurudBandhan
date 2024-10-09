@@ -8,6 +8,6 @@ export const Logo = ()=>{
         navigate("/");
     }
     return (
-        <p onClick={handleClick} className="text-3xl cursor-pointer text-red-500 font-bold"> <span className="text-orange-400 underline">BURUD</span> BANDHAN</p>
+        <p onClick={handleClick} className="text-lg lg:text-3xl cursor-pointer text-red-500 font-bold pr-4"> <span className="text-orange-400 underline">BURUD</span> BANDHAN</p>
     )
 }
