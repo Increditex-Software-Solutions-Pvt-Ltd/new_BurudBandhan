@@ -24,7 +24,7 @@ const Footer = () => {
     const [legalLinks, setLegalLinks] = useState(iniLegalLinks);
   return (
     <footer className='  bg-sky-950 text-gray-200  pt-[80px] pb-[40px] '>
-        <div className=' border-gray-50 w-[80%] m-auto flex justify-between items-center'>
+        <div className=' border-gray-50 w-[80%] m-auto flex flex-col lg:flex-row justify-between items-center gap-4'>
             {/* logo and text */}
             <div className='flex flex-col gap-[20px]'>
                 <img className='w-[120px] h-[120px] m-auto rounded-full' src={burudLogo} alt='logo_image' />
@@ -32,7 +32,7 @@ const Footer = () => {
             </div>
 
             {/* links section */}
-            <div className='w-[50%] flex justify-between'>
+            <div className='w-full lg:w-[50%] flex flex-wrap md:flex-nowrap gap-4 justify-between'>
                 <div className='text-left'>
                     <h5 className='text-[20px] font-bold mb-[14px]'>Quick Links</h5>
                     <ul className='flex flex-col gap-[8px]'>
