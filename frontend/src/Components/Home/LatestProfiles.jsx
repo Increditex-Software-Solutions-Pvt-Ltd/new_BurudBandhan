@@ -17,7 +17,7 @@ const LatestProfiles = () => {
         <h1 className='text-4xl font-bold text-sky-950'>Latest Profiles</h1>
         <p className='text-2xl text-red-700'>Search your Bride & Groom here</p>
 
-        <div className='w-[80%] m-auto mt-[50px] flex  justify-between '>
+        <div className='w-[80%] m-auto mt-[50px] flex flex-wrap lg:flex-nowrap justify-between '>
           {
             profiles.map((item, i) => (
               <div className='cursor-pointer rounded-2xl hover:shadow-lg hover:shadow-red-300 p-4' key={i}>
