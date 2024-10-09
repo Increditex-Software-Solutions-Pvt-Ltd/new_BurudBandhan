@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { FcGoogle } from "react-icons/fc";
 
 const iniUser = {
   fullName:"",
@@ -20,7 +21,7 @@ const RegisterForm = () => {
   }
 
   return (
-    <div className='mt-[80px]'>
+    <div className='mt-[50px]'>
       <form 
       className='
       w-[80%] m-auto  
@@ -42,7 +43,7 @@ const RegisterForm = () => {
         <div>
           <input 
           className='border w-full p-4 focus:outline-none text-[18px]' 
-          placeholder='ईमेल'
+          placeholder='ई-मेल'
           type="email" 
           name='email'
           value={user.email}
@@ -76,7 +77,8 @@ const RegisterForm = () => {
         
         <div>
           <input
-          className='border 
+          className='rounded-xl
+          cursor-pointer 
           w-full p-4 mt-8
           focus:outline-none 
           text-[18px] font-bold 
@@ -84,6 +86,28 @@ const RegisterForm = () => {
           type='submit'
           value='नोंदणी करा'
           />
+        </div>
+
+        <div>
+          <p>आधीच खाते आहे का? <a className='text-sky-700 hover:text-sky-500' href='/login'>लॉगिन करण्यासाठी येथे क्लिक करा</a></p>
+        </div>
+
+        <div className='flex justify-center items-center'>
+          <div className='w-1/3 border'></div>
+          <p className='w-1/6'>किंवा </p>
+          <div className='w-1/3 border'></div>
+        </div>
+
+        <div className='border border-sky-700 
+        font-bold rounded-xl py-4 
+        flex justify-center items-center
+        hover:bg-sky-100 hover:border-sky-300
+        cursor-pointer
+        '>          
+          {/* google icon */}
+          <FcGoogle className='text-2xl' />
+          <p>oogle सह लॉगिन करा</p>
+          
         </div>
         
 
