@@ -9,7 +9,7 @@ const Login = () => {
     <div className='bg-gray-50 py-[30px]'>
       {/* register container */}
       <div className='w-[80%] bg-white  m-auto shadow-xl  flex flex-col lg:flex-row'>
-        <div className='lg:w-1/2'>
+        <div className='lg:w-1/2 pt-4 lg:pt-0'>
           {/* image */}
           <img className=' 
           w-[200px] h-[200px] rounded-full lg:rounded-none m-auto
