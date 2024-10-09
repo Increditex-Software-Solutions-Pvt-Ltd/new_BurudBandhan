@@ -4,6 +4,7 @@ import RegisterForm from '../Components/Register/RegisterForm';
 
 
 const Register = () => {
+  
   return (
     <div className='bg-gray-50 py-[30px]'>
       {/* register container */}
