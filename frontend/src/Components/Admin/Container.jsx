@@ -6,7 +6,7 @@ import ContentManagement from './ContentManagement'
 
 const Container = ({showContent}) => {
   return (
-    <div className='w-[85%] '>
+    <div className=' lg:w-[85%] '>
         {/* admin navbar */}
         {/* <AdminNavbar /> */}
       {

@@ -8,9 +8,11 @@ const Admin = () => {
 
   return (
     <div>
-      <AdminNavbar />
+      <AdminNavbar showContent={showContent} setShowContent={setShowContent} />
       <div className='flex'>
-        <Sidebar showContent={showContent} setShowContent={setShowContent} />
+        <div className='w-[15%] bg-gray-50 hidden lg:block'>
+          <Sidebar showContent={showContent} setShowContent={setShowContent} />
+        </div>
         <Container showContent={showContent} />
       </div>
     </div>
