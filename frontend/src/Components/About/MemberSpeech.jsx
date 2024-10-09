@@ -16,11 +16,13 @@ const MemberSpeech = () => {
         {
           members.map((item, i) => (
             
-            <div style={{
-              flexDirection: (i%2==0)? 'row' : 'row-reverse'
-            }} className='flex  gap-8'>
-              <div className='w-[30%]'>
-                <img className='h-[100%] rounded-xl' src={item.image} alt={item.member} />
+            <div 
+            // style={{
+            //   flexDirection: (i%2==0)? 'row' : 'row-reverse'
+            // }} 
+            className='flex flex-col lg:flex-row gap-8'>
+              <div className='lg:w-[30%]'>
+                <img className=' lg:h-[100%] rounded-xl' src={item.image} alt={item.member} />
               </div>
               {/* speech section */}
               <Speech member={item.member} position={item.position} speech_type={item.speech_type} speech={item.speech} />

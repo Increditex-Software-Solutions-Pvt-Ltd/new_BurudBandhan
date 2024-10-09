@@ -15,7 +15,7 @@ const MidSection = () => {
 
   return (
     <div className='my-[100px]'>
-        <h1 className='text-3xl font-bold text-orange-600'>अखिल महाराष्ट्र बुरूड समाज कार्यकारिणी मंडळ</h1>
+        <h1 className='text-xl md:text-2xl lg:text-3xl font-bold text-orange-600'>अखिल महाराष्ट्र बुरूड समाज कार्यकारिणी मंडळ</h1>
 
         <div className='mt-[50px] flex justify-center gap-[100px]'>
             {
