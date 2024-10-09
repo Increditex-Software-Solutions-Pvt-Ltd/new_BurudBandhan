@@ -24,8 +24,8 @@ const RegisterForm = () => {
     <div className='mt-[50px]'>
       <form 
       className='
-      w-[80%] m-auto  
-      p-6 py-8   
+      w-full lg:w-[80%] m-auto  
+      lg:p-6 lg:py-8   
       flex flex-col gap-6
       '
       onSubmit={handleSubmit}>
