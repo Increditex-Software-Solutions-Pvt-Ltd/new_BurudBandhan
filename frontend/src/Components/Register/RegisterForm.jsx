@@ -20,11 +20,17 @@ const RegisterForm = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className='mt-[80px]'>
+      <form 
+      className='
+      w-[80%] m-auto  
+      p-6 py-8   
+      flex flex-col gap-6
+      '
+      onSubmit={handleSubmit}>
         <div>
           <input 
-          className='border' 
+          className='border w-full p-4 focus:outline-none text-[18px]' 
           placeholder='पूर्ण नाव'
           type='text'
           name='fullName'
@@ -35,7 +41,7 @@ const RegisterForm = () => {
         
         <div>
           <input 
-          className='border' 
+          className='border w-full p-4 focus:outline-none text-[18px]' 
           placeholder='ईमेल'
           type="email" 
           name='email'
@@ -45,7 +51,8 @@ const RegisterForm = () => {
         </div>
 
         <div>
-          <select 
+          <select
+          className='border w-full p-4 focus:outline-none text-[18px]'  
           name='gender'
           value={user.gender}
           onChange={handleChange} 
@@ -58,7 +65,7 @@ const RegisterForm = () => {
         
         <div>
           <input 
-          className='border' 
+          className='border w-full p-4 focus:outline-none text-[18px]' 
           placeholder='पासवर्ड'
           type='password' 
           name='password'
@@ -68,7 +75,12 @@ const RegisterForm = () => {
         </div>
         
         <div>
-          <input 
+          <input
+          className='border 
+          w-full p-4 mt-8
+          focus:outline-none 
+          text-[18px] font-bold 
+          bg-sky-700 hover:bg-sky-600 text-white' 
           type='submit'
           value='नोंदणी करा'
           />
