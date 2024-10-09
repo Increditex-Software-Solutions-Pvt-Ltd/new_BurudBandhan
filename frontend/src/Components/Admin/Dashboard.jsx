@@ -14,11 +14,12 @@ const Dashboard = () => {
         <Heading innerText='Dashboard' />
 
         {/* See relevant data here */}
-        <div className='m-6 flex justify-between items-center gap-[50px]'>
+        <div className='m-6 flex flex-wrap lg:flex-nowrap justify-between gap-[50px]'>
             {
               data.map((item, index)=>(
                 <div className='
                 w-1/4 p-4 py-14 
+                box-border
                 rounded-xl
                 cursor-pointer
                 bg-gradient-to-br from-red-700 to-red-400 hover:bg-gradient-to-tl
