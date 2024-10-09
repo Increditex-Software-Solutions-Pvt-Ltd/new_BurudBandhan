@@ -10,18 +10,18 @@ const TopSection = () => {
   return (
     <div>
         <div 
-        className='w-[80%] m-auto my-[50px] flex justify-center items-center h-[500px]'
+        className='w-[80%] m-auto my-[50px] flex justify-center gap-4 items-center h-[500px]'
         >
             {/* <img className='w-full' src={marriageHandImage} alt='image_1' /> */}
 
             <div className='w-1/2 '>
                 {/* logo image */}
-                <img className='w-[200px] h-[200px] m-auto mb-6' src={burudBandhan_logo} alt='logo' />
-                
+                <img className='w-[120px] h-[120px] lg:w-[200px] lg:h-[200px] m-auto mb-6' src={burudBandhan_logo} alt='logo' />
+                 
                 <div className='flex flex-col gap-2'>
-                  <p className='text-xl text-orange-500'>अखिल बुरुड समाज सेवा भावी संस्था</p>
-                  <p className='text-xl font-bold text-sky-950'>आयोजक</p>
-                  <h1 className='text-2xl font-semibold text-orange-500'>अखिल महाराष्ट्र बुरूड समाज वधु-वर सुचक समिती</h1>
+                  <p className=' lg:text-xl text-orange-500'>अखिल बुरुड समाज सेवा भावी संस्था</p>
+                  <p className='lg:text-xl font-bold text-sky-950'>आयोजक</p>
+                  <h1 className='text-xl lg:text-2xl font-semibold text-orange-500'>अखिल महाराष्ट्र बुरूड समाज वधु-वर सुचक समिती</h1>
                 </div>
             </div>
 
