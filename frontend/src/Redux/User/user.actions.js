@@ -4,7 +4,7 @@ import api from '../api';
 
 export const register = (userData) => async(dispatch) =>{
     try{
-        const res = await api.post('/user/auth/register', userData);
+        const res = await api.post('/user/auth/signup', userData);
         dispatch({ type:REGISTER_SUCCESS, payload: res.data });
     }catch(err){
         dispatch({type:REGISTER_FAIL, payload:err.response.data});

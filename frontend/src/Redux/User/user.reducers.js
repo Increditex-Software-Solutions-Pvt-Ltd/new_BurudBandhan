@@ -3,7 +3,7 @@ import { LOGIN_SUCCESS, LOGIN_FAIL, REGISTER_SUCCESS, REGISTER_FAIL, LOGOUT } fr
 
 const iniState = {
     token: localStorage.getItem('token'),
-    isAuthenticated:null,
+    isAuthenticated:false,
     loading:true,
     user:null
 }

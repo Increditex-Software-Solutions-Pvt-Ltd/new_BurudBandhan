@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { FcGoogle } from "react-icons/fc";
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+import { register } from '../../Redux/User/user.actions';
 
 const iniUser = {
   fullName:"",
@@ -10,14 +13,23 @@ const iniUser = {
 
 const RegisterForm = () => {
   const [user, setUser] = useState(iniUser);
+  const dispatch = useDispatch();
+  const {isAuthenticated, loading, error} = useSelector(store=>store.user);
+  
 
   const handleChange = (e)=>{
     const {name, value} = e.target;
-    setUser({...user, [name]:[value]});
+    setUser({...user, [name]:value});
   }
 
-  const handleSubmit = ()=>{
+  const handleSubmit = (e)=>{
     // form submit logic here
+    e.preventDefault();
+    dispatch(register(user));
+  }
+
+  if(isAuthenticated){
+    return <Navigate to='/profile' />
   }
 
   return (
