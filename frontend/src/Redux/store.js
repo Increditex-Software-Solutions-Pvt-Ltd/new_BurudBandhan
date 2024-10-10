@@ -1,14 +1,17 @@
-import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "./userSlice";
-import authReducer from "./authSlice";
-import successStoryReducer from "./successStorySlice";
+import {legacy_createStore, combineReducers, applyMiddleware} from "redux";
+import { userReducer } from "./User/user.reducers";
+import { profileReducer } from "./Profiles/profile.reducers";
+import { successStoriesReducer } from "./SuccessStories/successStories.reducers";
+import { successVideosReducer } from "./SuccessVideos/successVideos.reducers";
 
-const store = configureStore({
-    reducer: {
-        auth: authReducer,
-        users: userReducer,
-        successStories: successStoryReducer
-    }
-});
 
-export default store;
+const reducers = combineReducers({
+    user: userReducer,
+    profile:profileReducer,
+    successStories:successStoriesReducer,
+    successVideos:successVideosReducer
+})
+
+export const store = legacy_createStore(reducers)
+
+
