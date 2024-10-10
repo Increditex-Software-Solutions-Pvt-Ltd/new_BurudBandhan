@@ -3,7 +3,11 @@ import burudBandhan_logo from "../Assets/burudBandhan_logo.jpeg";
 import { Logo } from './Logo';
 import { useNavigate } from 'react-router-dom';
 import { MdMenu } from "react-icons/md";
+import { FaUserCircle } from "react-icons/fa";
 import MenuModal from './MenuModal';
+import { useDispatch, useSelector } from 'react-redux';
+import ProfileModal from './Admin/ProfileModal';
+import NavbarProfileModal from '../NavbarProfileModal';
 
 // import styles from "../Styles/navbar.module.css";
 
@@ -11,7 +15,10 @@ import MenuModal from './MenuModal';
 
 const Navbar = () => {
   const [option, setOption] = useState("");
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isMenuModalOpen, setIsMenuModalOpen] = useState(false);
+  const dispatch = useDispatch();
+  const {isAuthenticated} = useSelector(store=>store.user);
   const navigate = useNavigate();
 
   const handleSelect = (e)=>{
@@ -22,6 +29,11 @@ const Navbar = () => {
   const toggleMenuModal = ()=>{
     setIsMenuModalOpen(prevState => !prevState);
   }
+
+  const toggleProfileModal = (event) => {
+    event.stopPropagation();// Prevent the click event from bubbling up to document
+    setIsProfileOpen((prevState) => !prevState); // Toggle modal visibility
+  };
 
   return (
     <div>
@@ -54,10 +66,23 @@ const Navbar = () => {
                 
               </nav>
 
-              <div className='flex items-center gap-[10px] lg:gap-[40px]'>
+              {/* if user is authenticated then show user profile */}
+              {
+                isAuthenticated && <div>
+                {/* profile icon here */}
+                <FaUserCircle
+                onClick={toggleProfileModal}
+                 className='text-5xl text-sky-700 cursor-pointer' />
+        
+                {/* profile modal */}
+                {isProfileOpen && <NavbarProfileModal  />}
+              </div>
+              }
+              {/* if user if not authenticated then show login and signup */}
+              {!isAuthenticated && <div className='flex items-center gap-[10px] lg:gap-[40px]'>
                 <a className='text-[14px] lg:text-[16px] border-[2px] border-red-500 px-[10px] py-[6px] rounded hover:bg-red-500 hover:text-white' href="/register">नोंदणी करा</a>
                 <a className=' text-[14px] lg:text-[16px] px-[10px] py-[8px] rounded bg-red-500 hover:bg-red-700 text-white' href="/login">लॉगिन करा</a>
-              </div>
+              </div>}
             </div>
             
 
