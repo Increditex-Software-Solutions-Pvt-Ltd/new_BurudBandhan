@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { FcGoogle } from "react-icons/fc";
+import { login } from '../../Redux/User/user.actions';
+import { Navigate } from 'react-router-dom';
 
 const iniUser = {
   email:"",
@@ -8,14 +11,23 @@ const iniUser = {
 
 const LoginForm = () => {
   const [user, setUser] = useState(iniUser);
+  const dispatch = useDispatch();
+  const {isAuthenticated, loading, error} = useSelector(store => store.user);
 
   const handleChange = (e)=>{
     const {name, value} = e.target;
-    setUser({...user, [name]:[value]});
+    setUser({...user, [name]:value});
   }
 
-  const handleSubmit = ()=>{
+  const handleSubmit = (e)=>{
     // form submit logic here
+    e.preventDefault();
+    // console.log(user);
+    dispatch(login(user));
+  }
+
+  if(isAuthenticated){
+    return <Navigate to='/dashboard' />
   }
 
   return (
