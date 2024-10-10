@@ -27,7 +27,7 @@ const LoginForm = () => {
   }
 
   if(isAuthenticated){
-    return <Navigate to='/dashboard' />
+    return <Navigate to='/profile' />
   }
 
   return (
