@@ -8,7 +8,7 @@ export const register = (userData) => async(dispatch) =>{
         const res = await api.post('/user/auth/signup', userData);
         dispatch({ type:REGISTER_SUCCESS, payload: res.data });
     }catch(err){
-        dispatch({type:REGISTER_FAIL, payload:err.response.data});
+        dispatch({type:REGISTER_FAIL, payload:err.response.data.message});
     }
 }
 

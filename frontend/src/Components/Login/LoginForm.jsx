@@ -40,6 +40,8 @@ const LoginForm = () => {
       flex flex-col gap-6 
       '
       onSubmit={handleSubmit}>
+
+        {error && <p className=' text-red-600 text-left'>{error}</p>}
         
         <div>
           <input 

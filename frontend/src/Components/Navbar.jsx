@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import burudBandhan_logo from "../Assets/burudBandhan_logo.jpeg";
 import { Logo } from './Logo';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +8,7 @@ import MenuModal from './MenuModal';
 import { useDispatch, useSelector } from 'react-redux';
 import ProfileModal from './Admin/ProfileModal';
 import NavbarProfileModal from '../NavbarProfileModal';
+import { getUser } from '../Redux/User/user.actions';
 
 // import styles from "../Styles/navbar.module.css";
 
@@ -18,7 +19,7 @@ const Navbar = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isMenuModalOpen, setIsMenuModalOpen] = useState(false);
   const dispatch = useDispatch();
-  const {isAuthenticated} = useSelector(store=>store.user);
+  const {isAuthenticated, user} = useSelector(store=>store.user);
   const navigate = useNavigate();
 
   const handleSelect = (e)=>{
@@ -34,6 +35,14 @@ const Navbar = () => {
     event.stopPropagation();// Prevent the click event from bubbling up to document
     setIsProfileOpen((prevState) => !prevState); // Toggle modal visibility
   };
+
+  useEffect(()=>{
+    if(isAuthenticated){
+      dispatch(getUser());
+      // console.log(user);
+    }
+      
+  },[user])
 
   return (
     <div>
@@ -75,7 +84,7 @@ const Navbar = () => {
                  className='text-5xl text-sky-700 cursor-pointer' />
         
                 {/* profile modal */}
-                {isProfileOpen && <NavbarProfileModal  />}
+                {isProfileOpen && <NavbarProfileModal user={user}  />}
               </div>
               }
               {/* if user if not authenticated then show login and signup */}

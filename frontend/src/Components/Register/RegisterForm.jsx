@@ -41,6 +41,7 @@ const RegisterForm = () => {
       flex flex-col gap-6
       '
       onSubmit={handleSubmit}>
+        {error && <p className='text-red-600 text-left'>{error}</p>}
         <div>
           <input 
           className='border w-full p-4 focus:outline-none text-[18px]' 

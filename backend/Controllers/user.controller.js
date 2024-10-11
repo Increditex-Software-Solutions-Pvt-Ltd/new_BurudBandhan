@@ -36,7 +36,8 @@ const userController = {
 
             // save user and generate token
             const savedUser = await newUser.save();
-            const token = jwt.sign({id: savedUser._id}, process.env.JWT_KEY, {expiresIn: '1h'});
+            const token = jwt.sign({id: savedUser._id}, process.env.JWT_KEY);
+            // const token = jwt.sign({id: savedUser._id}, process.env.JWT_KEY, {expiresIn: '1h'});
 
             // send response
             res.status(201).json({ token, user: newUser });
@@ -70,7 +71,8 @@ const userController = {
                 });
             }
 
-            const token = jwt.sign({ id: user._id }, process.env.JWT_KEY, {expiresIn: '1h'});
+            const token = jwt.sign({ id: user._id }, process.env.JWT_KEY);
+            // const token = jwt.sign({ id: user._id }, process.env.JWT_KEY, {expiresIn: '1h'});
 
             res.status(200).json({ token, user });
         }catch(err){
