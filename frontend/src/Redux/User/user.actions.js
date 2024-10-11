@@ -2,6 +2,7 @@ import { LOGIN_SUCCESS, LOGIN_FAIL, REGISTER_SUCCESS, REGISTER_FAIL, LOGOUT } fr
 import axios from 'axios';
 import api from '../api';
 
+// register user
 export const register = (userData) => async(dispatch) =>{
     try{
         const res = await api.post('/user/auth/signup', userData);
@@ -11,6 +12,7 @@ export const register = (userData) => async(dispatch) =>{
     }
 }
 
+// login user
 export const login = (userData) => async(dispatch) =>{
     
     try{
