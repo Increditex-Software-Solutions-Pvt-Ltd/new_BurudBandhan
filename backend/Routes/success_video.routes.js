@@ -12,7 +12,7 @@ successVideoRouter.get("/", auth, successVideoController.getAllSuccessVideos );
 successVideoRouter.get('/:id', auth, successVideoController.getSingleSuccessVideo);
 
 // // add success video
-successVideoRouter.post("/", auth, successVideoController.addSuccessVideo);
+successVideoRouter.post("/add", auth, successVideoController.addSuccessVideo);
 
 // // update success video
 successVideoRouter.patch("/:id", auth, successVideoController.updateSuccessVideo);
