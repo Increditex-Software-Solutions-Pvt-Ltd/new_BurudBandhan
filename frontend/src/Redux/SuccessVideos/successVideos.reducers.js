@@ -27,7 +27,7 @@ export const successVideosReducer = (state=iniState, {type, payload})=>{
                     error:payload
                 };
             
-            // get videos (either all or a specific profile)
+            // get videos (either all or a specific video)
             case GET_SUCCESS_VIDEO_SUCCESS:
                 return {
                     ...state,
@@ -65,7 +65,7 @@ export const successVideosReducer = (state=iniState, {type, payload})=>{
                     ...state,
                     video:null,
                     videos:state.videos.filter((v)=>v.id !== payload.id),
-                    loadind:false,
+                    loading:false,
                     error:null,
                     message:payload
                 };

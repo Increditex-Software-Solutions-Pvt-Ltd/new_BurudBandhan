@@ -65,7 +65,7 @@ export const profileReducer = (state=iniState, {type, payload})=>{
                     ...state,
                     profile:null,
                     profiles:state.profiles.filter((p)=>p.id !== payload.id),
-                    loadind:false,
+                    loading:false,
                     error:null,
                     message:payload
                 };
