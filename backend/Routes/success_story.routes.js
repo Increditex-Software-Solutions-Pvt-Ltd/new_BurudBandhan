@@ -11,7 +11,7 @@ storyRouter.get("/", auth, storyController.getAllStories);
 storyRouter.get('/:id', auth, storyController.getSingleStory);
 
 // post story
-storyRouter.post("/", auth, storyController.addStory);
+storyRouter.post("/create", auth, storyController.addStory);
 
 // edit story
 storyRouter.patch("/:id", auth, storyController.editStory);

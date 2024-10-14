@@ -17,7 +17,7 @@ export const getAllUserProfile = () => async(dispatch)=>{
         const res = await api.get('/marriage-profile');
         dispatch({type:GET_PROFILE_SUCCESS, payload:res.data});
     }catch(err){
-        dispatch({type:GET_PROFILE_FAIL, payload:err.response?.data?.message || "Failed to create profile!"});
+        dispatch({type:GET_PROFILE_FAIL, payload:err.response?.data?.message || "Failed to get profiles!"});
     }
 }
 
