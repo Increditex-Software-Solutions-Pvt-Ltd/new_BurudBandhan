@@ -5,6 +5,7 @@ import { successStoriesReducer } from "./SuccessStories/successStories.reducers"
 import { successVideosReducer } from "./SuccessVideos/successVideos.reducers";
 import {thunk} from 'redux-thunk';
 import { devToolsEnhancer } from '@redux-devtools/extension';
+import { aboutUsReducer } from "./AboutUs/aboutus.reducers";
 
 // const initialState = {};
 // const middleware = [thunk];
@@ -25,7 +26,8 @@ const rootReducer = combineReducers({
     user: userReducer,
     profile:profileReducer,
     successStories:successStoriesReducer,
-    successVideos:successVideosReducer
+    successVideos:successVideosReducer,
+    aboutus:aboutUsReducer
 })
 
 export const store = legacy_createStore(rootReducer, applyMiddleware(logger)); 

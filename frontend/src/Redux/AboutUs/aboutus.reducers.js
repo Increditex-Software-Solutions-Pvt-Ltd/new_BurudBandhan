@@ -1,75 +1,72 @@
-import { CREATE_PROFILE_FAIL, CREATE_PROFILE_SUCCESS, DELETE_PROFILE_FAIL, DELETE_PROFILE_SUCCESS, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, UPDATE_PROFILE_FAIL, UPDATE_PROFILE_SUCCESS } from "./profile.types";
+import { ADD_ABOUTUS_FAIL, ADD_ABOUTUS_SUCCESS, DELETE_ABOUTUS_FAIL, DELETE_ABOUTUS_SUCCESS, GET_ABOUTUS_FAIL, GET_ABOUTUS_SUCCESS, UPDATE_ABOUTUS_FAIL, UPDATE_ABOUTUS_SUCCESS } from "./aboutus.types";
 
 const iniState = {
-    profiles:[],
-    profile:null,
+    content:{},
     loading:true,
     error:null,
     message:null 
 }
 
-export const profileReducer = (state=iniState, {type, payload})=>{
+export const aboutUsReducer = (state=iniState, {type, payload})=>{
     switch(type){
-        // create profile
-        case CREATE_PROFILE_SUCCESS:
+        // add about us content
+        case ADD_ABOUTUS_SUCCESS:
             return {
                 ...state,
-                profile:payload,
+                content:payload,
                 loading:false,
                 error:null,
-                message:"Profile created successfully."
+                message:"content added successfully."
             };
         
-            case CREATE_PROFILE_FAIL:
+            case ADD_ABOUTUS_FAIL:
                 return {
                     ...state,
                     loading:false,
                     error:payload
                 };
             
-            // get profiles (either all or a specific profile)
-            case GET_PROFILE_SUCCESS:
+            // get about us content 
+            case GET_ABOUTUS_SUCCESS:
                 return {
                     ...state,
-                    profiles: Array.isArray(payload)?payload:state.profiles,
-                    profile: !Array.isArray(payload)?payload:state.profile,
+                    content: payload,
                     loading:false,
                     error:null
                 };
-            case GET_PROFILE_FAIL:
+            case GET_ABOUTUS_FAIL:
                 return {
                     ...state,
                     loading:false,
                     error:payload
                 };
             
-            // update profile
-            case UPDATE_PROFILE_SUCCESS:
+            // update about us content
+            case UPDATE_ABOUTUS_SUCCESS:
                 return {
                     ...state,
-                    profile:{...state.profile, ...payload},
+                    content:{...state.content, ...payload},
                     loading:false,
                     error:null,
-                    message:"Profile updated successfully."
+                    message:"content updated successfully."
                 };
-            case UPDATE_PROFILE_FAIL:
+            case UPDATE_ABOUTUS_FAIL:
                 return {
                     ...state,
                     loading:false,
                     error:payload
                 };
             
-            // delete profile
-            case DELETE_PROFILE_SUCCESS:
+            // delete about us content
+            case DELETE_ABOUTUS_SUCCESS:
                 return {
                     ...state,
-                    profile:null,
-                    profiles:state.profiles.filter((p)=>p.id !== payload.id),
+                    content:{},
                     loading:false,
                     error:null,
                     message:payload
                 };
-            case DELETE_PROFILE_FAIL:
+            case DELETE_ABOUTUS_FAIL:
                 return {
                     ...state,
                     loading:false,
