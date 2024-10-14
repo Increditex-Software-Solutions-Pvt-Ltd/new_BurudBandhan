@@ -25,7 +25,7 @@ const rootReducer = combineReducers({
     user: userReducer,
     profile:profileReducer,
     // successStories:successStoriesReducer,
-    // successVideos:successVideosReducer
+    successVideos:successVideosReducer
 })
 
 export const store = legacy_createStore(rootReducer, applyMiddleware(logger)); 
