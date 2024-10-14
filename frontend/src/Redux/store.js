@@ -23,7 +23,7 @@ const createComposer = window.__REDUX_DEVTOOLS_EXTENSION__ || compose;
 // combine all reducers
 const rootReducer = combineReducers({
     user: userReducer,
-    // profile:profileReducer,
+    profile:profileReducer,
     // successStories:successStoriesReducer,
     // successVideos:successVideosReducer
 })
