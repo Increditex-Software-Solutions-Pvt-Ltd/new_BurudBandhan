@@ -7,7 +7,7 @@ const profileRouter = express.Router();
 
 
 // add profile
-profileRouter.post("/", auth, profileController.addProfile);
+profileRouter.post("/create", auth, profileController.addProfile);
 
 // get all profiles here
 profileRouter.get("/", auth, profileController.getAllProfiles);

@@ -4,7 +4,7 @@ import { CREATE_PROFILE_FAIL, CREATE_PROFILE_SUCCESS, DELETE_PROFILE_FAIL, DELET
 // create user profile for marriage
 export const createUserProfile = (profile)=> async (dispatch) =>{
     try{
-        const res = await api.post("", profile);
+        const res = await api.post("/marriage-profile/create", profile);
         dispatch({type:CREATE_PROFILE_SUCCESS, payload:res.data});
     }catch(err){
         dispatch({type:CREATE_PROFILE_FAIL, payload:err.response?.data?.message || "Failed to create profile!"});
@@ -14,7 +14,7 @@ export const createUserProfile = (profile)=> async (dispatch) =>{
 // get all user marriage profile
 export const getAllUserProfile = () => async(dispatch)=>{
     try{
-        const res = await api.get(``);
+        const res = await api.get('/marriage-profile');
         dispatch({type:GET_PROFILE_SUCCESS, payload:res.data});
     }catch(err){
         dispatch({type:GET_PROFILE_FAIL, payload:err.response?.data?.message || "Failed to create profile!"});
@@ -24,7 +24,7 @@ export const getAllUserProfile = () => async(dispatch)=>{
 // get user marriage profile
 export const getUserProfile = (userId) => async(dispatch)=>{
     try{
-        const res = await api.get(`${userId}`);
+        const res = await api.get(`/marriage-profile/${userId}`);
         dispatch({type:GET_PROFILE_SUCCESS, payload:res.data});
     }catch(err){
         dispatch({type:GET_PROFILE_FAIL, payload:err.response?.data?.message || "Failed to create profile!"});
@@ -32,9 +32,9 @@ export const getUserProfile = (userId) => async(dispatch)=>{
 }
 
 // update user marriage profile by id
-export const updateUserProfile = (profileData) => async (dispatch)=>{
+export const updateUserProfile = (profileData, profileId) => async (dispatch)=>{
     try{
-        const res = await api.patch("", profileData);
+        const res = await api.patch(`/marriage-profile/${profileId}`, profileData);
         dispatch({type:UPDATE_PROFILE_SUCCESS, payload:res.data});
     }catch(err){
         dispatch({type:UPDATE_PROFILE_FAIL, payload:err.response?.data?.message || "Failed to update user marriage profile!"});
@@ -42,9 +42,9 @@ export const updateUserProfile = (profileData) => async (dispatch)=>{
 }
 
 // delete user marriage profile by id
-export const deleteUserProfile = (userId) => async (dispatch)=>{
+export const deleteUserProfile = (profileId) => async (dispatch)=>{
     try{
-        const res = await api.delete(`${userId}`);
+        const res = await api.delete(`/marriage-profile/${profileId}`);
         dispatch({type:DELETE_PROFILE_SUCCESS, payload:res.data.message});
     }catch(err){
         dispatch({type:DELETE_PROFILE_FAIL, payload:err.response?.data?.message || "Failed to delete profile!"});
