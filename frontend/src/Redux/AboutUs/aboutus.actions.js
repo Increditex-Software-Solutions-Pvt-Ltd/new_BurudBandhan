@@ -25,7 +25,7 @@ export const getAboutUsContent = () => async(dispatch)=>{
 // update about us content
 export const updateAboutUsContent = (content) => async (dispatch)=>{
     try{
-        const res = await api.patch(`/about-us`, content);
+        const res = await api.patch(`/about-us/update`, content);
         dispatch({type:UPDATE_ABOUTUS_SUCCESS, payload:res.data});
     }catch(err){
         dispatch({type:UPDATE_ABOUTUS_FAIL, payload:err.response?.data?.message || "Failed to update about us content!"});
@@ -35,7 +35,7 @@ export const updateAboutUsContent = (content) => async (dispatch)=>{
 // delete about us content
 export const deleteAboutUsContent = () => async (dispatch)=>{
     try{
-        const res = await api.delete(`/about-us`);
+        const res = await api.delete(`/about-us/delete`);
         dispatch({type:DELETE_ABOUTUS_SUCCESS, payload:res.data.message});
     }catch(err){
         dispatch({type:DELETE_ABOUTUS_FAIL, payload:err.response?.data?.message || "Failed to delete about us content!"});
