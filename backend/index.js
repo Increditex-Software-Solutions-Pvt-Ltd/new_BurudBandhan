@@ -7,6 +7,7 @@ const { storyRouter } = require('./Routes/success_story.routes');
 const { successVideoRouter } = require('./Routes/success_video.routes');
 const memberRouter = require('./Routes/member.routes');
 const profileRouter = require('./Routes/profile.routes');
+const aboutusRouter = require('./Routes/aboutus.routes');
 
 const PORT = process.env.PORT;
 
@@ -23,6 +24,7 @@ app.use('/api/success-stories', storyRouter);
 app.use('/api/success-videos', successVideoRouter);
 app.use('/api/members', memberRouter);
 app.use('/api/marriage-profile', profileRouter);
+app.use('/api/about-us', aboutusRouter);
 
 app.get('/', (req, res) => res.send('Hello'));
 

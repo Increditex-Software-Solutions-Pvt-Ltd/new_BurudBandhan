@@ -18,3 +18,4 @@ aboutusRouter.patch('/update', auth, aboutusController.updateContent);
 aboutusRouter.delete('/delete', auth, aboutusController.deleteContent);
 
 
+module.exports = aboutusRouter;
