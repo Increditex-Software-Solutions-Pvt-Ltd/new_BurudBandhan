@@ -4,6 +4,8 @@ import { FaUserCircle } from "react-icons/fa";
 import { MdMenu } from "react-icons/md";
 import ProfileModal from './ProfileModal';
 import Sidebar from './Sidebar';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUser } from '../../Redux/User/user.actions';
 
 
 const AdminNavbar = ({showContent, setShowContent}) => {
@@ -11,6 +13,9 @@ const AdminNavbar = ({showContent, setShowContent}) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
   const modalRef = useRef(null); // Ref for the profile modal
+  const dispatch = useDispatch();
+  const {isAuthenticated, user} = useSelector(store=>store.user);
+
 
   const toggleProfileModal = (event) => {
     event.stopPropagation();// Prevent the click event from bubbling up to document
@@ -21,7 +26,13 @@ const AdminNavbar = ({showContent, setShowContent}) => {
     setIsSidebarOpen((prevState) => !prevState);
   }
 
- 
+  useEffect(()=>{
+    if(isAuthenticated){
+      dispatch(getUser());
+      // console.log(user);
+    }
+      
+  },[user])
 
   return (
     <div className='py-2 px-10 border flex items-center justify-between relative'>
@@ -43,7 +54,7 @@ const AdminNavbar = ({showContent, setShowContent}) => {
          className='text-5xl text-sky-700 cursor-pointer' />
 
         {/* profile modal */}
-        {isProfileOpen && <ProfileModal modalRef={modalRef} />}
+        {isProfileOpen && <ProfileModal user={user} modalRef={modalRef} />}
       </div>
 
       

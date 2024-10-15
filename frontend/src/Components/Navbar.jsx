@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import burudBandhan_logo from "../Assets/burudBandhan_logo.jpeg";
 import { Logo } from './Logo';
 import { useNavigate } from 'react-router-dom';
 import { MdMenu } from "react-icons/md";
 import { FaUserCircle } from "react-icons/fa";
 import MenuModal from './MenuModal';
 import { useDispatch, useSelector } from 'react-redux';
-import ProfileModal from './Admin/ProfileModal';
 import NavbarProfileModal from './NavbarProfileModal';
 import { getUser } from '../Redux/User/user.actions';
 
@@ -15,7 +13,6 @@ import { getUser } from '../Redux/User/user.actions';
 
 
 const Navbar = () => {
-  const [option, setOption] = useState("");
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isMenuModalOpen, setIsMenuModalOpen] = useState(false);
   const dispatch = useDispatch();
