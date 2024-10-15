@@ -53,7 +53,7 @@ const storyController = {
 
             // update fields if provided
             if(weddingPicture) story.weddingPicture = weddingPicture;
-            if(bridename) story.brideName = brideName;
+            if(brideName) story.brideName = brideName;
             if(groomName) story.groomName = groomName;
             if(city) story.city = city;
             if(description) story.description = description;

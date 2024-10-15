@@ -1,56 +1,62 @@
 import React, { useEffect, useState } from 'react';
 import { MdClose } from "react-icons/md";
-import { useDispatch } from 'react-redux';
-import { updateSuccessStory } from '../../Redux/SuccessStories/successStories.actions';
+import { useDispatch, useSelector } from "react-redux";
+import { createSuccessStory, getAllSuccessStories } from '../../Redux/SuccessStories/successStories.actions';
 
 
-const EditStoryModal = ({story, selectedStory, isVisible, onClose}) => {
-    const [updatedStory, setUpdatedStory] = useState(selectedStory);
+const iniStory = {
+    weddingPicture:"",
+    brideName:"",
+    groomName:"",
+    city:"",
+    description:"",
+
+}
+
+const AddStoryModal = ({isVisible, onClose}) => {
+    const [newStory, setNewStory] = useState(iniStory);
     const dispatch = useDispatch();
-
+    // const {story, loading, error, message} = useSelector(store=>store.successStory);
 
     const handleChange = (e)=>{
         const {name, value } = e.target;
-        setUpdatedStory({...updatedStory, [name]:value});
+        setNewStory({...newStory, [name]:value});
     }
 
-    const handleUpdate = (e)=>{
-        // add update logic here
+    const handleAdd = (e)=> {
+        // add newStory logic here
         e.preventDefault();
-        if(updatedStory){
-            dispatch(updateSuccessStory(updatedStory, updatedStory._id));
-            // onClose();
-        }
+        dispatch(createSuccessStory(newStory));
+        setNewStory(iniStory);
+        onClose();
     }
 
     useEffect(()=>{
-        if(selectedStory){
-            setUpdatedStory(selectedStory);
-        }
-    }, [selectedStory]);
+        dispatch(getAllSuccessStories());
+    }, [dispatch])
 
   
   return (
      <div 
         style={{
-            display: (story._id == selectedStory._id) && isVisible? 'block':'none'
+            display: isVisible? 'block':'none'
         }}
-        className='min-w-[400px] text-left absolute z-10 top-16 bg-white p-6  shadow-2xl'>
+        className='w-[40%] text-left absolute z-10 top-16 left-0 right-0 m-auto bg-white p-6  shadow-2xl'>
             <div className='border-b pb-2 flex justify-between items-center'>
-                <p className='text-xl font-bold text-sky-950'>Update Success Story</p>
+                <p className='text-xl font-bold text-sky-950'>Add Success Story</p>
                 {/* close icon */}
                 <MdClose onClick={onClose} className='text-2xl font-bold text-sky-950 cursor-pointer' />
             </div>
 
             {/* form */}
             <div className='my-6'>
-                <form onSubmit={handleUpdate} className='flex flex-col gap-4 rounded-2xl'>
+                <form onSubmit={handleAdd} className='flex flex-col gap-4 rounded-2xl'>
                     <div >
                         <label className='text-lg  font-semibold text-sky-950'>लग्नाचा फोटो</label><br/>
                         <input 
                         className='focus:outline-none w-full border p-2 mt-2' 
                         type="text" placeholder='Enter wedding photo url'
-                        value={updatedStory.weddingPicture}
+                        value={newStory.weddingPicture}
                         name='weddingPicture'
                         onChange={handleChange}
                          />
@@ -61,7 +67,7 @@ const EditStoryModal = ({story, selectedStory, isVisible, onClose}) => {
                         <input 
                         className='focus:outline-none w-full border p-2 mt-2' 
                         type="text" placeholder="Enter bride name"
-                        value={updatedStory.brideName}
+                        value={newStory.brideName}
                         name='brideName'
                         onChange={handleChange}
                          />
@@ -72,7 +78,7 @@ const EditStoryModal = ({story, selectedStory, isVisible, onClose}) => {
                         <input 
                         className='focus:outline-none w-full border p-2 mt-2' 
                         type="text" placeholder="Enter groom name"
-                        value={updatedStory.groomName}
+                        value={newStory.groomName}
                         name='groomName'
                         onChange={handleChange}
                          />
@@ -83,7 +89,7 @@ const EditStoryModal = ({story, selectedStory, isVisible, onClose}) => {
                         <input 
                         className='focus:outline-none w-full border p-2 mt-2' 
                         type="text" placeholder="Enter city"
-                        value={updatedStory.city}
+                        value={newStory.city}
                         name='city'
                         onChange={handleChange}
                          />
@@ -94,14 +100,19 @@ const EditStoryModal = ({story, selectedStory, isVisible, onClose}) => {
                         rows='3' cols='50' 
                         className='focus:outline-none w-full border p-2 mt-2' 
                         type="text" placeholder="Enter description"
-                        value={updatedStory.description}
+                        value={newStory.description}
                         name='description'
                         onChange={handleChange}
                          />
                     </div>
                     
                     <div className='mt-4'>
-                        <input className='w-fit py-2 px-8 rounded-full text-white bg-sky-500 cursor-pointer' type='submit' value="अपडेट करा" />
+                        <input 
+                        className='w-fit py-2 px-10 rounded-full 
+                        text-white bg-sky-500 cursor-pointer
+                        font-bold
+                        ' 
+                        type='submit' value="Add" />
                     </div>
 
                 </form>
@@ -111,4 +122,4 @@ const EditStoryModal = ({story, selectedStory, isVisible, onClose}) => {
   )
 }
 
-export default EditStoryModal;
+export default AddStoryModal;

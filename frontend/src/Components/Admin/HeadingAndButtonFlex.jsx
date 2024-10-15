@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MdAdd } from "react-icons/md";
+import AddStoryModal from './AddStoryModal';
 
 
 const HeadingAndButtonFlex = ({heading, buttonInnerText}) => {
+  const [modalName, setModalName] = useState(buttonInnerText);
+  const [isVisible, setIsVisible] = useState (false);
+
+  const onOpen = (story)=>{
+    setIsVisible(true);
+  }
+  const onClose = ()=>{
+    setIsVisible(false);
+  }
+
+
   return (
-    <div className='p-6 flex justify-between items-center'>
+    <div className='p-6 flex justify-between items-center relative'>
             <h1 className='text-left text-3xl font-bold text-sky-950'>{heading}</h1>
-            <div className='
+            <div 
+            onClick={onOpen}
+            className='
             flex gap-2
             justify-center 
             items-center 
             border rounded-full
-            bg-red-700 hover:bg-red-600 text-white
+            bg-green-600 hover:bg-green-700 text-white
             py-4 px-6
             cursor-pointer
             text-[18px]
@@ -19,7 +33,16 @@ const HeadingAndButtonFlex = ({heading, buttonInnerText}) => {
                 {/* add icon */}
                 <MdAdd />
                 <p>{buttonInnerText}</p>
+                
             </div>
+
+            {/* open modal based on inner text of button */}
+            {
+              (modalName == "Add New Story") ? <AddStoryModal isVisible={isVisible} onClose={onClose} />
+              : <AddStoryModal isVisible={isVisible} onClose={onClose} />
+            }
+
+            
     </div>
   )
 }
