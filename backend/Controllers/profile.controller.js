@@ -42,7 +42,7 @@ const profileController = {
                     gender = "female";
                 }
     
-                const profiles = await Profile.find(gender);
+                const profiles = await Profile.find({gender});
     
                 res.json(profiles);
             }  

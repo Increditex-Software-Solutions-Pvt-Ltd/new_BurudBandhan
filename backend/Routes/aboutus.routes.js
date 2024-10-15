@@ -12,9 +12,9 @@ aboutusRouter.post('/add', auth, aboutusController.addContent);
 aboutusRouter.get('/', auth, aboutusController.getContent);
 
 // update content
-aboutusRouter.patch('/', auth, aboutusController.updateContent);
+aboutusRouter.patch('/update', auth, aboutusController.updateContent);
 
 // delete content
-aboutusRouter.delete('/', auth, aboutusController.deleteContent);
+aboutusRouter.delete('/delete', auth, aboutusController.deleteContent);
 
 
