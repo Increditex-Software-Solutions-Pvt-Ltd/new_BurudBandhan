@@ -7,7 +7,7 @@ import { FaUserCircle } from "react-icons/fa";
 import MenuModal from './MenuModal';
 import { useDispatch, useSelector } from 'react-redux';
 import ProfileModal from './Admin/ProfileModal';
-import NavbarProfileModal from '../NavbarProfileModal';
+import NavbarProfileModal from './NavbarProfileModal';
 import { getUser } from '../Redux/User/user.actions';
 
 // import styles from "../Styles/navbar.module.css";
