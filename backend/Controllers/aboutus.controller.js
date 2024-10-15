@@ -26,6 +26,7 @@ const aboutusController = {
         // get about us content
         try{
             const aboutusContent = await AboutUs.findOne();
+            console.log(aboutusContent);
             if(!aboutusContent)
                 return res.status(404).json({message:"No Content found!"});
 

@@ -39,7 +39,7 @@ const Navbar = () => {
       // console.log(user);
     }
       
-  },[user])
+  },[dispatch]);
 
   return (
     <div>

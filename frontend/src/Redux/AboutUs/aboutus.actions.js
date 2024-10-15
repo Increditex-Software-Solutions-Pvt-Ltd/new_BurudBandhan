@@ -15,6 +15,7 @@ export const addAboutUsContent = (content)=> async (dispatch) =>{
 export const getAboutUsContent = () => async(dispatch)=>{
     try{
         const res = await api.get('/about-us');
+        // console.log(res);
         dispatch({type:GET_ABOUTUS_SUCCESS, payload:res.data});
     }catch(err){
         dispatch({type:GET_ABOUTUS_FAIL, payload:err.response?.data?.message || "Failed to get about us content!"});

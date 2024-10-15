@@ -32,7 +32,7 @@ const AdminNavbar = ({showContent, setShowContent}) => {
       // console.log(user);
     }
       
-  },[user])
+  },[dispatch])
 
   return (
     <div className='py-2 px-10 border flex items-center justify-between relative'>
