@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MdClose } from "react-icons/md";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addNewMember, getAllMembers } from '../../Redux/Members/members.actions';
 
 const iniMember = {
     memberImage:"",
@@ -11,6 +12,7 @@ const iniMember = {
 const AddMemberModal = ({isVisible, onClose}) => {
     const [newMember, setNewMember] = useState(iniMember);
     const dispatch = useDispatch();
+    const {members, member, loading, error} = useSelector(store=>store.member);
 
     const handleChange = (e)=>{
         const {name, value } = e.target;
@@ -19,8 +21,15 @@ const AddMemberModal = ({isVisible, onClose}) => {
 
     const handleAdd = (e)=>{
         e.preventDefault();
-        
+        dispatch(addNewMember(newMember));
+        setNewMember(iniMember);
+        if(!loading)
+            onClose();
     }
+
+    useEffect(()=>{
+        dispatch(getAllMembers());
+    }, [dispatch]);
 
   
   return (
@@ -28,7 +37,7 @@ const AddMemberModal = ({isVisible, onClose}) => {
         style={{
             display: isVisible? 'block':'none'
         }}
-        className='min-w-[400px] text-left absolute z-10 top-16 bg-white p-6  shadow-2xl'>
+        className='w-[40%] text-left absolute z-10 top-16 left-0 right-0 m-auto bg-white p-6 shadow-2xl'>
             <div className='border-b pb-2 flex justify-between items-center'>
                 <p className='text-xl font-bold text-sky-950'>Add New Member</p>
                 {/* close icon */}
@@ -73,7 +82,7 @@ const AddMemberModal = ({isVisible, onClose}) => {
                     </div>
 
                     <div className='mt-4'>
-                        <input className='w-fit py-2 px-8 rounded-full text-white bg-sky-500' type='submit' value="Add" />
+                        <input className='w-fit py-2 px-8 rounded-full text-white bg-sky-500 cursor-pointer' type='submit' value="Add" />
                     </div>
 
                 </form>

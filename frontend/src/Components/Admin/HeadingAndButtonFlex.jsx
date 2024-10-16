@@ -41,8 +41,8 @@ const HeadingAndButtonFlex = ({heading, buttonInnerText}) => {
             {/* open modal based on inner text of button */}
             {
               (modalName == "Add New Story") ? <AddStoryModal isVisible={isVisible} onClose={onClose} />
-              : (modalName == "Add New Video")?<AddVideoModal isVisible={isVisible} onClose={onClose} />
-              :<AddMemberModal />
+              :(modalName == "Add New Video")?<AddVideoModal isVisible={isVisible} onClose={onClose} />
+              :<AddMemberModal isVisible={isVisible} onClose={onClose} />
             }
 
             
