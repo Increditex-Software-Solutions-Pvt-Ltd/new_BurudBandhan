@@ -6,7 +6,7 @@ const memberController = require('../Controllers/member.controller');
 const memberRouter = express.Router();
 
 // add new member
-memberRouter.post("/", auth, adminAuth('admin'), memberController.addMember);
+memberRouter.post("/add", auth, adminAuth('admin'), memberController.addMember);
 
 // get all members
 memberRouter.get("/", auth, memberController.getAllMembers);
