@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { getAllUserProfiles } from '../../Redux/Profiles/profiles.actions';
+import { getAllMarriageProfiles } from '../../Redux/Profiles/profiles.actions';
 
 
 const Profiles = () => {
@@ -8,7 +8,7 @@ const Profiles = () => {
     const {profiles, loading, error, message} = useSelector(store=>store.profile);
     
     useEffect(()=>{
-        dispatch(getAllUserProfiles());
+        dispatch(getAllMarriageProfiles());
     }, [dispatch]);
     return (
     <div>
