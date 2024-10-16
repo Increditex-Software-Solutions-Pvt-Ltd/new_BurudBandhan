@@ -12,7 +12,7 @@ export const createUserProfile = (profile)=> async (dispatch) =>{
 }
 
 // get all user marriage profile
-export const getAllUserProfile = () => async(dispatch)=>{
+export const getAllUserProfiles = () => async(dispatch)=>{
     try{
         const res = await api.get('/marriage-profile');
         dispatch({type:GET_PROFILE_SUCCESS, payload:res.data});

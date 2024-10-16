@@ -13,6 +13,7 @@ import SmsVerification from '../Pages/SmsVerification';
 import Admin from '../Pages/Admin';
 import UserProfile from '../Pages/UserProfile';
 import Setting from '../Pages/Setting';
+import CreateMarriageProfile from '../Pages/CreateMarriageProfile';
 
 const AllRoutes = () => {
   return (
@@ -25,6 +26,7 @@ const AllRoutes = () => {
           <Route path='/success_videos' element={<SuccessVideos />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/user-profile' element={<UserProfile />} />
+          <Route path='/create-marriage-profile' element={<CreateMarriageProfile />} />
           <Route path='/setting' element={<Setting />} />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
