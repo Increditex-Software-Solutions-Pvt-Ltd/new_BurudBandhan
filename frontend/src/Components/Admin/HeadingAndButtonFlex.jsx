@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { MdAdd } from "react-icons/md";
 import AddStoryModal from './AddStoryModal';
+import AddVideoModal from './AddVideoModal';
+import AddMemberModal from './AddMemberModal';
 
 
 const HeadingAndButtonFlex = ({heading, buttonInnerText}) => {
@@ -39,7 +41,8 @@ const HeadingAndButtonFlex = ({heading, buttonInnerText}) => {
             {/* open modal based on inner text of button */}
             {
               (modalName == "Add New Story") ? <AddStoryModal isVisible={isVisible} onClose={onClose} />
-              : <AddStoryModal isVisible={isVisible} onClose={onClose} />
+              : (modalName == "Add New Video")?<AddVideoModal isVisible={isVisible} onClose={onClose} />
+              :<AddMemberModal />
             }
 
             

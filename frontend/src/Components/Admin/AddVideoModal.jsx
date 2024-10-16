@@ -1,54 +1,59 @@
 import React, { useEffect, useState } from 'react';
 import { MdClose } from "react-icons/md";
-import { useDispatch } from 'react-redux';
-import { updateSuccessVideo } from '../../Redux/SuccessVideos/successVideos.actions';
+import { useDispatch, useSelector } from "react-redux";
+import { createSuccessStory, getAllSuccessStories } from '../../Redux/SuccessStories/successStories.actions';
+import { addSuccessVideo, getAllSuccessVideos } from '../../Redux/SuccessVideos/successVideos.actions';
 
 
-const EditSuccessVideoModal = ({video, selectedVideo, isVisible, onClose}) => {
-    const [updatedVideo, setUpdatedVideo] = useState(selectedVideo);
+const iniVideo = {
+    videoURL:"",
+    year:"",
+    description:""
+}
+
+const AddVideoModal = ({isVisible, onClose}) => {
+    const [newVideo, setNewVideo] = useState(iniVideo);
     const dispatch = useDispatch();
 
     const handleChange = (e)=>{
         const {name, value } = e.target;
-        setUpdatedVideo({...updatedVideo, [name]:value});
+        setNewVideo({...newVideo, [name]:value});
     }
 
-    const handleUpdate = (e)=>{
-        // add update logic here
+    const handleAdd = (e)=> {
+        // add newVideo logic here
         e.preventDefault();
-        if(updatedVideo){
-            dispatch(updateSuccessVideo(updatedVideo, updatedVideo._id));
-            // onClose();
-        }
+        dispatch(addSuccessVideo(newVideo));
+        setNewVideo(iniVideo);
+        onClose();
     }
 
     useEffect(()=>{
-        if(selectedVideo){
-            setUpdatedVideo(selectedVideo);
-        }
-    }, [selectedVideo]);
+        dispatch(getAllSuccessVideos());
+    }, [dispatch])
+
   
   return (
      <div 
         style={{
-            display: (video.id == selectedVideo.id) && isVisible? 'block':'none'
+            display: isVisible? 'block':'none'
         }}
-        className='min-w-[400px] text-left absolute z-10 top-16 bg-white p-6  shadow-2xl'>
+        className='w-[40%] text-left absolute z-10 top-16 left-0 right-0 m-auto bg-white p-6  shadow-2xl'>
             <div className='border-b pb-2 flex justify-between items-center'>
-                <p className='text-xl font-bold text-sky-950'>Update Success Video</p>
+                <p className='text-xl font-bold text-sky-950'>Add Success Video</p>
                 {/* close icon */}
                 <MdClose onClick={onClose} className='text-2xl font-bold text-sky-950 cursor-pointer' />
             </div>
 
             {/* form */}
             <div className='my-6'>
-                <form onSubmit={handleUpdate} className='flex flex-col gap-4 rounded-2xl'>
-                    <div >
+                <form onSubmit={handleAdd} className='flex flex-col gap-4 rounded-2xl'>
+                <div >
                         <label className='text-lg  font-semibold text-sky-950'>लग्नाचा व्हिडिओ</label><br/>
                         <input 
                         className='focus:outline-none w-full border p-2 mt-2' 
                         type="url" placeholder='Enter wedding url'
-                        value={updatedVideo.videoURL}
+                        value={newVideo.videoURL}
                         name='videoURL'
                         onChange={handleChange}
                          />
@@ -60,7 +65,7 @@ const EditSuccessVideoModal = ({video, selectedVideo, isVisible, onClose}) => {
                         <input 
                         className='focus:outline-none w-full border p-2 mt-2' 
                         type="text" placeholder="Enter year"
-                        value={updatedVideo.year}
+                        value={newVideo.year}
                         name='year'
                         onChange={handleChange}
                          />
@@ -71,14 +76,19 @@ const EditSuccessVideoModal = ({video, selectedVideo, isVisible, onClose}) => {
                         rows='3' cols='50' 
                         className='focus:outline-none w-full border p-2 mt-2' 
                         type="text" placeholder="Enter description"
-                        value={updatedVideo.description}
+                        value={newVideo.description}
                         name='description'
                         onChange={handleChange}
                          />
                     </div>
-                    
+                   
                     <div className='mt-4'>
-                        <input className='w-fit py-2 px-8 rounded-full text-white bg-sky-500' type='submit' value="अपडेट करा" />
+                        <input 
+                        className='w-fit py-2 px-10 rounded-full 
+                        text-white bg-sky-500 cursor-pointer
+                        font-bold
+                        ' 
+                        type='submit' value="Add" />
                     </div>
 
                 </form>
@@ -88,4 +98,4 @@ const EditSuccessVideoModal = ({video, selectedVideo, isVisible, onClose}) => {
   )
 }
 
-export default EditSuccessVideoModal;
+export default AddVideoModal;

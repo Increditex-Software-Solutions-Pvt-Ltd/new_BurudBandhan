@@ -32,7 +32,7 @@ export const getSingleSuccessStory = (id) => async(dispatch)=>{
 }
 
 // update success video by id
-export const updateSuccessStory = (videoData, id) => async (dispatch)=>{
+export const updateSuccessVideo = (videoData, id) => async (dispatch)=>{
     try{
         const res = await api.patch(`/success-videos/${id}`, videoData);
         dispatch({type:UPDATE_SUCCESS_VIDEO_SUCCESS, payload:res.data});
