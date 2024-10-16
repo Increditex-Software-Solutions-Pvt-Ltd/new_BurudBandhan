@@ -1,8 +1,8 @@
 import api from "../api"
 import { CREATE_PROFILE_FAIL, CREATE_PROFILE_SUCCESS, DELETE_PROFILE_FAIL, DELETE_PROFILE_SUCCESS, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, UPDATE_PROFILE_FAIL, UPDATE_PROFILE_SUCCESS } from "./profile.types";
 
-// create user profile for marriage
-export const createUserProfile = (profile)=> async (dispatch) =>{
+// create marriage profile for marriage
+export const createMarriageProfile = (profile)=> async (dispatch) =>{
     try{
         const res = await api.post("/marriage-profile/create", profile);
         dispatch({type:CREATE_PROFILE_SUCCESS, payload:res.data});
@@ -12,7 +12,7 @@ export const createUserProfile = (profile)=> async (dispatch) =>{
 }
 
 // get all user marriage profile
-export const getAllUserProfiles = () => async(dispatch)=>{
+export const getAllMarriageProfiles = () => async(dispatch)=>{
     try{
         const res = await api.get('/marriage-profile');
         dispatch({type:GET_PROFILE_SUCCESS, payload:res.data});
@@ -22,7 +22,7 @@ export const getAllUserProfiles = () => async(dispatch)=>{
 }
 
 // get user marriage profile
-export const getUserProfile = (userId) => async(dispatch)=>{
+export const getMarriageProfile = (userId) => async(dispatch)=>{
     try{
         const res = await api.get(`/marriage-profile/${userId}`);
         dispatch({type:GET_PROFILE_SUCCESS, payload:res.data});
@@ -32,7 +32,7 @@ export const getUserProfile = (userId) => async(dispatch)=>{
 }
 
 // update user marriage profile by id
-export const updateUserProfile = (profileData, profileId) => async (dispatch)=>{
+export const updateMarriageProfile = (profileData, profileId) => async (dispatch)=>{
     try{
         const res = await api.patch(`/marriage-profile/${profileId}`, profileData);
         dispatch({type:UPDATE_PROFILE_SUCCESS, payload:res.data});
@@ -42,7 +42,7 @@ export const updateUserProfile = (profileData, profileId) => async (dispatch)=>{
 }
 
 // delete user marriage profile by id
-export const deleteUserProfile = (profileId) => async (dispatch)=>{
+export const deleteMarriageProfile = (profileId) => async (dispatch)=>{
     try{
         const res = await api.delete(`/marriage-profile/${profileId}`);
         dispatch({type:DELETE_PROFILE_SUCCESS, payload:res.data.message});

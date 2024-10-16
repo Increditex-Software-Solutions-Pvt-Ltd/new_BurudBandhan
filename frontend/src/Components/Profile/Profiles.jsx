@@ -14,7 +14,7 @@ const Profiles = () => {
     <div>
         {
             (profiles.length == 0)?<div>Not found</div>
-            :profiles?.map((item, index)=>(
+            :profiles && profiles?.map((item, index)=>(
                 <div>{index}</div>
             ))
         }
