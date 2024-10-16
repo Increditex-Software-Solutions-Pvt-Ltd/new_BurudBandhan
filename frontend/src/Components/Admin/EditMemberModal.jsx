@@ -1,20 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MdClose } from "react-icons/md";
+import { useDispatch, useSelector } from 'react-redux';
+import { updateMemberInfo } from '../../Redux/Members/members.actions';
 
 
-const EditMemberModal = ({member, selectedMember, isVisible, onClose, handleUpdate}) => {
+const EditMemberModal = ({member, selectedMember, isVisible, onClose}) => {
     const [updatedMember, setUpdatedMember] = useState(selectedMember);
+    const dispatch = useDispatch();
+    const {loading, error} = useSelector(store=>store.member);
 
     const handleChange = (e)=>{
         const {name, value } = e.target;
         setUpdatedMember({...updatedMember, [name]:value});
     }
 
+    const handleUpdate = (e)=>{
+        e.preventDefault();
+        if(updatedMember){
+            dispatch(updateMemberInfo(updatedMember, updatedMember._id));
+        }
+
+        if(!loading)
+            onClose();
+    }
+
+    useEffect(()=>{
+        if(selectedMember){
+            setUpdatedMember(selectedMember);
+        }
+    }, [selectedMember]);
+
   
   return (
      <div 
         style={{
-            display: (member.id == selectedMember.id) && isVisible? 'block':'none'
+            display: (member._id == selectedMember._id) && isVisible? 'block':'none'
         }}
         className='min-w-[400px] text-left absolute z-10 top-16 bg-white p-6  shadow-2xl'>
             <div className='border-b pb-2 flex justify-between items-center'>
@@ -31,8 +51,8 @@ const EditMemberModal = ({member, selectedMember, isVisible, onClose, handleUpda
                         <input 
                         className='focus:outline-none w-full border p-2 mt-2' 
                         type="text" placeholder='Enter member photo url'
-                        value={updatedMember.image}
-                        name='image'
+                        value={updatedMember.memberImage}
+                        name='memberImage'
                         onChange={handleChange}
                          />
                     </div>
@@ -42,8 +62,8 @@ const EditMemberModal = ({member, selectedMember, isVisible, onClose, handleUpda
                         <input 
                         className='focus:outline-none w-full border p-2 mt-2' 
                         type="text" placeholder="Enter name"
-                        value={updatedMember.name}
-                        name='name'
+                        value={updatedMember.fullName}
+                        name='fullName'
                         onChange={handleChange}
                          />
 

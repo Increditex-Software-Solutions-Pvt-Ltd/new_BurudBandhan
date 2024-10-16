@@ -42,7 +42,7 @@ export const updateMemberInfo = (updatedMember, id) => async (dispatch)=>{
 }
 
 // delete member by id
-export const deleteSuccessVideo = (id) => async (dispatch)=>{
+export const deleteMember = (id) => async (dispatch)=>{
     try{
         const res = await api.delete(`/members/${id}`);
         dispatch({type:DELETE_MEMBER_SUCCESS, payload:res.data.message});

@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
 import EditMemberModal from './EditMemberModal';
+import { deleteMember, getAllMembers } from '../../Redux/Members/members.actions';
 
 
 const membersData = [
@@ -13,9 +15,10 @@ const membersData = [
 ]
 
 const MembersTable = () => {
-    const [members, setmembers] = useState(membersData);
     const [isVisible, setIsVisible] = useState (false);
     const [selectedMember, setSelectedMember] = useState(null);
+    const dispatch = useDispatch();
+    const { members, loading, error} = useSelector(store=>store.member);
 
     const onOpen = (member)=>{
         setSelectedMember(member);
@@ -27,13 +30,15 @@ const MembersTable = () => {
 
     }
 
-    const handleUpdate = ()=>{
-        // add update logic here
-    }
 
     const handleDelete = (id)=>{
         // add delete logic here
+        dispatch(deleteMember(id));
     }
+
+    useEffect(()=>{
+        dispatch(getAllMembers());
+    }, [dispatch]);
 
   return (
     <div className='m-6'>
@@ -59,7 +64,7 @@ const MembersTable = () => {
                                     <p>Edit</p>
                                 </div>
                                 <div
-                                onClick={()=>handleDelete(member.id)}
+                                onClick={()=>handleDelete(member._id)}
                                 className=' w-fit flex items-center gap-2
                                 text-white bg-red-400 hover:bg-red-500 p-2 rounded-md
                                 cursor-pointer'
@@ -74,15 +79,14 @@ const MembersTable = () => {
                                     member = {member}  
                                     selectedMember={selectedMember} 
                                     isVisible={isVisible} 
-                                    onClose={onClose} 
-                                    handleUpdate={handleUpdate} 
+                                    onClose={onClose}  
                                     />)
                                 }
                             </td>
                             <td className='p-4'>
-                                <img className='w-[150px] h-[150px] object-cover border' src={member.image} alt="Member photo" />
+                                <img className='w-[150px] h-[150px] object-cover border' src={member.memberImage} alt="Member photo" />
                             </td>
-                            <td className='p-4'>{member.name}</td>
+                            <td className='p-4'>{member.fullName}</td>
                             <td className='p-4'>{member.position}</td>
                         </tr>
                     ))
