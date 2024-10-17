@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { createMarriageProfile } from '../../Redux/Profiles/profiles.actions';
+import NewMarriage from './NewMarriage';
+import PhysicallyDisabled from './PhysicallyDisabled';
+import Remarriage from './Remarriage';
 
 const iniProfile = {
     fullName:"",
@@ -41,7 +44,14 @@ const iniProfile = {
 
 const MarriageForm = () => {
     const [marriageProfile, setMarriageProfile] = useState(iniProfile);
+    const [gender, setGender] = useState("");
+
     const dispatch = useDispatch();
+
+    const handleGender = (e)=>{
+        setGender(e.target.value);
+        console.log(gender);
+    }
 
     const handleChange = (e) =>{
         const {name, value} = e.target;
@@ -57,13 +67,55 @@ const MarriageForm = () => {
     <div>
         <form>
             <div>
-                <input 
-                onChange={handleChange}
-                value={marriageProfile.fullName}
-                name='fullName' 
-                type='text' 
-                placeholder='Full Name'
-                />
+                <select onChange={handleGender}>
+                    <option value="">Please select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+
+                {/* select form by category */}
+                <div>
+                    <div>
+                        <input 
+                        type='radio' 
+                        id='new_marriage'
+                        name='category'
+                        value='new_marriage'
+                        onChange={handleChange}
+                        />
+                        <label htmlFor='new_marriage'>New Marriage</label>
+                    </div>
+
+                    <div>
+                        <input 
+                        type='radio' 
+                        id='physically_disabled'
+                        name='category'
+                        value='physically_disabled'
+                        onChange={handleChange}
+                        />
+                        <label htmlFor='physically_disabled'>Physically Disabled</label>
+                    </div>
+
+                    <div>
+                        <input 
+                        type='radio' 
+                        id='remarriage'
+                        name='category'
+                        value='remarriage'
+                        onChange={handleChange}
+                        />
+                        <label htmlFor='remarriage'>Re-marriage</label>
+                    </div>
+                </div>
+
+                {
+                   (marriageProfile.category == 'new_marriage')
+                   ?<NewMarriage />
+                   :(marriageProfile.category == 'physically_disabled')
+                   ?<PhysicallyDisabled />
+                   : <Remarriage /> 
+                }
             </div>
         </form>
     </div>
