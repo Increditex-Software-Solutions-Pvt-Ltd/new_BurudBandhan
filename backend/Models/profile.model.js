@@ -23,7 +23,7 @@ const profileSchema = new mongoose.Schema({
         required:true
     },
     height: {
-        type:Number,
+        type:String,
         required:true
     },
     color:{

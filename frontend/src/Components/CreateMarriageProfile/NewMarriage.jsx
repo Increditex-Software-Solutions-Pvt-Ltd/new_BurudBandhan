@@ -1,8 +1,13 @@
 import React from 'react'
+import PersonalDetails from './PersonalDetails'
 
-const NewMarriage = () => {
+const NewMarriage = ({handleChange}) => {
   return (
-    <div>NewMarriage</div>
+    <div>
+      <h1>New Merriage</h1>
+      <PersonalDetails handleChange={handleChange} />
+
+    </div>
   )
 }
 

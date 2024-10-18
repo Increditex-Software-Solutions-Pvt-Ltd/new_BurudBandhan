@@ -77,6 +77,7 @@ const MarriageForm = () => {
                 <div>
                     <div>
                         <input 
+                        className='cursor-pointer'
                         type='radio' 
                         id='new_marriage'
                         name='category'
@@ -87,7 +88,8 @@ const MarriageForm = () => {
                     </div>
 
                     <div>
-                        <input 
+                        <input
+                        className='cursor-pointer' 
                         type='radio' 
                         id='physically_disabled'
                         name='category'
@@ -99,6 +101,7 @@ const MarriageForm = () => {
 
                     <div>
                         <input 
+                        className='cursor-pointer'
                         type='radio' 
                         id='remarriage'
                         name='category'
@@ -109,13 +112,13 @@ const MarriageForm = () => {
                     </div>
                 </div>
 
-                {
-                   (marriageProfile.category == 'new_marriage')
-                   ?<NewMarriage />
-                   :(marriageProfile.category == 'physically_disabled')
-                   ?<PhysicallyDisabled />
-                   : <Remarriage /> 
+                { 
+                    (marriageProfile.category == 'new_marriage') && <NewMarriage handleChange={handleChange} /> 
                 }
+                  { (marriageProfile.category == 'remarriage') && <Remarriage />}
+                   {(marriageProfile.category == 'physically_disabled') && <PhysicallyDisabled />}
+                     
+                
             </div>
         </form>
     </div>
