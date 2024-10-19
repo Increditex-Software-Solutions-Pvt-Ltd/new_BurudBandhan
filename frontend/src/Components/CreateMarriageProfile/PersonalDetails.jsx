@@ -2,11 +2,12 @@ import React from 'react'
 
 const PersonalDetails = ({handleChange}) => {
   return (
-    <div>
-        <h1>वैयक्तिक माहिती</h1>
+    <div className='flex flex-col gap-4'>
+        <h1 className='text-lg font-semibold text-sky-950'>वैयक्तिक माहिती</h1>
         <div>
             <div>
                 <input 
+                className='border p-2 text-md w-[100%]'
                 name="fullName" 
                 type="text"
                 placeholder='पूर्ण नाव' 

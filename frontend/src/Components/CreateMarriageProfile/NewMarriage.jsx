@@ -4,8 +4,8 @@ import ProfessionalDetails from './ProfessionalDetails'
 
 const NewMarriage = ({handleChange}) => {
   return (
-    <div>
-      <h1>New Merriage</h1>
+    <div className=''>
+      {/* <h1>New Marriage</h1> */}
       <PersonalDetails handleChange={handleChange} />
       <ProfessionalDetails handleChange = {handleChange} />
     </div>

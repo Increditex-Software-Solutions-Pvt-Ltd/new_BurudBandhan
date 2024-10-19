@@ -64,18 +64,33 @@ const MarriageForm = () => {
     }
 
   return (
-    <div>
-        <form>
-            <div>
-                <select onChange={handleGender}>
-                    <option value="">Please select gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+    <div className='py-[70px] bg-gray-100'>
+        <form className=' shadow-xl 
+        w-[60%] m-auto text-left
+        p-10 bg-white flex flex-col gap-6
+        '>
+            <div className='border-b pb-6'>
+                <select 
+                className='text-xl p-4 focus:outline-none cursor-pointer' 
+                onChange={handleGender}
+                >
+                    <option value="">कृपया लिंग निवडा</option>
+                    <option value="male">पुरुष</option>
+                    <option value="female">स्त्री</option>
                 </select>
 
                 {/* select form by category */}
-                <div>
-                    <div>
+                <div className='
+                flex 
+                items-center 
+                gap-6
+                text-xl
+                
+                '>
+                    <div className='
+                    flex items-center gap-2
+                    rounded-full py-2 px-4 bg-sky-50
+                    '>
                         <input 
                         className='cursor-pointer'
                         type='radio' 
@@ -84,10 +99,13 @@ const MarriageForm = () => {
                         value='new_marriage'
                         onChange={handleChange}
                         />
-                        <label htmlFor='new_marriage'>New Marriage</label>
+                        <label htmlFor='new_marriage'>नवीन विवाह (New Marriage)</label>
                     </div>
 
-                    <div>
+                    <div className='
+                    flex items-center gap-2
+                    rounded-full py-2 px-4 bg-sky-50
+                    '>
                         <input
                         className='cursor-pointer' 
                         type='radio' 
@@ -96,10 +114,13 @@ const MarriageForm = () => {
                         value='physically_disabled'
                         onChange={handleChange}
                         />
-                        <label htmlFor='physically_disabled'>Physically Disabled</label>
+                        <label htmlFor='physically_disabled'>शारीरिकदृष्ट्या अक्षम (Physically disabled)</label>
                     </div>
 
-                    <div>
+                    <div className='
+                    flex items-center gap-2
+                    rounded-full py-2 px-4 bg-sky-50
+                    '>
                         <input 
                         className='cursor-pointer'
                         type='radio' 
@@ -108,18 +129,23 @@ const MarriageForm = () => {
                         value='remarriage'
                         onChange={handleChange}
                         />
-                        <label htmlFor='remarriage'>Re-marriage</label>
+                        <label htmlFor='remarriage'>पुनर्विवाह (Re-marriage)</label>
                     </div>
                 </div>
+            </div>    
 
-                { 
-                    (marriageProfile.category == 'new_marriage') && <NewMarriage handleChange={handleChange} /> 
-                }
-                  { (marriageProfile.category == 'remarriage') && <Remarriage />}
-                   {(marriageProfile.category == 'physically_disabled') && <PhysicallyDisabled />}
+            { 
+                (marriageProfile.category == 'new_marriage') && <NewMarriage handleChange={handleChange} /> 
+            }
+            { 
+                (marriageProfile.category == 'remarriage') && <Remarriage />
+            }
+            {
+                (marriageProfile.category == 'physically_disabled') && <PhysicallyDisabled />
+            }
                      
                 
-            </div>
+            
         </form>
     </div>
   )
