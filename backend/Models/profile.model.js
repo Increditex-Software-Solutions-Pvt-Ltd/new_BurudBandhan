@@ -123,6 +123,16 @@ const profileSchema = new mongoose.Schema({
             message: props => `${props.value} is not a valid phone number!`
         }
     },
+    uncleContact: {
+        type: String,  
+        required: true,
+        validate: {
+            validator: function(v) {
+                return /^\d{10}$/.test(v);  // Example validation, adjust as necessary
+            },
+            message: props => `${props.value} is not a valid phone number!`
+        }
+    },
     currentAddress:{
         type:String,
         required:true

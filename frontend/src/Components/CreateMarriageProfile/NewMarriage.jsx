@@ -2,6 +2,7 @@ import React from 'react'
 import PersonalDetails from './PersonalDetails'
 import ProfessionalDetails from './ProfessionalDetails'
 import FamilyDetails from './FamilyDetails'
+import CommunicationDetails from './CommunicationDetails'
 
 const NewMarriage = ({handleChange}) => {
   return (
@@ -12,6 +13,7 @@ const NewMarriage = ({handleChange}) => {
       <PersonalDetails handleChange={handleChange} />
       <ProfessionalDetails handleChange = {handleChange} />
       <FamilyDetails handleChange={handleChange} />
+      <CommunicationDetails handleChange={handleChange} />
     </div>
   )
 }
