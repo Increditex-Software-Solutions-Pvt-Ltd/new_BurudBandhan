@@ -4,7 +4,7 @@ import ProfessionalDetails from './ProfessionalDetails'
 
 const NewMarriage = ({handleChange}) => {
   return (
-    <div className=''>
+    <div className='flex flex-col gap-10'>
       {/* <h1>New Marriage</h1> */}
       <PersonalDetails handleChange={handleChange} />
       <ProfessionalDetails handleChange = {handleChange} />
