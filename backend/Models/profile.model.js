@@ -88,7 +88,7 @@ const profileSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
-    familyMembers:{
+    totalFamilyMembers:{
         type:Number,
         required:true,
     },
