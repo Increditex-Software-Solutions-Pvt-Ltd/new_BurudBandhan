@@ -65,11 +65,11 @@ const MarriageForm = () => {
 
   return (
     <div className='py-[70px] bg-gray-100'>
-        <form className=' shadow-xl 
+        <form className='
         w-[60%] m-auto text-left
-        p-10 bg-white flex flex-col gap-6
+         flex flex-col gap-6
         '>
-            <div className='border-b pb-6'>
+            <div className='rounded-[10px]  p-10 bg-white shadow-lg'>
                 <select 
                 className='text-xl p-4 focus:outline-none cursor-pointer' 
                 onChange={handleGender}
@@ -138,10 +138,10 @@ const MarriageForm = () => {
                 (marriageProfile.category == 'new_marriage') && <NewMarriage handleChange={handleChange} /> 
             }
             { 
-                (marriageProfile.category == 'remarriage') && <Remarriage />
+                (marriageProfile.category == 'remarriage') && <Remarriage handleChange={handleChange} />
             }
             {
-                (marriageProfile.category == 'physically_disabled') && <PhysicallyDisabled />
+                (marriageProfile.category == 'physically_disabled') && <PhysicallyDisabled handleChange={handleChange} />
             }
                      
                 
