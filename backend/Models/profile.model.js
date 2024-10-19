@@ -1,5 +1,22 @@
 const mongoose = require('mongoose');
 
+const presentlyWorkingSchema = new mongoose.Schema({
+    status:{
+        type:String,
+        enum:['Yes', 'No'], 
+        required:true
+    },
+    category:{
+        type:String,
+        enum:["Government", "Private", "Business"],
+        
+    },
+    details:{
+        type:String,
+        
+    }
+})
+
 // It will be change 
 const profileSchema = new mongoose.Schema({
     fullName: {
@@ -42,10 +59,7 @@ const profileSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    presentlyWorking:{
-        type:String,
-        required:true
-    },
+    presentlyWorking:presentlyWorkingSchema ,
     annualIncome:{
         type:String,
         required:true

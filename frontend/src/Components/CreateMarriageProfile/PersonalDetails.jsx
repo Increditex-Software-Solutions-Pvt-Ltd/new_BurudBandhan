@@ -3,7 +3,7 @@ import React from 'react'
 const PersonalDetails = ({handleChange}) => {
   return (
     <div>
-        <h1>वैयक्तिक माहिती-1</h1>
+        <h1>वैयक्तिक माहिती</h1>
         <div>
             <div>
                 <input 
@@ -87,13 +87,9 @@ const PersonalDetails = ({handleChange}) => {
                 placeholder='Photo' 
                 />
             </div>
-        </div>
-        
-        <h1>वैयक्तिक माहिती-2</h1>
-    
-        
+        </div>           
     </div>
   )
 }
 
-export default PersonalDetails
+export default PersonalDetails;
