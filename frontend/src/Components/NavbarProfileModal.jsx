@@ -18,18 +18,15 @@ const NavbarProfileModal = ({user}) => {
             </div>
             
             <ul className='py-4 flex flex-col gap-4'>
-              <li className='text-[18px] flex items-center gap-4'>
+              {(user.role == 'admin') && <li className='text-[18px] flex items-center gap-4'>
                 <RiAdminFill />
                 <a href='/admin'>Admin</a>
-              </li>
-              <li className='text-[18px] flex items-center gap-4'>
+              </li>}
+              {(user?.role == 'user') && <li className='text-[18px] flex items-center gap-4'>
                 <FaUser />
                 <a href='/user-profile'>Profile</a>
-              </li>
-              <li className='text-[18px] flex items-center gap-4'>
-                <MdSettings />
-                <a href='/setting'>Setting</a>
-              </li>
+              </li>}
+             
               <li className='text-[18px] flex items-center gap-4 border-t pt-4 text-red-600'>
                 <RiLogoutBoxRFill />
                 <a href='/login' className='cursor-pointer' onClick={()=>dispatch(logout)}>Logout</a>
