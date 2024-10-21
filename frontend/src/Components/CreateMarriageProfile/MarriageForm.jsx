@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { createMarriageProfile, getMarriageProfile } from '../../Redux/Profiles/profiles.actions';
-import NewMarriage from './NewMarriage';
-import PhysicallyDisabled from './PhysicallyDisabled';
-import Remarriage from './Remarriage';
 import PersonalDetails from './PersonalDetails';
 import ProfessionalDetails from './ProfessionalDetails';
 import FamilyDetails from './FamilyDetails';
@@ -54,16 +51,12 @@ const iniProfile = {
 
 const MarriageForm = () => {
     const [marriageProfile, setMarriageProfile] = useState(iniProfile);
-    const [gender, setGender] = useState("");
 
     const dispatch = useDispatch();
     const {user} = useSelector(store=>store.user);
     const {profiles, profile, loading, error, message} = useSelector(store=>store.profile);
 
-    const handleGender = (e)=>{
-        setGender(e.target.value);
-        console.log(gender);
-    }
+   
 
     const handleChange = (e) =>{
         const {name, value} = e.target;
@@ -76,10 +69,6 @@ const MarriageForm = () => {
         
     }
 
-    // useEffect(()=>{
-    //     dispatch(getMarriageProfile())
-
-    // }, [dispatch]);
 
   return (
     <div className='py-[70px] bg-gray-100'>
@@ -95,8 +84,8 @@ const MarriageForm = () => {
             rounded-[10px]  p-10 '>
                 
 
-                <PersonalDetails marriageProfile={marriageProfile} handleChange={handleChange} handleGender={handleGender}/>
-                <ProfessionalDetails handleChange={handleChange} />
+                <PersonalDetails marriageProfile={marriageProfile} handleChange={handleChange}/>
+                <ProfessionalDetails marriageProfile={marriageProfile} handleChange={handleChange} />
                 <FamilyDetails handleChange={handleChange} />
                 <CommunicationDetails handleChange={handleChange} />
 
@@ -113,74 +102,8 @@ const MarriageForm = () => {
                     />
                 </div>
 
-
-                {/* select form by category */}
-                {/* <div className='
-                flex 
-                items-center 
-                gap-6
-                text-xl
-                
-                '>
-                    <div className='
-                    flex items-center gap-2
-                    rounded-full py-2 px-4 bg-sky-50
-                    '>
-                        <input 
-                        className='cursor-pointer'
-                        type='radio' 
-                        id='new_marriage'
-                        name='category'
-                        value='new_marriage'
-                        onChange={handleChange}
-                        />
-                        <label htmlFor='new_marriage'>नवीन विवाह (New Marriage)</label>
-                    </div>
-
-                    <div className='
-                    flex items-center gap-2
-                    rounded-full py-2 px-4 bg-sky-50
-                    '>
-                        <input
-                        className='cursor-pointer' 
-                        type='radio' 
-                        id='physically_disabled'
-                        name='category'
-                        value='physically_disabled'
-                        onChange={handleChange}
-                        />
-                        <label htmlFor='physically_disabled'>शारीरिकदृष्ट्या अक्षम (Physically disabled)</label>
-                    </div>
-
-                    <div className='
-                    flex items-center gap-2
-                    rounded-full py-2 px-4 bg-sky-50
-                    '>
-                        <input 
-                        className='cursor-pointer'
-                        type='radio' 
-                        id='remarriage'
-                        name='category'
-                        value='remarriage'
-                        onChange={handleChange}
-                        />
-                        <label htmlFor='remarriage'>पुनर्विवाह (Re-marriage)</label>
-                    </div>
-                </div> */}
             </div>    
 
-            {/* { 
-                (marriageProfile.category == 'new_marriage') && <NewMarriage handleChange={handleChange} /> 
-            }
-            { 
-                (marriageProfile.category == 'remarriage') && <Remarriage handleChange={handleChange} />
-            }
-            {
-                (marriageProfile.category == 'physically_disabled') && <PhysicallyDisabled handleChange={handleChange} />
-            }
-                      */}
-                
-            
         </form>
     </div>
   )

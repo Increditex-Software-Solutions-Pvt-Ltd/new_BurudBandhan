@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PersonalDetails = ({marriageProfile, handleChange, handleGender}) => {
+const PersonalDetails = ({marriageProfile, handleChange}) => {
   return (
     <div
      className='flex flex-col gap-4'
@@ -22,7 +22,8 @@ const PersonalDetails = ({marriageProfile, handleChange, handleGender}) => {
                  p-2 text-md w-[100%]
                  focus:outline-none
                  ' 
-                onChange={handleGender}
+                name='gender'
+                onChange={handleChange}
                 >
                         <option value="">कृपया लिंग निवडा</option>
                         <option value="male">पुरुष</option>
@@ -38,6 +39,7 @@ const PersonalDetails = ({marriageProfile, handleChange, handleGender}) => {
                 focus:outline-none
                 '
                 name="fullName" 
+                onChange={handleChange}
                 type="text"
                 placeholder='पूर्ण नाव' 
                 />
@@ -51,6 +53,7 @@ const PersonalDetails = ({marriageProfile, handleChange, handleGender}) => {
                 focus:outline-none
                 '
                 name="birthName" 
+                onChange={handleChange}
                 type="text"
                 placeholder='जन्म नाव' 
                 />
@@ -64,6 +67,7 @@ const PersonalDetails = ({marriageProfile, handleChange, handleGender}) => {
                 focus:outline-none
                 '
                 name="birthPlace" 
+                onChange={handleChange}
                 type="text"
                 placeholder='जन्म ठिकाण' 
                 />
@@ -71,13 +75,14 @@ const PersonalDetails = ({marriageProfile, handleChange, handleGender}) => {
             <div>
                 <label className='text-teal-700'>जन्मतारीख *</label>
                 <input 
+                
                 className='border-b border-b-sky-800 
                 p-2 text-md w-[100%]
                 focus:outline-none
                 '
-                name="dateOfBirth" 
+                name="dateOfBirth"
+                onChange={handleChange}
                 type="date"
-                placeholder='जन्मतारीख' 
                 />
             </div>
             <div>
@@ -87,7 +92,8 @@ const PersonalDetails = ({marriageProfile, handleChange, handleGender}) => {
                 p-2 text-md w-[100%]
                 focus:outline-none
                 '
-                name="timeOfBirth" 
+                name="timeOfBirth"
+                onChange={handleChange} 
                 type="text"
                 placeholder='जन्म वेळ' 
                 />
@@ -100,6 +106,7 @@ const PersonalDetails = ({marriageProfile, handleChange, handleGender}) => {
                 focus:outline-none
                 '
                 name="age" 
+                onChange={handleChange}
                 type="text"
                 placeholder='वय' 
                 />
@@ -111,7 +118,8 @@ const PersonalDetails = ({marriageProfile, handleChange, handleGender}) => {
                 p-2 text-md w-[100%]
                 focus:outline-none
                 '
-                name="height" 
+                name="height"
+                onChange={handleChange} 
                 type="text"
                 placeholder='उंची' 
                 />
@@ -154,6 +162,7 @@ const PersonalDetails = ({marriageProfile, handleChange, handleGender}) => {
                 <input 
                 className='border-b border-b-sky-800 p-2 text-md w-[100%]'
                 name="photo" 
+                onChange={handleChange}
                 type="text"
                 placeholder='फोटो' 
                 />
@@ -221,7 +230,8 @@ const PersonalDetails = ({marriageProfile, handleChange, handleGender}) => {
                 <label className='text-teal-700'>शारीरिकदृष्ट्या अक्षम (Details of physically disability)</label>
                 <input 
                 className='border-b border-b-sky-800 p-2 text-md w-[100%]'
-                name="details_of_physically_disability" 
+                name="details_of_physically_disability"
+                onChange={handleChange} 
                 type="text"
                 placeholder='Part affected/Type of disability/percent of disability' 
                 />
