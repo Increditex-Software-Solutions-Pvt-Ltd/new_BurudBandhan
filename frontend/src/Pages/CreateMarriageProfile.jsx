@@ -5,7 +5,7 @@ import MarriageForm from '../Components/CreateMarriageProfile/MarriageForm';
 const CreateMarriageProfile = () => {
   return (
     <div>
-      <TopSection />
+      <TopSection content={'तुमचा विवाह प्रोफाइल तयार करा आणि तुमचा परिपूर्ण जोडीदार शोधा'} />
       <MarriageForm />
     </div>
   )

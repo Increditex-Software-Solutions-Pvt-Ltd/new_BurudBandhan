@@ -6,7 +6,7 @@ import CreateProfile from '../Components/Profile/CreateProfile'
 const Profile = () => {
   return (
     <div>
-      <TopSection />
+      <TopSection content={'जुळुन येती रेशीम गाठी...'} />
       <CreateProfile />
       <Profiles />
     </div>

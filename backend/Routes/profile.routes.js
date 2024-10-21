@@ -12,6 +12,9 @@ profileRouter.post("/create", auth, profileController.addProfile);
 // get all profiles here
 profileRouter.get("/", auth, profileController.getAllProfiles);
 
+// get profiles by filter
+profileRouter.get("/", auth, profileController.getProfilesByFilter);
+
 // get single profile
 profileRouter.get("/:id", auth, profileController.getSingleProfile);
 

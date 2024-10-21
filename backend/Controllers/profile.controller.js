@@ -25,7 +25,6 @@ const profileController = {
     },
     async getAllProfiles(req, res){
         // get all profile here
-
         try{
             const user = await User.findById(req.user.id);
             // if user if admin
@@ -51,10 +50,38 @@ const profileController = {
             res.status(500).json({error: err.message});
         }
     },
+    async getProfilesByFilter(req, res){
+        const {fullName, age, qualification} = req.query;
+        // get profiles by query parameters
+        
+        try{
+            const user = await User.findById(req.user.id);
+            let profiles;
+
+           if(fullName){
+             profiles = await Profile.find({fullName});
+
+           }
+
+           if(age){
+            profiles = await Profile.find({age});
+           }
+
+           if(qualification){
+            profiles = await Profile.find({qualification});
+           }
+    
+            res.json(profiles);
+             
+            
+        }catch(err){
+            res.status(500).json({error: err.message});
+        }
+    },
     async getSingleProfile(req, res){
         // get single Profile by id here
         try{
-            const profile = await Profile.findById(req.params.id);
+            const profile = await Profile.findById(req.user.id);
             res.json(profile);
         }catch(err){
             res.status(500).json({error: err.message});

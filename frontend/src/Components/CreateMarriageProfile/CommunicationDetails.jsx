@@ -5,7 +5,7 @@ const CommunicationDetails = ({handleChange}) => {
     <div
      className='flex flex-col gap-4'
      >
-        <h1 className='text-lg font-semibold text-sky-950'>कौटुंबिक माहिती</h1>
+        <h1 className='text-lg font-semibold text-sky-950'>संपर्क (Communication Details)</h1>
         <div 
         style={{
             display:'grid',

@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
-import { useDispatch } from "react-redux";
-import { createMarriageProfile } from '../../Redux/Profiles/profiles.actions';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { createMarriageProfile, getMarriageProfile } from '../../Redux/Profiles/profiles.actions';
 import NewMarriage from './NewMarriage';
 import PhysicallyDisabled from './PhysicallyDisabled';
 import Remarriage from './Remarriage';
+import PersonalDetails from './PersonalDetails';
+import ProfessionalDetails from './ProfessionalDetails';
+import FamilyDetails from './FamilyDetails';
+import CommunicationDetails from './CommunicationDetails';
 
 const iniProfile = {
     fullName:"",
@@ -47,6 +51,8 @@ const MarriageForm = () => {
     const [gender, setGender] = useState("");
 
     const dispatch = useDispatch();
+    const {user} = useSelector(store=>store.user);
+    const {profiles, profile, loading, error, message} = useSelector(store=>store.profile);
 
     const handleGender = (e)=>{
         setGender(e.target.value);
@@ -61,26 +67,49 @@ const MarriageForm = () => {
     const handleSubmit = (e)=>{
         e.preventDefault();
         dispatch(createMarriageProfile(marriageProfile));
+        
     }
+
+    // useEffect(()=>{
+    //     dispatch(getMarriageProfile())
+
+    // }, [dispatch]);
 
   return (
     <div className='py-[70px] bg-gray-100'>
-        <form className='
+        <form 
+        onSubmit={handleSubmit}
+        className='
         w-[60%] m-auto text-left
-         flex flex-col gap-6
+        bg-white shadow-lg
         '>
-            <div className='rounded-[10px]  p-10 bg-white shadow-lg'>
-                <select 
-                className='text-xl p-4 focus:outline-none cursor-pointer' 
-                onChange={handleGender}
-                >
-                    <option value="">कृपया लिंग निवडा</option>
-                    <option value="male">पुरुष</option>
-                    <option value="female">स्त्री</option>
-                </select>
+            {(error) && <p className='text-red-600'>{error}</p>}
+            <div className='
+            flex flex-col gap-6
+            rounded-[10px]  p-10 '>
+                
+
+                <PersonalDetails marriageProfile={marriageProfile} handleChange={handleChange} handleGender={handleGender}/>
+                <ProfessionalDetails handleChange={handleChange} />
+                <FamilyDetails handleChange={handleChange} />
+                <CommunicationDetails handleChange={handleChange} />
+
+                <div className='mt-6 text-center'>
+                    <input 
+                    className=' 
+                    bg-red-500  hover:bg-red-600
+                    py-4 px-8 
+                    text-white font-semibold
+                    rounded-xl 
+                    '
+                    type='submit'
+                    value='प्रोफाइल तयार करा'
+                    />
+                </div>
+
 
                 {/* select form by category */}
-                <div className='
+                {/* <div className='
                 flex 
                 items-center 
                 gap-6
@@ -131,10 +160,10 @@ const MarriageForm = () => {
                         />
                         <label htmlFor='remarriage'>पुनर्विवाह (Re-marriage)</label>
                     </div>
-                </div>
+                </div> */}
             </div>    
 
-            { 
+            {/* { 
                 (marriageProfile.category == 'new_marriage') && <NewMarriage handleChange={handleChange} /> 
             }
             { 
@@ -143,7 +172,7 @@ const MarriageForm = () => {
             {
                 (marriageProfile.category == 'physically_disabled') && <PhysicallyDisabled handleChange={handleChange} />
             }
-                     
+                      */}
                 
             
         </form>

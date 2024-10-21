@@ -35,6 +35,10 @@ const profileSchema = new mongoose.Schema({
         type: Date, 
         required: true
     },
+    age:{
+        type:Number,
+        required:true
+    },
     timeOfBirth: {
         type: Date, // check type once
         required:true
@@ -151,7 +155,9 @@ const profileSchema = new mongoose.Schema({
         type:String
     },
     details_of_previous_marriage:{
-        type:String
+        type:String,
+        enum:["sudden_demise_of_partner", "divorced"],
+        
     },
     state: {
         type: String,
