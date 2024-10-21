@@ -15,7 +15,7 @@ const PersonalDetails = ({marriageProfile, handleChange, handleGender}) => {
         // className='flex flex-col gap-6'
         >
             <div>
-                <label className='text-teal-700'>त्वचेचा रंग *</label>
+                <label className='text-teal-700'>लिंग *</label>
 
                 <select
                  className='border-b border-b-sky-800 
@@ -90,6 +90,18 @@ const PersonalDetails = ({marriageProfile, handleChange, handleGender}) => {
                 name="timeOfBirth" 
                 type="text"
                 placeholder='जन्म वेळ' 
+                />
+            </div>
+            <div>
+                <label className='text-teal-700'>वय *</label>
+                <input 
+                className='border-b border-b-sky-800 
+                p-2 text-md w-[100%]
+                focus:outline-none
+                '
+                name="age" 
+                type="text"
+                placeholder='वय' 
                 />
             </div>
             <div>

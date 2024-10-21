@@ -143,7 +143,7 @@ const profileSchema = new mongoose.Schema({
     },
     gender: {
         type: String,
-        enum: ["male", "female", "other"],  
+        enum: ["male", "female"],  
         required: true
     },
     category:{
@@ -163,30 +163,14 @@ const profileSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    district: {  
-        type: String,
-        required: true
-    },
-    taluka: {
-        type: String,
-        required: true
-    },
-    town: {
-        type: String,
-        required: true
-    },
-    postalCode: {
-        type: String,
-        required: true
-    },
+   
     user:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User",
         required:true,
         unique:true
     }
-    
-    
+       
 },{
     timestamps:true
 });
