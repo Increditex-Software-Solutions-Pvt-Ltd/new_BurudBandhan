@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProfessionalDetails = ({handleChange}) => {
+const ProfessionalDetails = ({marriageProfile, handleChange}) => {
   return (
     <div className='flex flex-col gap-4'>
         <h1 className='text-lg font-semibold text-sky-950'>व्यावसायिक माहिती</h1>

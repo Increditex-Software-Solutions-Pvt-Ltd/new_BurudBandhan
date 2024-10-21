@@ -24,6 +24,7 @@ const PersonalDetails = ({marriageProfile, handleChange}) => {
                  ' 
                 name='gender'
                 onChange={handleChange}
+                value={marriageProfile.gender}
                 >
                         <option value="">कृपया लिंग निवडा</option>
                         <option value="male">पुरुष</option>
@@ -40,6 +41,7 @@ const PersonalDetails = ({marriageProfile, handleChange}) => {
                 '
                 name="fullName" 
                 onChange={handleChange}
+                value={marriageProfile.fullName}
                 type="text"
                 placeholder='पूर्ण नाव' 
                 />
@@ -54,6 +56,7 @@ const PersonalDetails = ({marriageProfile, handleChange}) => {
                 '
                 name="birthName" 
                 onChange={handleChange}
+                value={marriageProfile.birthName}
                 type="text"
                 placeholder='जन्म नाव' 
                 />
@@ -68,6 +71,7 @@ const PersonalDetails = ({marriageProfile, handleChange}) => {
                 '
                 name="birthPlace" 
                 onChange={handleChange}
+                value={marriageProfile.birthPlace}
                 type="text"
                 placeholder='जन्म ठिकाण' 
                 />
@@ -82,6 +86,7 @@ const PersonalDetails = ({marriageProfile, handleChange}) => {
                 '
                 name="dateOfBirth"
                 onChange={handleChange}
+                value={marriageProfile.dateOfBirth}
                 type="date"
                 />
             </div>
@@ -93,7 +98,8 @@ const PersonalDetails = ({marriageProfile, handleChange}) => {
                 focus:outline-none
                 '
                 name="timeOfBirth"
-                onChange={handleChange} 
+                onChange={handleChange}
+                value={marriageProfile.timeOfBirth} 
                 type="text"
                 placeholder='जन्म वेळ' 
                 />
@@ -107,6 +113,7 @@ const PersonalDetails = ({marriageProfile, handleChange}) => {
                 '
                 name="age" 
                 onChange={handleChange}
+                value={marriageProfile.age}
                 type="text"
                 placeholder='वय' 
                 />
@@ -120,6 +127,7 @@ const PersonalDetails = ({marriageProfile, handleChange}) => {
                 '
                 name="height"
                 onChange={handleChange} 
+                value={marriageProfile.height}
                 type="text"
                 placeholder='उंची' 
                 />
@@ -131,7 +139,7 @@ const PersonalDetails = ({marriageProfile, handleChange}) => {
                 p-2 text-md w-[100%]
                 focus:outline-none
                 '
-                name='color' onChange={handleChange}>
+                name='color' value={marriageProfile.color} onChange={handleChange}>
                     <option value="">तुमचा वर्ण निवडा</option>
                     <option value="fair">गोरा</option>
                     <option value="medium">सावळा</option>
@@ -145,7 +153,7 @@ const PersonalDetails = ({marriageProfile, handleChange}) => {
                 p-2 text-md w-[100%]
                 focus:outline-none
                 '
-                name='bloodGroup' onChange={handleChange}>
+                name='bloodGroup' value={marriageProfile.bloodGroup} onChange={handleChange}>
                     <option value="">रक्त गट</option>
                     <option value="A+">A+</option>
                     <option value="B+">B+</option>
@@ -163,6 +171,7 @@ const PersonalDetails = ({marriageProfile, handleChange}) => {
                 className='border-b border-b-sky-800 p-2 text-md w-[100%]'
                 name="photo" 
                 onChange={handleChange}
+                value={marriageProfile.photo}
                 type="text"
                 placeholder='फोटो' 
                 />
@@ -231,7 +240,8 @@ const PersonalDetails = ({marriageProfile, handleChange}) => {
                 <input 
                 className='border-b border-b-sky-800 p-2 text-md w-[100%]'
                 name="details_of_physically_disability"
-                onChange={handleChange} 
+                onChange={handleChange}
+                value={marriageProfile.details_of_physically_disability} 
                 type="text"
                 placeholder='Part affected/Type of disability/percent of disability' 
                 />
