@@ -85,7 +85,7 @@ const MarriageForm = () => {
                 
 
                 <PersonalDetails marriageProfile={marriageProfile} handleChange={handleChange}/>
-                <ProfessionalDetails marriageProfile={marriageProfile} handleChange={handleChange} />
+                <ProfessionalDetails marriageProfile={marriageProfile} setMarriageProfile={setMarriageProfile} handleChange={handleChange} />
                 <FamilyDetails handleChange={handleChange} />
                 <CommunicationDetails handleChange={handleChange} />
 

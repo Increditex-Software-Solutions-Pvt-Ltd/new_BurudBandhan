@@ -1,6 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const ProfessionalDetails = ({marriageProfile, handleChange}) => {
+
+const ProfessionalDetails = ({marriageProfile, setMarriageProfile, handleChange}) => {
+
+    // set presently working object values like status, category, details
+    const handlePresentlyWorking = (e)=>{
+        const {name, value} = e.target;
+        setMarriageProfile({...marriageProfile, presentlyWorking:{...marriageProfile.presentlyWorking, [name]:value}});
+    }
+
+    // handle hobbies
+    const handleHobbies = (e)=>{
+        const { value } = e.target;
+        const hobbiesArr = value.split(',').map(item => item.trim()).filter(item => item);
+        setMarriageProfile({ ...marriageProfile, hobbies: hobbiesArr });
+        console.log(marriageProfile.hobbies);
+    }
+
   return (
     <div className='flex flex-col gap-4'>
         <h1 className='text-lg font-semibold text-sky-950'>व्यावसायिक माहिती</h1>
@@ -19,7 +35,9 @@ const ProfessionalDetails = ({marriageProfile, handleChange}) => {
                 text-md w-[100%]
                 focus:outline-none
                 '
-                name="qualification" 
+                name="qualification"
+                onChange={handleChange}
+                value={marriageProfile.qaulification} 
                 type="text"
                 placeholder='शिक्षण' 
                 />
@@ -36,6 +54,7 @@ const ProfessionalDetails = ({marriageProfile, handleChange}) => {
                         name="status" 
                         type="radio"
                         value='Yes'
+                        onChange={handlePresentlyWorking}
                         id='status'
                         />
                         <label htmlFor='status'>Yes</label>
@@ -45,6 +64,7 @@ const ProfessionalDetails = ({marriageProfile, handleChange}) => {
                         className='cursor-pointer'
                         name="status" 
                         type="radio"
+                        onChange={handlePresentlyWorking}
                         value='No'
                         id='status'
                         />
@@ -54,22 +74,25 @@ const ProfessionalDetails = ({marriageProfile, handleChange}) => {
                 
             </div>
             
-            <div>
+            {(marriageProfile?.presentlyWorking.status == 'Yes') && <div>
                 <label className='text-teal-700'>साधन *</label>
                 <select
                 className='border-b border-b-sky-800 
                 p-2 text-md w-[100%]
                 focus:outline-none
                 '
+                name='category'
+                onChange={handlePresentlyWorking}
+                value={marriageProfile.presentlyWorking.category}
                 >
                     <option value="">कृपया योग्य पर्याय निवडा</option>
                     <option value='Government'>सरकारी नोकरी</option>
                     <option value='Private'>खाजगी नोकरी</option>
                     <option value='Business'>व्यवसाय</option>
                 </select>
-            </div>
+            </div>}
 
-            <div>
+            {(marriageProfile?.presentlyWorking.status == 'Yes') && <div>
                 <label className='text-teal-700'>कामाबद्दल अधिक माहिती (Work details) *</label>
                 <input 
                 className='border-b border-b-sky-800 
@@ -77,10 +100,12 @@ const ProfessionalDetails = ({marriageProfile, handleChange}) => {
                 focus:outline-none
                 '
                 name="details" 
+                onChange={handlePresentlyWorking}
+                value={marriageProfile.presentlyWorking.details}
                 type="text"
                 placeholder='कामाबद्दल अधिक माहिती' 
                 />
-            </div>
+            </div>}
                  
             <div >
                 <label className='text-teal-700'>वार्षिक उत्पन्न *</label>
@@ -90,7 +115,9 @@ const ProfessionalDetails = ({marriageProfile, handleChange}) => {
                     p-2 text-md w-[100%]
                     focus:outline-none
                     '
-                    name="annualIncome" 
+                    name="annualIncome"
+                    onChange={handleChange}
+                    value={marriageProfile.annualIncome} 
                     type="number"
                     placeholder='वार्षिक उत्पन्न' 
                     />
@@ -116,7 +143,9 @@ const ProfessionalDetails = ({marriageProfile, handleChange}) => {
                 p-2 text-md w-[100%]
                 focus:outline-none
                 '
-                name="hobbies" 
+                name="hobbies"
+                onChange={handleHobbies} 
+                value={marriageProfile.hobbies.join(',')}
                 type="text"
                 placeholder='छंद' 
                 />
