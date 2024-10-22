@@ -10,11 +10,19 @@ const ProfessionalDetails = ({marriageProfile, setMarriageProfile, handleChange}
     }
 
     // handle hobbies
-    const handleHobbies = (e)=>{
+    const handleHobbiesBlur = (e) => {
         const { value } = e.target;
+
+        // Split, trim, and filter out empty items only when the input loses focus
         const hobbiesArr = value.split(',').map(item => item.trim()).filter(item => item);
         setMarriageProfile({ ...marriageProfile, hobbies: hobbiesArr });
-        console.log(marriageProfile.hobbies);
+        console.log(hobbiesArr); // Check the result in the console
+    }
+
+    const handleHobbiesChange = (e) => {
+        // Update the state with the raw input value to allow commas
+        const { value } = e.target;
+        setMarriageProfile({ ...marriageProfile, hobbies: value.split(',') });
     }
 
   return (
@@ -144,7 +152,8 @@ const ProfessionalDetails = ({marriageProfile, setMarriageProfile, handleChange}
                 focus:outline-none
                 '
                 name="hobbies"
-                onChange={handleHobbies} 
+                onChange={handleHobbiesChange}
+                onBlur={handleHobbiesBlur} 
                 value={marriageProfile.hobbies.join(',')}
                 type="text"
                 placeholder='छंद' 

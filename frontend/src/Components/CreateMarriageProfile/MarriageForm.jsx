@@ -83,12 +83,25 @@ const MarriageForm = () => {
             flex flex-col gap-6
             rounded-[10px]  p-10 '>
                 
-
+                {/* personal details */}
                 <PersonalDetails marriageProfile={marriageProfile} handleChange={handleChange}/>
-                <ProfessionalDetails marriageProfile={marriageProfile} setMarriageProfile={setMarriageProfile} handleChange={handleChange} />
-                <FamilyDetails handleChange={handleChange} />
-                <CommunicationDetails handleChange={handleChange} />
+                
+                {/* all profession details */}
+                <ProfessionalDetails 
+                marriageProfile={marriageProfile} 
+                setMarriageProfile={setMarriageProfile} 
+                handleChange={handleChange} />
 
+                {/* add family details here */}
+                <FamilyDetails 
+                marriageProfile={marriageProfile}
+                setMarriageProfile={setMarriageProfile} 
+                handleChange={handleChange} />
+
+                {/* communication details like contact number, address and so on */}
+                <CommunicationDetails marriageProfile={marriageProfile} handleChange={handleChange} />
+
+                {/* submit button */}
                 <div className='mt-6 text-center'>
                     <input 
                     className=' 

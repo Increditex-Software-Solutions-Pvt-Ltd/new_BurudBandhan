@@ -1,6 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const FamilyDetails = ({handleChange}) => {
+const FamilyDetails = ({marriageProfile, setMarriageProfile, handleChange}) => {
+
+    const handleListBlur = (e) => {
+        const { value } = e.target;
+
+        // Split, trim, and filter out empty items only when the input loses focus
+        const listArr = value.split(',').map(item => item.trim()).filter(item => item);
+        setMarriageProfile({ ...marriageProfile, relativesSurnameList: listArr });
+        console.log(listArr); // Check the result in the console
+    }
+
+    const handleListChange = (e) => {
+        // Update the state with the raw input value to allow commas
+        const { value } = e.target;
+        setMarriageProfile({ ...marriageProfile, relativesSurnameList: value.split(',') });
+    }
+
   return (
     <div
      className='flex flex-col gap-4'
@@ -22,6 +38,8 @@ const FamilyDetails = ({handleChange}) => {
                 focus:outline-none
                 '
                 name="permenantAddress" 
+                onChange={handleChange}
+                value={marriageProfile.permenantAddress}
                 type="text"
                 placeholder='कायम पत्ता' 
                 />
@@ -35,6 +53,8 @@ const FamilyDetails = ({handleChange}) => {
                 focus:outline-none
                 '
                 name="fatherName" 
+                onChange={handleChange}
+                value={marriageProfile.fatherName}
                 type="text"
                 placeholder='वडिलांचे नाव' 
                 />
@@ -47,7 +67,9 @@ const FamilyDetails = ({handleChange}) => {
                 text-md w-[100%]
                 focus:outline-none
                 '
-                name="fatherOccupation" 
+                name="fatherOccupation"
+                onChange={handleChange}
+                value={marriageProfile.fatherOccupation} 
                 type="text"
                 placeholder='वडिलांचा पेशा' 
                 />
@@ -59,7 +81,9 @@ const FamilyDetails = ({handleChange}) => {
                 p-2 text-md w-[100%]
                 focus:outline-none
                 '
-                name="motherName" 
+                name="motherName"
+                onChange={handleChange}
+                value={marriageProfile.motherName} 
                 type="text"
                 placeholder='आईचे माहेरकडील पूर्ण नाव ' 
                 />
@@ -72,6 +96,8 @@ const FamilyDetails = ({handleChange}) => {
                 focus:outline-none
                 '
                 name="totalFamilyMembers" 
+                onChange={handleChange}
+                value={marriageProfile.totalFamilyMembers}
                 type="number"
                 placeholder='परिवारामधिल सदस्यांची संख्या' 
                 />
@@ -83,7 +109,9 @@ const FamilyDetails = ({handleChange}) => {
                 p-2 text-md w-[100%]
                 focus:outline-none
                 '
-                name="maternalUncleName" 
+                name="maternalUncleName"
+                onChange={handleChange}
+                value={marriageProfile.maternalUncleName} 
                 type="text"
                 placeholder='मामांचे पूर्ण नाव' 
                 />
@@ -96,7 +124,12 @@ const FamilyDetails = ({handleChange}) => {
                 focus:outline-none
                 '
                 placeholder='सम्बंधितांचे नाव (आडनाव)'
-                name='relativesSurnameList' onChange={handleChange} />
+                type='text'
+                name='relativesSurnameList'
+                value={marriageProfile.relativesSurnameList.join(',')}
+                onChange={handleListChange} // Handle raw input change
+                onBlur={handleListBlur} // Handle splitting on blur
+                />
                     
                 
             </div>
