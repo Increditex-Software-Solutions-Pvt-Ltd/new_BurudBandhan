@@ -139,7 +139,9 @@ const ProfessionalDetails = ({marriageProfile, setMarriageProfile, handleChange}
                 p-2 text-md w-[100%]
                 focus:outline-none
                 '
-                name="expectation" 
+                name="expectation"
+                onChange={handleChange}
+                value={marriageProfile.expectation} 
                 type="text"
                 placeholder='तुमच्या जोडीदाराकडून अपेक्षा' 
                 />

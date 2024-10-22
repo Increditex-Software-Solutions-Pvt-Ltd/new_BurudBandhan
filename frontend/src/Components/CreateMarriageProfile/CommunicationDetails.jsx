@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CommunicationDetails = ({handleChange}) => {
+const CommunicationDetails = ({marriageProfile, handleChange}) => {
   return (
     <div
      className='flex flex-col gap-4'
@@ -22,6 +22,8 @@ const CommunicationDetails = ({handleChange}) => {
                 focus:outline-none
                 '
                 name="personalContact" 
+                onChange={handleChange}
+                value={marriageProfile.personalContact}
                 type="number"
                 placeholder='वैयक्तिक संपर्क क्रमांक' 
                 />
@@ -34,7 +36,9 @@ const CommunicationDetails = ({handleChange}) => {
                 text-md w-[100%]
                 focus:outline-none
                 '
-                name="email" 
+                name="email"
+                onChange={handleChange}
+                value={marriageProfile.email}
                 type="email"
                 placeholder='ईमेल आयडी' 
                 />
@@ -47,7 +51,9 @@ const CommunicationDetails = ({handleChange}) => {
                 text-md w-[100%]
                 focus:outline-none
                 '
-                name="parentsContact" 
+                name="parentsContact"
+                onChange={handleChange}
+                value={marriageProfile.parentsContact} 
                 type="number"
                 placeholder='वडिलांचा/पालकांचा संपर्क क्रमांक' 
                 />
@@ -60,20 +66,24 @@ const CommunicationDetails = ({handleChange}) => {
                 focus:outline-none
                 '
                 name="uncleContact" 
+                onChange={handleChange}
+                value={marriageProfile.uncleContact}
                 type="number"
                 placeholder='भावाचा/काकांचा संपर्क क्रमांक ' 
                 />
             </div>
             <div>
-                <label className='text-teal-700'>पत्ता *</label>
+                <label className='text-teal-700'>सध्याचा पत्ता (Current Address) *</label>
                 <input 
                 className='border-b border-b-sky-800 
                 p-2 text-md w-[100%]
                 focus:outline-none
                 '
                 name="currentAddress" 
+                onChange={handleChange}
+                value={marriageProfile.currentAddress}
                 type="text"
-                placeholder='पत्ता' 
+                placeholder='सध्याचा पत्ता' 
                 />
             </div>
            

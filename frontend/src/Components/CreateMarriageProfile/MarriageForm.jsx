@@ -10,27 +10,27 @@ const iniProfile = {
     fullName:"",
     birthName:"",
     birthPlace:"",
-    dateOfBirth:null,
-    age:null,
-    timeOfBirth:null,
-    height:null,
+    dateOfBirth:"",
+    age:0,
+    timeOfBirth:"",
+    height:0,
     color:"",
     bloodGroup:"",
     photo:"",
     qualification:"",
     presentlyWorking:{
-        status:null,
-        category:null,
-        details:null
+        status:"",
+        category:"",
+        details:""
     },
     annualIncome:"",
     expectation:"",
     hobbies:[],
-    permanantAddress:"",
+    permenantAddress:"",
     fatherName:"",
     fatherOccupation:"",
     motherName:"",
-    totalFamilyMembers:null,
+    totalFamilyMembers:0,
     maternalUncleName:"",
     relativesSurnameList:[],
     email:"",
@@ -40,13 +40,8 @@ const iniProfile = {
     currentAddress:"",
     gender:"",
     category:"",
-    details_of_physically_disability:"",
-    details_of_previous_marriage:"",
-    state:"",
-    district:"",
-    taluka:"",
-    town:"",
-    postalCode:""
+    // details_of_physically_disability:"",
+    // details_of_previous_marriage:""
 }
 
 const MarriageForm = () => {
@@ -61,6 +56,7 @@ const MarriageForm = () => {
     const handleChange = (e) =>{
         const {name, value} = e.target;
         setMarriageProfile({...marriageProfile, [name]:value});
+        console.log(marriageProfile);
     }
 
     const handleSubmit = (e)=>{
@@ -84,7 +80,9 @@ const MarriageForm = () => {
             rounded-[10px]  p-10 '>
                 
                 {/* personal details */}
-                <PersonalDetails marriageProfile={marriageProfile} handleChange={handleChange}/>
+                <PersonalDetails 
+                marriageProfile={marriageProfile} 
+                handleChange={handleChange}/>
                 
                 {/* all profession details */}
                 <ProfessionalDetails 
@@ -99,7 +97,9 @@ const MarriageForm = () => {
                 handleChange={handleChange} />
 
                 {/* communication details like contact number, address and so on */}
-                <CommunicationDetails marriageProfile={marriageProfile} handleChange={handleChange} />
+                <CommunicationDetails 
+                marriageProfile={marriageProfile} 
+                handleChange={handleChange} />
 
                 {/* submit button */}
                 <div className='mt-6 text-center'>

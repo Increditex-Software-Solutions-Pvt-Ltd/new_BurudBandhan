@@ -40,7 +40,7 @@ const profileSchema = new mongoose.Schema({
         required:true
     },
     timeOfBirth: {
-        type: Date, // check type once
+        type: String, // check type once
         required:true
     },
     height: {
@@ -158,10 +158,6 @@ const profileSchema = new mongoose.Schema({
         type:String,
         enum:["sudden_demise_of_partner", "divorced"],
         
-    },
-    state: {
-        type: String,
-        required: true
     },
    
     user:{
