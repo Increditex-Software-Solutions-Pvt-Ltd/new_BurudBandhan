@@ -74,10 +74,13 @@ const MarriageForm = () => {
         w-[60%] m-auto text-left
         bg-white shadow-lg
         '>
-            {(error) && <p className='text-red-600'>{error}</p>}
+            
             <div className='
             flex flex-col gap-6
             rounded-[10px]  p-10 '>
+
+                {(error) && <p className='text-red-600'>{error}</p>}
+                {(message) && <p className='text-green-600'>{message}</p>}
                 
                 {/* personal details */}
                 <PersonalDetails 
@@ -111,7 +114,8 @@ const MarriageForm = () => {
                     rounded-xl 
                     '
                     type='submit'
-                    value='प्रोफाइल तयार करा'
+                    // value={ loading? "loading..." : "प्रोफाइल तयार करा"}
+                    value="प्रोफाइल तयार करा"
                     />
                 </div>
 
