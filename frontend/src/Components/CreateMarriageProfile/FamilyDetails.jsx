@@ -8,7 +8,7 @@ const FamilyDetails = ({marriageProfile, setMarriageProfile, handleChange}) => {
         // Split, trim, and filter out empty items only when the input loses focus
         const listArr = value.split(',').map(item => item.trim()).filter(item => item);
         setMarriageProfile({ ...marriageProfile, relativesSurnameList: listArr });
-        console.log(listArr); // Check the result in the console
+        // console.log(listArr); // Check the result in the console
     }
 
     const handleListChange = (e) => {
