@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getAllMarriageProfiles } from '../../Redux/Profiles/profiles.actions';
+import ProfilesNotFound from './ProfilesNotFound';
+import ProfileCard from './ProfileCard';
 
 
 const Profiles = () => {
@@ -14,21 +16,15 @@ const Profiles = () => {
 
     return (
     <div>
-        {
-            (profiles.length == 0)?<div>Not found</div>
-            :profiles && profiles?.map((data, index)=>(
-                <div key={data._id}>
-                    <div>
-                        <img src={data.photo} alt='photo' />
-                    </div>
-                    <div>
-                        <p>{data.fullName}</p> 
-                        <p>{data.age} Years | {data.height} ft</p>
-                        <p>{data.qualification}</p>
-                        <p>{data.city}, {data.dist}</p>   
-                    </div>
-                </div>
-            ))
+        {   
+            (profiles.length == 0)?<ProfilesNotFound />
+            :<div>
+                {
+                    profiles && profiles?.map((data, index)=>(
+                        <ProfileCard key={data._id} profile={data} />
+                    ))
+                }
+            </div>
         }
     </div>
   )
