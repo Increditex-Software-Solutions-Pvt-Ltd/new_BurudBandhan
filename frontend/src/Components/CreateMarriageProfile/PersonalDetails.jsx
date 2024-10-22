@@ -100,7 +100,7 @@ const PersonalDetails = ({marriageProfile, handleChange}) => {
                 name="timeOfBirth"
                 onChange={handleChange}
                 value={marriageProfile.timeOfBirth} 
-                type="text"
+                type="time"
                 placeholder='जन्म वेळ' 
                 />
             </div>

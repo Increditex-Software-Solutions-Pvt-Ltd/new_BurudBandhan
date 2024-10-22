@@ -21,6 +21,7 @@ const iniProfile = {
     presentlyWorking:{
         status:"",
         category:"",
+        designation:"",
         details:""
     },
     annualIncome:"",
@@ -40,6 +41,8 @@ const iniProfile = {
     currentAddress:"",
     gender:"",
     category:"",
+    city:"",
+    dist:"",
     // details_of_physically_disability:"",
     // details_of_previous_marriage:""
 }

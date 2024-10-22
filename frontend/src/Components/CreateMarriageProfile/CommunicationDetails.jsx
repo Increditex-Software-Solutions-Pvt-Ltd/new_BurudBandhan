@@ -86,6 +86,35 @@ const CommunicationDetails = ({marriageProfile, handleChange}) => {
                 placeholder='सध्याचा पत्ता' 
                 />
             </div>
+
+            <div>
+                <label className='text-teal-700'>शहर *</label>
+                <input 
+                className='border-b border-b-sky-800 
+                p-2 text-md w-[100%]
+                focus:outline-none
+                '
+                name="city" 
+                onChange={handleChange}
+                value={marriageProfile.city}
+                type="text"
+                placeholder='शहर' 
+                />
+            </div>
+            <div>
+                <label className='text-teal-700'>जिल्हा *</label>
+                <input 
+                className='border-b border-b-sky-800 
+                p-2 text-md w-[100%]
+                focus:outline-none
+                '
+                name="dist" 
+                onChange={handleChange}
+                value={marriageProfile.dist}
+                type="text"
+                placeholder='जिल्हा' 
+                />
+            </div>
            
         </div>           
     </div>

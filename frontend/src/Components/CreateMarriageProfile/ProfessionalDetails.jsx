@@ -101,6 +101,21 @@ const ProfessionalDetails = ({marriageProfile, setMarriageProfile, handleChange}
             </div>}
 
             {(marriageProfile?.presentlyWorking.status == 'Yes') && <div>
+                <label className='text-teal-700'>पदनाम (Designation) *</label>
+                <input 
+                className='border-b border-b-sky-800 
+                p-2 text-md w-[100%]
+                focus:outline-none
+                '
+                name="designation" 
+                onChange={handlePresentlyWorking}
+                value={marriageProfile.presentlyWorking.designation}
+                type="text"
+                placeholder='पदनाम' 
+                />
+            </div>}
+
+            {(marriageProfile?.presentlyWorking.status == 'Yes') && <div>
                 <label className='text-teal-700'>कामाबद्दल अधिक माहिती (Work details) *</label>
                 <input 
                 className='border-b border-b-sky-800 

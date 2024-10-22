@@ -11,6 +11,9 @@ const presentlyWorkingSchema = new mongoose.Schema({
         enum:["Government", "Private", "Business"],
         
     },
+    designation:{
+        type:String,
+    },
     details:{
         type:String,
         
@@ -159,7 +162,14 @@ const profileSchema = new mongoose.Schema({
         enum:["sudden_demise_of_partner", "divorced"],
         
     },
-   
+    city:{
+        type:String,
+        required:true
+    },
+    dist:{
+        type:String,
+        required:true
+    },
     user:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User",

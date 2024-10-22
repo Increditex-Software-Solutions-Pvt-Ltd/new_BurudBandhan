@@ -9,13 +9,25 @@ const Profiles = () => {
     
     useEffect(()=>{
         dispatch(getAllMarriageProfiles());
+        console.log(profiles);
     }, [dispatch]);
+
     return (
     <div>
         {
             (profiles.length == 0)?<div>Not found</div>
-            :profiles && profiles?.map((item, index)=>(
-                <div>{index}</div>
+            :profiles && profiles?.map((data, index)=>(
+                <div key={data._id}>
+                    <div>
+                        <img src={data.photo} alt='photo' />
+                    </div>
+                    <div>
+                        <p>{data.fullName}</p> 
+                        <p>{data.age} Years | {data.height} ft</p>
+                        <p>{data.qualification}</p>
+                        <p>{data.city}, {data.dist}</p>   
+                    </div>
+                </div>
             ))
         }
     </div>
