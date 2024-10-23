@@ -38,11 +38,11 @@ const SingleMarriageProfile = () => {
             <ProfessionalDetails profile={profile} />
 
             {/* Family details */}
-            <h1 className='text-xl text-sky-800 font-bold'>कौटुंबिक माहिती</h1>
+            <h1 className='text-xl text-sky-800 font-bold'>कौटुंबिक माहिती (Family Details)</h1>
             <FamilyDetails profile={profile} />
 
             {/* Communication details */}
-            <h1 className='text-xl text-sky-800 font-bold'>Communication Details</h1>
+            <h1 className='text-xl text-sky-800 font-bold'>संपर्क (Communication Details)</h1>
             <CommunicationDetails profile={profile} />
 
 
