@@ -53,7 +53,9 @@ const ProfileCard = ({profile}) => {
               rounded-lg
               bg-orange-400 hover:bg-orange-500
               text-white 
-              '>View Full Profile</button>
+              '
+              onClick={()=>navigate(`/profile/${profile._id}`)}
+              >View Full Profile</button>
         </div>                   
     </div>
   )
