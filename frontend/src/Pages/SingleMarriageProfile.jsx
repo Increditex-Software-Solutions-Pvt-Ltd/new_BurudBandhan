@@ -30,11 +30,11 @@ const SingleMarriageProfile = () => {
                 <img className='border border-gray-200 w-[200px] h-[200px] m-auto' src={profile?.photo} />
             </div>
             {/* Personal details */}
-            <h1 className='text-xl text-sky-800 font-bold'>Personal Details</h1>
+            <h1 className='text-xl text-sky-800 font-bold'>वैयक्तिक माहिती (Personal Details)</h1>
             <PersonalDetails profile={profile} />
 
             {/* Professional details */}
-            <h1 className='text-xl text-sky-800 font-bold'>Professional Details</h1>
+            <h1 className='text-xl text-sky-800 font-bold'>व्यावसायिक माहिती (Professional Details)</h1>
             <ProfessionalDetails profile={profile} />
 
             {/* Family details */}

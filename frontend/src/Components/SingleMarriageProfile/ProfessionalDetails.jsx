@@ -6,70 +6,41 @@ const ProfessionalDetails = ({profile}) => {
         <table >
             <tbody className='capitalize'>
                 <tr >
-                    <td className='p-2 font-semibold'>Full Name:</td>
-                    <td className='p-2'>{profile?.fullName}</td>
+                    <td className='p-2 font-semibold'>शिक्षण:</td>
+                    <td className='p-2'>{profile?.qualification}</td>
                 </tr>
                 <tr>
-                    <td className='p-2 font-semibold'>Gender:</td>
-                    <td className='p-2'>{profile?.gender}</td>
+                    <td className='p-2 font-semibold'>सध्या कार्यरत आहे का? (Presently Working?):</td>
+                    <td className='p-2'>{(profile?.presentlyWorking.status === 'Yes') ? 'Yes' : 'No'}</td>
                 </tr>
-                <tr>
-                    <td className='p-2 font-semibold'>Birth Name:</td>
-                    <td className='p-2'>{profile?.birthName}</td>
-                </tr>
-                <tr>
-                    <td className='p-2 font-semibold'>Birth Place:</td>
-                    <td className='p-2'>{profile?.birthPlace}</td>
-                </tr>
-                <tr>
-                    <td className='p-2 font-semibold'>Date of Birth:</td>
-                    <td className='p-2'>{profile?.dateOfBirth}</td>
-                </tr>
-                <tr>
-                    <td className='p-2 font-semibold'>Time of Birth:</td>
-                    <td className='p-2'>{profile?.timeOfBirth}</td>
-                </tr>
-                <tr>
-                    <td className='p-2 font-semibold'>Age:</td>
-                    <td className='p-2'>{profile?.age}</td>
-                </tr>
-                <tr>
-                    <td className='p-2 font-semibold'>Height:</td>
-                    <td className='p-2'>{profile?.height}</td>
-                </tr>
-                <tr>
-                    <td className='p-2 font-semibold'>Color:</td>
-                    <td className='p-2'>{profile?.color}</td>
-                </tr>
-                <tr>
-                    <td className='p-2 font-semibold'>Blood Group:</td>
-                    <td className='p-2'>{profile?.bloodGroup}</td>
-                </tr>
-                <tr>
-                    <td className='p-2 font-semibold'>Category:</td>
-                    <td className='p-2'>{
-                    (profile?.category == 'remarriage') ? "Remarriage"
-                    : (profile?.category === 'physically_disabled') ? "Physically Disabled"
-                    : "New Marriage"
-                    }</td>
-                </tr>
+                {(profile?.presentlyWorking.status === 'Yes') && <tr>
+                    <td className='p-2 font-semibold'>साधन:</td>
+                    <td className='p-2'>{profile?.presentlyWorking.category}</td>
+                </tr>}
 
-                {/* if category is physically disabled */}
-                {
-                    (profile?.category == 'physically_disabled') && <tr>
-                        <td className='p-2 font-semibold'>Details of Physically Disability:</td>
-                        <td className='p-2'>{profile?.details_of_physically_disability}</td>
-                    </tr>
-                }
+                {(profile?.presentlyWorking.status === 'Yes') && <tr>
+                    <td className='p-2 font-semibold'>पदनाम (Designation):</td>
+                    <td className='p-2'>{profile?.presentlyWorking.designation}</td>
+                </tr>}
 
-                {
-                    (profile?.category == 'remarriage')&&<tr>
-                        <td className='p-2 font-semibold'>Details of Previous marriage:</td>
-                        <td className='p-2'>{profile?.details_of_previous_marriage}</td>
-                    </tr>
-                }
-               
-            
+                {(profile?.presentlyWorking.status === 'Yes') && <tr>
+                    <td className='p-2 font-semibold'>कामाबद्दल अधिक माहिती (Work details):</td>
+                    <td className='p-2'>{profile?.presentlyWorking.details}</td>
+                </tr>}
+
+                <tr>
+                    <td className='p-2 font-semibold'>वार्षिक उत्पन्न:</td>
+                    <td className='p-2'>{profile?.annualIncome} Rs.</td>
+                </tr>
+                <tr>
+                    <td className='p-2 font-semibold'>तुमच्या जोडीदाराकडून अपेक्षा:</td>
+                    <td className='p-2'>{profile?.expectation}</td>
+                </tr>
+                <tr>
+                    <td className='p-2 font-semibold'>छंद:</td>
+                    <td className='p-2'>{profile?.hobbies.join(',')}</td>
+                </tr>
+              
             </tbody>
         </table>
 
