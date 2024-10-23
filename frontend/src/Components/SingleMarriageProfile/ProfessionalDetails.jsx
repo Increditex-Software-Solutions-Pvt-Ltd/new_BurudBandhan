@@ -38,7 +38,7 @@ const ProfessionalDetails = ({profile}) => {
                 </tr>
                 <tr>
                     <td className='p-2 font-semibold'>छंद:</td>
-                    <td className='p-2'>{profile?.hobbies.join(',')}</td>
+                    <td className='p-2'>{profile?.hobbies.join(', ')}</td>
                 </tr>
               
             </tbody>
