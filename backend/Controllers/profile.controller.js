@@ -50,26 +50,50 @@ const profileController = {
         }
     },
     async getProfilesByFilter(req, res){
-        const {fullName, age, qualification} = req.query;
+        const {fullName, age, qualification, city, dist} = req.query;
         // get profiles by query parameters
         
         try{
             const user = await User.findById(req.user.id);
             let profiles;
+            let gender;
 
-           if(fullName){
-             profiles = await Profile.find({fullName});
+            // if user if admin
+            if(user.role == 'admin'){
+                profiles = await Profile.find();
+                // res.json(profiles);
+            }else{
+                
+                // if user is bride then she can see groom's profiles
+                // if user is groom then he can see bride's profiles
+                if(user.gender == 'female'){
+                    gender = "male";
+                }else{
+                    gender = "female";
+                }
 
-           }
+                if(fullName){
+                    profiles = await Profile.find({gender, fullName});
+       
+                  }
+       
+                  if(age){
+                   profiles = await Profile.find({gender, age});
+                  }
+       
+                  if(qualification){
+                   profiles = await Profile.find({gender, qualification});
+                  }
+       
+                  if(city){
+                   profiles = await Profile.find({gender, city});
+                  }
+       
+                  if(dist){
+                   profiles = await Profile.find({gender, dist});
+                  }
+            }
 
-           if(age){
-            profiles = await Profile.find({age});
-           }
-
-           if(qualification){
-            profiles = await Profile.find({qualification});
-           }
-    
             res.json(profiles);
              
             
