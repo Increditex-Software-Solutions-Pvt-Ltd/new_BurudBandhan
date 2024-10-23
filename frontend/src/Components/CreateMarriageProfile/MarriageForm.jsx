@@ -20,7 +20,7 @@ const iniProfile = {
     qualification:"",
     presentlyWorking:{
         status:"",
-        category:"",
+        // category:"",
         designation:"",
         details:""
     },

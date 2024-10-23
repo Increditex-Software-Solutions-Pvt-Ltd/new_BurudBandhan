@@ -63,9 +63,9 @@ const ProfessionalDetails = ({marriageProfile, setMarriageProfile, handleChange}
                         type="radio"
                         value='Yes'
                         onChange={handlePresentlyWorking}
-                        id='status'
+                        id='yes'
                         />
-                        <label htmlFor='status'>Yes</label>
+                        <label htmlFor='yes'>Yes</label>
                     </div>
                     <div className='flex gap-2 items-center'>
                         <input 
@@ -74,9 +74,9 @@ const ProfessionalDetails = ({marriageProfile, setMarriageProfile, handleChange}
                         type="radio"
                         onChange={handlePresentlyWorking}
                         value='No'
-                        id='status'
+                        id='no'
                         />
-                        <label htmlFor='status'>No</label>
+                        <label htmlFor='no'>No</label>
                     </div>
                 </div>
                 

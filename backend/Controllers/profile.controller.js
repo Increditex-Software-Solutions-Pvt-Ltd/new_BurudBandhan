@@ -4,7 +4,6 @@ const User = require('../Models/user.model');
 
 const profileController = {
     async addProfile(req, res){
-        // add your profile here
         const data = req.body;
 
         try{
