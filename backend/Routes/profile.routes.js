@@ -15,8 +15,11 @@ profileRouter.get("/", auth, profileController.getAllProfiles);
 // get profiles by filter
 profileRouter.get("/", auth, profileController.getProfilesByFilter);
 
-// get single profile
-profileRouter.get("/:id", auth, profileController.getSingleProfile);
+// get single marriage profile by user id
+profileRouter.get("/my-profile", auth, profileController.getSingleProfileByUserId);
+
+// get single marriage profile by profile id
+profileRouter.get("/:profileId", auth, profileController.getSingleProfileByProfileId);
 
 // update profile
 profileRouter.patch("/:id", auth, profileController.updateProfile);

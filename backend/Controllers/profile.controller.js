@@ -101,10 +101,19 @@ const profileController = {
             res.status(500).json({error: err.message});
         }
     },
-    async getSingleProfile(req, res){
-        // get single Profile by id here
+    async getSingleProfileByUserId(req, res){
+        // get single Profile by user id here
         try{
-            const profile = await Profile.findById(req.user.id);
+            const profile = await Profile.find({user:req.user.id});
+            res.json(profile);
+        }catch(err){
+            res.status(500).json({error: err.message});
+        }
+    },
+    async getSingleProfileByProfileId(req, res){
+        // get single Profile by profile id here
+        try{
+            const profile = await Profile.findById(req.params.profileId);
             res.json(profile);
         }catch(err){
             res.status(500).json({error: err.message});

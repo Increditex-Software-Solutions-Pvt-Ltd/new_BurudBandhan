@@ -1,7 +1,8 @@
-import { CREATE_PROFILE_FAIL, CREATE_PROFILE_SUCCESS, DELETE_PROFILE_FAIL, DELETE_PROFILE_SUCCESS, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, UPDATE_PROFILE_FAIL, UPDATE_PROFILE_SUCCESS } from "./profile.types";
+import { CREATE_PROFILE_FAIL, CREATE_PROFILE_SUCCESS, DELETE_PROFILE_FAIL, DELETE_PROFILE_SUCCESS, GET_PROFILE_BY_PROFILEID_FAIL, GET_PROFILE_BY_PROFILEID_SUCCESS, GET_PROFILE_BY_USERID_FAIL, GET_PROFILE_BY_USERID_SUCCESS, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, UPDATE_PROFILE_FAIL, UPDATE_PROFILE_SUCCESS } from "./profile.types";
 
 const iniState = {
     profiles:[],
+    myprofile:null,
     profile:null,
     loading:true,
     error:null,
@@ -27,12 +28,11 @@ export const profileReducer = (state=iniState, {type, payload})=>{
                     error:payload
                 };
             
-            // get profiles (either all or a specific profile)
+            // get all profiles
             case GET_PROFILE_SUCCESS:
                 return {
                     ...state,
                     profiles: Array.isArray(payload)?payload:state.profiles,
-                    profile: !Array.isArray(payload)?payload:state.profile,
                     loading:false,
                     error:null
                 };
@@ -42,6 +42,38 @@ export const profileReducer = (state=iniState, {type, payload})=>{
                     loading:false,
                     error:payload
                 };
+            
+            // get profile by user id (my profile)
+            case GET_PROFILE_BY_USERID_SUCCESS:
+                
+                return {
+                    ...state,
+                    myprofile: !Array.isArray(payload)?payload:state.profile,
+                    loading:false,
+                    error:null
+                };
+            case GET_PROFILE_BY_USERID_FAIL:
+                return {
+                    ...state,
+                    loading:false,
+                    error:payload
+                };
+            
+                // get profile by profile id
+            case GET_PROFILE_BY_PROFILEID_SUCCESS:
+                return {
+                    ...state,
+                    profile: !Array.isArray(payload)?payload:state.profile,
+                    loading:false,
+                    error:null
+                };
+            case GET_PROFILE_BY_PROFILEID_FAIL:
+                return {
+                    ...state,
+                    loading:false,
+                    error:payload
+                };
+            
             
             // update profile
             case UPDATE_PROFILE_SUCCESS:
