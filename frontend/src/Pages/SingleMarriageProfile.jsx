@@ -2,6 +2,10 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
 import { getMarriageProfileByProfileId } from '../Redux/Profiles/profiles.actions';
+import PersonalDetails from '../Components/SingleMarriageProfile/PersonalDetails';
+import ProfessionalDetails from '../Components/SingleMarriageProfile/ProfessionalDetails';
+import FamilyDetails from '../Components/SingleMarriageProfile/FamilyDetails';
+import CommunicationDetails from '../Components/SingleMarriageProfile/CommunicationDetails';
 
 const SingleMarriageProfile = () => {
     const dispatch = useDispatch();
@@ -15,72 +19,31 @@ const SingleMarriageProfile = () => {
     },[dispatch]);
 
   return (
-    <div>
-        <div className='text-left'>
-            <div className='border text-center'>
-                <img className='w-[200px] h-[200px] m-auto' src={profile?.photo} />
+    <div className='bg-gray-50 py-[80px]'>
+        <div className='border 
+        w-[50%] m-auto  
+        p-6 py-10 text-left
+        flex flex-col gap-6
+        bg-white
+         '>
+            <div className='text-center'>
+                <img className='border border-gray-200 w-[200px] h-[200px] m-auto' src={profile?.photo} />
             </div>
             {/* Personal details */}
-            <div>
-                <div className='flex items-center gap-6'>
-                    <p>Full Name:</p>
-                    <p>{profile?.fullName}</p>
-                </div>
-
-                <div className='flex items-center gap-6'>
-                    <p>Gender:</p>
-                    <p>{profile?.gender}</p>
-                </div>
-                <div className='flex items-center gap-6'>
-                    <p>Birth Name:</p>
-                    <p>{profile?.birthName}</p>
-                </div>
-                <div className='flex items-center gap-6'>
-                    <p>Birth Place:</p>
-                    <p>{profile?.birthPlace}</p>
-                </div>
-                <div className='flex items-center gap-6'>
-                    <p>Date of Birth:</p>
-                    <p>{profile?.dateOfBirth}</p>
-                </div>
-                <div className='flex items-center gap-6'>
-                    <p>Time of Birth:</p>
-                    <p>{profile?.timeOfBirth}</p>
-                </div>
-                <div className='flex items-center gap-6'>
-                    <p>Age:</p>
-                    <p>{profile?.age}</p>
-                </div>
-                <div className='flex items-center gap-6'>
-                    <p>Height:</p>
-                    <p>{profile?.height}</p>
-                </div>
-                <div className='flex items-center gap-6'>
-                    <p>Color:</p>
-                    <p>{profile?.color}</p>
-                </div>
-                <div className='flex items-center gap-6'>
-                    <p>Date of Birth:</p>
-                    <p>{profile?.dateOfBirth}</p>
-                </div>
-                <div className='flex items-center gap-6'>
-                    <p>Blood Group:</p>
-                    <p>{profile?.bloodGroup}</p>
-                </div>
-                <div className='flex items-center gap-6'>
-                    <p>Date of Birth:</p>
-                    <p>{profile?.dateOfBirth}</p>
-                </div>
-                <div className='flex items-center gap-6'>
-                    <p>Category:</p>
-                    <p>{profile?.category}</p>
-                </div>
-
-            </div>
+            <h1 className='text-xl text-sky-800 font-bold'>Personal Details</h1>
+            <PersonalDetails profile={profile} />
 
             {/* Professional details */}
+            <h1 className='text-xl text-sky-800 font-bold'>Professional Details</h1>
+            <ProfessionalDetails profile={profile} />
+
             {/* Family details */}
+            <h1 className='text-xl text-sky-800 font-bold'>Family Details</h1>
+            <FamilyDetails profile={profile} />
+
             {/* Communication details */}
+            <h1 className='text-xl text-sky-800 font-bold'>Communication Details</h1>
+            <CommunicationDetails profile={profile} />
 
 
             
