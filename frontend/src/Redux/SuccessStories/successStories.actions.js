@@ -15,6 +15,7 @@ export const createSuccessStory = (story)=> async (dispatch) =>{
 export const getAllSuccessStories = () => async(dispatch)=>{
     try{
         const res = await api.get('/success-stories');
+        console.log(res.data);
         dispatch({type:GET_SUCCESS_STORY_SUCCESS, payload:res.data});
     }catch(err){
         dispatch({type:GET_SUCCESS_STORY_FAIL, payload:err.response?.data?.message || "Failed to get all success stories!"});
