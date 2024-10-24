@@ -15,6 +15,7 @@ import UserProfile from '../Pages/UserProfile';
 import Setting from '../Pages/Setting';
 import CreateMarriageProfile from '../Pages/CreateMarriageProfile';
 import SingleMarriageProfile from '../Pages/SingleMarriageProfile';
+import UpdateMarriageProfile from '../Pages/UpdateMarriageProfile';
 
 const AllRoutes = () => {
   return (
@@ -28,6 +29,7 @@ const AllRoutes = () => {
           <Route path='/profile' element={<Profile />} />
           <Route path='/user-profile' element={<UserProfile />} />
           <Route path='/create-marriage-profile' element={<CreateMarriageProfile />} />
+          <Route path='/update-marriage-profile' element={<UpdateMarriageProfile />} />
           <Route path='/profile/:profileId' element={<SingleMarriageProfile />} />
           <Route path='/setting' element={<Setting />} />
           <Route path='/register' element={<Register />} />

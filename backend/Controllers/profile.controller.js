@@ -104,7 +104,8 @@ const profileController = {
     async getSingleProfileByUserId(req, res){
         // get single Profile by user id here
         try{
-            const profile = await Profile.find({user:req.user.id});
+            const profile = await Profile.findOne({user:req.user.id});
+            
             res.json(profile);
         }catch(err){
             res.status(500).json({error: err.message});

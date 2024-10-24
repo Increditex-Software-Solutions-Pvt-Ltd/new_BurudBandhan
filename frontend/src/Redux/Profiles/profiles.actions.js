@@ -11,7 +11,7 @@ export const createMarriageProfile = (profile)=> async (dispatch) =>{
     }
 }
 
-// get all user marriage profile
+// get all user marriage profiles
 export const getAllMarriageProfiles = () => async(dispatch)=>{
     try{
         const res = await api.get('/marriage-profile');
@@ -25,6 +25,7 @@ export const getAllMarriageProfiles = () => async(dispatch)=>{
 export const getMarriageProfileByUserId = () => async(dispatch)=>{
     try{
         const res = await api.get(`/marriage-profile/my-profile`);
+        
         dispatch({type:GET_PROFILE_BY_USERID_SUCCESS, payload:res.data});
     }catch(err){
         dispatch({type:GET_PROFILE_BY_USERID_FAIL, payload:err.response?.data?.message || "Failed to get profile!"});
@@ -44,6 +45,7 @@ export const getMarriageProfileByProfileId = (profileId) => async(dispatch)=>{
 
 // update user marriage profile by id
 export const updateMarriageProfile = (profileData, profileId) => async (dispatch)=>{
+    console.log(profileId, profileData);
     try{
         const res = await api.patch(`/marriage-profile/${profileId}`, profileData);
         dispatch({type:UPDATE_PROFILE_SUCCESS, payload:res.data});
