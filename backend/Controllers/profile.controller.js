@@ -123,10 +123,40 @@ const profileController = {
     async updateProfile(req, res){
         // update your profile here
         const {
-            fullName, photo, qualification, presentlyWorking,
-            annualIncome, expectation, hobbies, fatherOccupation, familyMembers,
-            relativesSurnameList, email, personalContact, parentsContact, currentAddress,
-            state, district, taluka, town, postalCode  
+            fullName,
+            birthName,
+            birthPlace,
+            dateOfBirth,
+            age,
+            timeOfBirth,
+            height,
+            color,
+            bloodGroup, 
+            photo, 
+            qualification, 
+            presentlyWorking,
+            annualIncome,
+            expectation, 
+            hobbies,
+            permenantAddress,
+            fatherName, 
+            fatherOccupation, 
+            motherName,
+            totalFamilyMembers,
+            maternalUncleName,
+            relativesSurnameList, 
+            email, 
+            personalContact, 
+            parentsContact,
+            uncleContact, 
+            currentAddress,
+            gender,
+            category,
+            details_of_physically_disability,
+            details_of_previous_marriage,
+            city, 
+            dist
+             
         } = req.body;
 
         try{
@@ -137,24 +167,38 @@ const profileController = {
 
             // add required updates here
             if(fullName) profile.fullName = fullName;
+            if(birthName) profile.birthName = birthName;
+            if(birthPlace) profile.birthPlace = birthPlace;
+            if(dateOfBirth) profile.dateOfBirth = dateOfBirth;
+            if(age) profile.age = age;
+            if(timeOfBirth) profile.timeOfBirth = timeOfBirth;
+            if(height) profile.height = height;
+            if(color) profile.color = color;
+            if(bloodGroup) profile.bloodGroup = bloodGroup;
             if(photo) profile.photo = photo;
             if(qualification) profile.qualification = qualification;
             if(presentlyWorking) profile.presentlyWorking = presentlyWorking;
             if(annualIncome) profile.annualIncome = annualIncome;
             if(expectation) profile.expectation = expectation;
             if(hobbies) profile.hobbies = hobbies;
+            if(permenantAddress) profile.permenantAddress = permenantAddress;
+            if(fatherName) profile.fatherName = fatherName;
             if(fatherOccupation) profile.fatherOccupation = fatherOccupation;
-            if(familyMembers) profile.familyMembers = familyMembers;
+            if(motherName) profile.motherName = motherName;
+            if(totalFamilyMembers) profile.totalFamilyMembers = totalFamilyMembers;
+            if(maternalUncleName) profile.maternalUncleName = maternalUncleName;
             if(relativesSurnameList) profile.relativesSurnameList = relativesSurnameList;
             if(email) profile.email = email;
             if(personalContact) profile.personalContact = personalContact;
             if(parentsContact) profile.parentsContact = parentsContact;
+            if(uncleContact) profile.uncleContact = uncleContact;
             if(currentAddress) profile.currentAddress = currentAddress;
-            if(state) profile.state = state;
-            if(district) profile.district = district;
-            if(taluka) profile.taluka = taluka;
-            if(town) profile.town = town;
-            if(postalCode) profile.postalCode = postalCode;
+            if(gender) profile.gender = gender;
+            if(category) profile.category = category;
+            if(details_of_physically_disability) profile.details_of_physically_disability = details_of_physically_disability;
+            if(details_of_previous_marriage) profile.details_of_previous_marriage = details_of_previous_marriage;
+            if(city) profile.city = city;
+            if(dist) profile.dist = dist;
     
             await profile.save();
             res.status(200).json({message:"Profile updated successfully!"});
