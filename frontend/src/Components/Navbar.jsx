@@ -42,10 +42,10 @@ const Navbar = () => {
       
   },[dispatch]);
 
-  useEffect(()=>{
-    if(user)
-      console.log(user.role);
-  },[user]);
+  // useEffect(()=>{
+  //   if(user)
+  //     console.log(user.role);
+  // },[user]);
 
   return (
     <div>
@@ -74,7 +74,13 @@ const Navbar = () => {
                     Sucess Videos 
                   </option>
                 </select>
-                <a className='hover:underline underline-offset-8 decoration-red-400 decoration-2' href="/profile">Profile</a>
+                <a className='hover:underline 
+                underline-offset-8 
+                decoration-red-400 
+                decoration-2' 
+                href="/profile">
+                Marriage Profiles
+                </a>
                 
               </nav>
 
