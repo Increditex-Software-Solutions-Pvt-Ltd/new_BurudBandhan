@@ -37,7 +37,6 @@ const Navbar = () => {
     if(isAuthenticated){
       dispatch(getUser());
       // console.log(user);
-      
     }
       
   },[dispatch]);
