@@ -10,12 +10,12 @@ const SearchNavbar = () => {
     border 
     mb-[500px]
     '>
-        <div>
+        <div className='w-1/3 text-3xl text-sky-800'>
             <MdMenu />
         </div>
-        <div className='flex items-center justify-between'>
+        <div className='w-[66%] flex items-center justify-between'>
             <div className='
-            w-[30%]
+            w-[40%]
             px-4 py-2
             flex 
             items-center 
@@ -28,9 +28,9 @@ const SearchNavbar = () => {
                 <input className=' w-full focus:outline-none px-2' type='text' placeholder='Search by name' />
             </div>
             <div className='flex items-center gap-6 text-white font-semibold'>
-                <button className='px-6 py-2 rounded-full bg-red-400'>All</button>
-                <button className='px-6 py-2 rounded-full bg-red-400'>Bride</button>
-                <button className='px-6 py-2 rounded-full bg-red-400'>Groom</button>
+                <button className='px-6 py-2 rounded-full bg-red-400 hover:bg-red-500'>All</button>
+                <button className='px-6 py-2 rounded-full bg-red-400 hover:bg-red-500'>Bride</button>
+                <button className='px-6 py-2 rounded-full bg-red-400 hover:bg-red-500'>Groom</button>
             </div>
         </div>
         
