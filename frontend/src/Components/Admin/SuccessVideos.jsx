@@ -17,7 +17,7 @@ const SuccessVideos = () => {
   return (
     <div>
       {/* top section */}
-      <HeadingAndButtonFlex heading="Success Stories" buttonInnerText="Add New Video" />
+      <HeadingAndButtonFlex heading="Success Videos" buttonInnerText="Add New Video" />
       
       {/* add filters */}
       <div className='flex justify-between items-center m-6'>

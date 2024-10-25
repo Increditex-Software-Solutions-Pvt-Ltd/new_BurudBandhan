@@ -62,7 +62,7 @@ const ProfileCard = ({profile}) => {
 
 
         {/* send request */}
-        <div className='text-center my-6'>
+        {/* <div className='text-center my-6'>
               <button className=' 
               py-2 px-4 
               rounded-lg
@@ -71,7 +71,7 @@ const ProfileCard = ({profile}) => {
               '
               onClick={()=>navigate(`/profile/${profile._id}`)}
               >Send Request</button>
-        </div> 
+        </div>  */}
     </div>
   )
 }
