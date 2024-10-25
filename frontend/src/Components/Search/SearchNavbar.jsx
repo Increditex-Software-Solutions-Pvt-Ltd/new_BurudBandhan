@@ -7,11 +7,11 @@ const SearchNavbar = () => {
     flex 
     items-center 
     py-4 px-[40px]
-    border 
+    border-b
     mb-[500px]
     '>
         <div className='w-1/3 text-3xl text-sky-800'>
-            <MdMenu />
+            <MdMenu className='cursor-pointer' />
         </div>
         <div className='w-[66%] flex items-center justify-between'>
             <div className='
