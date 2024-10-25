@@ -47,6 +47,8 @@ const ProfileCard = ({profile}) => {
               <p>{profile.city}, {profile.dist}</p>   
             </div>  
         </div>
+
+        {/* view profile */}
         <div className='text-center my-6'>
               <button className=' 
               py-2 px-4 
@@ -56,7 +58,20 @@ const ProfileCard = ({profile}) => {
               '
               onClick={()=>navigate(`/profile/${profile._id}`)}
               >View Full Profile</button>
-        </div>                   
+        </div> 
+
+
+        {/* send request */}
+        <div className='text-center my-6'>
+              <button className=' 
+              py-2 px-4 
+              rounded-lg
+              bg-sky-600 hover:bg-sky-700
+              text-white 
+              '
+              onClick={()=>navigate(`/profile/${profile._id}`)}
+              >Send Request</button>
+        </div> 
     </div>
   )
 }
