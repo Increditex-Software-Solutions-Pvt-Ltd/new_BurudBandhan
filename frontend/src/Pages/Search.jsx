@@ -7,10 +7,10 @@ const Search = () => {
   return (
     <div>
       <SearchNavbar />
-      {/* <div className='flex'>
+      <div className='flex'>
         <Sidebar/>
         <Container />
-      </div> */}
+      </div>
 
     </div>
   )

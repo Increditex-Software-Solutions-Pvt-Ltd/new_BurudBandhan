@@ -8,7 +8,7 @@ const SearchNavbar = () => {
     items-center 
     py-4 px-[40px]
     border-b
-    mb-[500px]
+   
     '>
         <div className='w-1/3 text-3xl text-sky-800  lg:hidden'>
             <MdMenu className='cursor-pointer' />
@@ -30,7 +30,7 @@ const SearchNavbar = () => {
             text-[18px]
             '>
                 <MdSearch />
-                <input className='w-full focus:outline-none px-2' type='text' placeholder='Search by name' />
+                <input className='w-full focus:outline-none px-2' type='text' placeholder='Search by name, city, profession' />
             </div>
             <div className='flex items-center gap-6 text-white font-semibold'>
                 <button className='px-6 py-2 rounded-full bg-red-400 hover:bg-red-500'>All</button>

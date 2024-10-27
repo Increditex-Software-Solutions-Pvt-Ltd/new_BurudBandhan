@@ -2,7 +2,9 @@ import React from 'react'
 
 const Container = () => {
   return (
-    <div>Container</div>
+    <div className='border border-red-400 w-[80%]'>
+      
+    </div>
   )
 }
 

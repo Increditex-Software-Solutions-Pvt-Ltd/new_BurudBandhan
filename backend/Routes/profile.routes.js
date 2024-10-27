@@ -13,7 +13,7 @@ profileRouter.post("/create", auth, profileController.addProfile);
 profileRouter.get("/", auth, profileController.getAllProfiles);
 
 // get profiles by filter
-profileRouter.get("/", auth, profileController.getProfilesByFilter);
+profileRouter.get("/search", auth, profileController.getProfilesByFilter);
 
 // get single marriage profile by user id
 profileRouter.get("/my-profile", auth, profileController.getSingleProfileByUserId);
