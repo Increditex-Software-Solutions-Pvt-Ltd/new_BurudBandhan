@@ -49,6 +49,44 @@ const profileController = {
             res.status(500).json({error: err.message});
         }
     },
+    async getProfilesBySearch(req, res){
+        const {query} = req.query;
+        try{
+            const user = await User.findById(req.user.id);
+            let profiles;
+            let gender;
+
+            // Search by name, city, or profession using case-insensitive regex
+            const searchQuery = {
+                $or:[
+                    {fullName:{ $regex:query, $options:'i' }},
+                    {city:{ $regex:query, $options:'i' }},
+                    {"presentlyWorking.designation":{ $regex:query, $options:'i' }}
+                ]
+            }
+
+            // if user if admin
+            if(user.role == 'admin'){
+                profiles = await Profile.find(searchQuery);
+                // res.json(profiles);
+            }else{
+                
+                // if user is bride then she can see groom's profiles
+                // if user is groom then he can see bride's profiles
+                gender = user.gender==='female'?'male':'female';
+
+                profiles = await Profile.find({
+                    ...searchQuery,
+                    gender:gender  
+                });
+
+            }
+            
+            res.json(profiles);
+        }catch(err){
+            res.status(500).send(err.message);
+        }
+    },
     async getProfilesByFilter(req, res){
         const {fullName, age, qualification, city, dist} = req.query;
         // get profiles by query parameters
