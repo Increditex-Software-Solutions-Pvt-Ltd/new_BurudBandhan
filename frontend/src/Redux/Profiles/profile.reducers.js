@@ -1,4 +1,4 @@
-import { CREATE_PROFILE_FAIL, CREATE_PROFILE_SUCCESS, DELETE_PROFILE_FAIL, DELETE_PROFILE_SUCCESS, GET_PROFILE_BY_PROFILEID_FAIL, GET_PROFILE_BY_PROFILEID_SUCCESS, GET_PROFILE_BY_USERID_FAIL, GET_PROFILE_BY_USERID_SUCCESS, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, UPDATE_PROFILE_FAIL, UPDATE_PROFILE_SUCCESS } from "./profile.types";
+import { CREATE_PROFILE_FAIL, CREATE_PROFILE_SUCCESS, DELETE_PROFILE_FAIL, DELETE_PROFILE_SUCCESS, GET_PROFILE_BY_PROFILEID_FAIL, GET_PROFILE_BY_PROFILEID_SUCCESS, GET_PROFILE_BY_SEARCH_FAIL, GET_PROFILE_BY_SEARCH_SUCCESS, GET_PROFILE_BY_USERID_FAIL, GET_PROFILE_BY_USERID_SUCCESS, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, UPDATE_PROFILE_FAIL, UPDATE_PROFILE_SUCCESS } from "./profile.types";
 
 const iniState = {
     profiles:[],
@@ -37,6 +37,21 @@ export const profileReducer = (state=iniState, {type, payload})=>{
                     error:null
                 };
             case GET_PROFILE_FAIL:
+                return {
+                    ...state,
+                    loading:false,
+                    error:payload
+                };
+            
+            // get profiles by search
+            case GET_PROFILE_BY_SEARCH_SUCCESS:
+                return {
+                    ...state,
+                    profiles: Array.isArray(payload)?payload:state.profiles,
+                    loading:false,
+                    error:null
+                };
+            case GET_PROFILE_BY_SEARCH_FAIL:
                 return {
                     ...state,
                     loading:false,

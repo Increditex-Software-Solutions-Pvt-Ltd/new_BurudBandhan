@@ -1,5 +1,18 @@
 import api from "../api"
-import { CREATE_PROFILE_FAIL, CREATE_PROFILE_SUCCESS, DELETE_PROFILE_FAIL, DELETE_PROFILE_SUCCESS, GET_PROFILE_BY_PROFILEID_FAIL, GET_PROFILE_BY_PROFILEID_SUCCESS, GET_PROFILE_BY_USERID_FAIL, GET_PROFILE_BY_USERID_SUCCESS, GET_PROFILE_FAIL, GET_PROFILE_SUCCESS, UPDATE_PROFILE_FAIL, UPDATE_PROFILE_SUCCESS } from "./profile.types";
+import { CREATE_PROFILE_FAIL, 
+    CREATE_PROFILE_SUCCESS, 
+    DELETE_PROFILE_FAIL, 
+    DELETE_PROFILE_SUCCESS, 
+    GET_PROFILE_BY_PROFILEID_FAIL, 
+    GET_PROFILE_BY_PROFILEID_SUCCESS, 
+    GET_PROFILE_BY_SEARCH_FAIL, 
+    GET_PROFILE_BY_SEARCH_SUCCESS, 
+    GET_PROFILE_BY_USERID_FAIL, 
+    GET_PROFILE_BY_USERID_SUCCESS, 
+    GET_PROFILE_FAIL, 
+    GET_PROFILE_SUCCESS, 
+    UPDATE_PROFILE_FAIL, 
+    UPDATE_PROFILE_SUCCESS } from "./profile.types";
 
 // create marriage profile for marriage
 export const createMarriageProfile = (profile)=> async (dispatch) =>{
@@ -18,6 +31,16 @@ export const getAllMarriageProfiles = () => async(dispatch)=>{
         dispatch({type:GET_PROFILE_SUCCESS, payload:res.data});
     }catch(err){
         dispatch({type:GET_PROFILE_FAIL, payload:err.response?.data?.message || "Failed to get profiles!"});
+    }
+}
+
+// get marriage profiles by search
+export const getMarriageProfilesBySearch = (query) => async(dispatch)=>{
+    try{
+        const res = await api.get(`/marriage-profile/search?${query}`);
+        dispatch({type:GET_PROFILE_BY_SEARCH_SUCCESS, payload:res.data});
+    }catch(err){
+        dispatch({type:GET_PROFILE_BY_SEARCH_FAIL, payload:err.response?.data?.message || "Failed to get profiles!"});
     }
 }
 
