@@ -34,6 +34,18 @@ export const getAllMarriageProfiles = () => async(dispatch)=>{
     }
 }
 
+// get marriage profiles by filter
+export const getMarriageProfilesByFilter = (gender) => async(dispatch)=>{
+    try{
+        
+        const res = await api.get(`/marriage-profile/filter?gender=${gender}`);
+        console.log(res.data);
+        dispatch({type:GET_PROFILE_SUCCESS, payload:res.data});
+    }catch(err){
+        dispatch({type:GET_PROFILE_FAIL, payload:err.response?.data?.message || "Failed to get profiles!"});
+    }
+}
+
 // get marriage profiles by search
 export const getMarriageProfilesBySearch = (query) => async(dispatch)=>{
     try{

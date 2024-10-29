@@ -1,7 +1,10 @@
 import React from 'react';
 import { MdMenu, MdSearch } from "react-icons/md";
+import { getAllMarriageProfiles } from '../../Redux/Profiles/profiles.actions';
+import { useDispatch } from 'react-redux';
 
-const SearchNavbar = ({handleSearch}) => {
+const SearchNavbar = ({handleGender ,handleSearch}) => {
+    const dispatch = useDispatch();
   return (
     <div className='
     flex 
@@ -33,9 +36,9 @@ const SearchNavbar = ({handleSearch}) => {
                 <input onChange={handleSearch} className='w-full focus:outline-none px-2' type='text' placeholder='Search by name, city, profession' />
             </div>
             <div className='flex items-center gap-6 text-white font-semibold'>
-                <button className='px-6 py-2 rounded-full bg-red-400 hover:bg-red-500'>All</button>
-                <button className='px-6 py-2 rounded-full bg-red-400 hover:bg-red-500'>Bride</button>
-                <button className='px-6 py-2 rounded-full bg-red-400 hover:bg-red-500'>Groom</button>
+                <button onClick={()=>dispatch(getAllMarriageProfiles())} className='px-6 py-2 rounded-full bg-red-400 hover:bg-red-500'>All</button>
+                <button onClick={()=>handleGender('female')} className='px-6 py-2 rounded-full bg-red-400 hover:bg-red-500'>Bride</button>
+                <button onClick={()=>handleGender('male')} className='px-6 py-2 rounded-full bg-red-400 hover:bg-red-500'>Groom</button>
             </div>
         </div>
         

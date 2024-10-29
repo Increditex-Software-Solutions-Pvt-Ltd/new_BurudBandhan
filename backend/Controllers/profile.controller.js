@@ -86,7 +86,6 @@ const profileController = {
     async getProfilesByFilter(req, res){
         const { age, qualification, gender} = req.query;
         // get profiles by query parameters
-        
         try{
             const user = await User.findById(req.user.id);
             let profiles;
@@ -122,9 +121,7 @@ const profileController = {
        
             }
 
-            res.json(profiles);
-             
-            
+            res.json(profiles);    
         }catch(err){
             res.status(500).json({error: err.message});
         }

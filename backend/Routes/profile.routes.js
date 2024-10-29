@@ -13,7 +13,7 @@ profileRouter.post("/create", auth, profileController.addProfile);
 profileRouter.get("/", auth, profileController.getAllProfiles);
 
 // get profiles by filter
-profileRouter.get("/", auth, profileController.getProfilesByFilter);
+profileRouter.get("/filter", auth, profileController.getProfilesByFilter);
 
 // get profiles by search
 profileRouter.get("/search", auth, profileController.getProfilesBySearch);
