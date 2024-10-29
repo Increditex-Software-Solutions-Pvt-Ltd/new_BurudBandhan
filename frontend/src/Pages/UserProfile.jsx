@@ -15,36 +15,68 @@ const UserProfile = () => {
   },[dispatch]);
 
   return (
-    <div className='px-[20px] py-[80px]'>
+    <div className='px-[20px] py-[80px] bg-gray-100'>
         {
           user && (
-            <div className='border px-8 py-10 border-red-400 w-[70%] m-auto'>
+            <div className=' 
+            px-8 py-[100px] 
+          bg-white rounded-xl
+            shadow-xl
+            w-[50%] m-auto
+            flex flex-col 
+            gap-6
+            '>
               
-              <div className='flex flex-col justify-center items-center'>
+              <div className='flex 
+              flex-col 
+              justify-center 
+              items-center
+              gap-[20px]
+              '>
                 {/* see or update profile photo */}
                 <div>
                   <img className='border w-[180px] h-[180px]' src="person.png" alt="Profile photo" />
                 </div>
                 {/* update profile details */}
                 <div className='flex items-center gap-4'>
-                  <button>Update Profile</button>
-                  <button>Change Password</button>
+                  <button className=' 
+                  rounded-xl 
+                  px-4 py-2
+                  bg-sky-600 hover:bg-sky-500 
+                  text-white
+                  font-semibold
+                  '>Update Profile</button>
+                  <button className=' 
+                  rounded-xl 
+                  px-4 py-2
+                  bg-sky-600 hover:bg-sky-500
+                  text-white
+                  font-semibold
+                  '
+                  >Change Password</button>
                 </div>
+              </div>
+
+              <div className='mt-[60px] mb-[30px]'>
+                <h1 className='font-bold text-3xl text-sky-800'>User Details</h1>
               </div>
               
               {/* display all info in table */}
-              <table className='text-left'>
+              <table className='
+              text-left 
+              text-xl
+              '>
                 <tr>
-                  <td>Full Name:</td>
-                  <td>{user.fullName}</td>
+                  <td className='p-2 font-semibold'>Full Name:</td>
+                  <td className='p-2'>{user.fullName}</td>
                 </tr>
                 <tr>
-                  <td>Email:</td>
-                  <td>{user.email}</td>
+                  <td className='p-2 font-semibold'>Email:</td>
+                  <td className='p-2'>{user.email}</td>
                 </tr>
                 <tr>
-                  <td>Gender</td>
-                  <td>{user.gender}</td>
+                  <td className='p-2 font-semibold'>Gender</td>
+                  <td className='p-2'>{user.gender}</td>
                 </tr>
               </table>
 
