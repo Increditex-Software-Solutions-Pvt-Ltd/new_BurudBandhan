@@ -12,7 +12,7 @@ const Profiles = ({profiles}) => {
         {   
             (profiles.length == 0)?<ProfilesNotFound />
             :<div className='
-             w-[80%] m-auto my-[80px] p-4 text-left
+             w-[80%] m-auto py-[80px] p-4 text-left
             grid 
             grid-cols-1 md:grid-cols-2 lg:grid-cols-4
             gap-10

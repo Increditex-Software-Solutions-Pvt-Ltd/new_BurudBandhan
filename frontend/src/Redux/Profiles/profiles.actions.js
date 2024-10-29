@@ -37,7 +37,7 @@ export const getAllMarriageProfiles = () => async(dispatch)=>{
 // get marriage profiles by search
 export const getMarriageProfilesBySearch = (query) => async(dispatch)=>{
     try{
-        const res = await api.get(`/marriage-profile/search?${query}`);
+        const res = await api.get(`/marriage-profile/search?query=${query}`);
         dispatch({type:GET_PROFILE_BY_SEARCH_SUCCESS, payload:res.data});
     }catch(err){
         dispatch({type:GET_PROFILE_BY_SEARCH_FAIL, payload:err.response?.data?.message || "Failed to get profiles!"});
