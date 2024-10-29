@@ -27,6 +27,10 @@ const Search = () => {
     <div>
       <SearchNavbar handleGender={handleGender} handleSearch={handleSearch}  />
       <div className=''>
+         {/* Render a loading message or spinner */}
+        {loading && <p>Loading profiles...</p>}
+        {/* Render an error message if there's an error */}
+        {error && <p>Error: {error}</p>}
         {/* <Sidebar/> */}
         {profiles && <Profiles profiles={profiles} />}
       </div>
