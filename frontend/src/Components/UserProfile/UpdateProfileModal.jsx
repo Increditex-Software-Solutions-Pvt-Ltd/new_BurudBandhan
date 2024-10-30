@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
+import { MdClose } from "react-icons/md";
 
 const UpdateProfileModal = ({user}) => {
     const [updatedUser, setUpdatedUser] = useState(user);
@@ -31,9 +32,10 @@ const UpdateProfileModal = ({user}) => {
         items-center
         border-b p-2
         font-semibold
+        text-[18px]
         '>
             <p className=''>Update User details</p>
-            <p>Close</p>
+            <MdClose className='cursor-pointer' />
         </div>
         <form
         className='
