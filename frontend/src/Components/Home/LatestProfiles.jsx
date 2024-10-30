@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 const profileData = [
   {name:'Sakshi Shinde', profile:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYxsG3Ac8-CCLG3PzEvZXAfVoQxmjHleJqjg&s', age:25, location:'Nashik', mobile:'9999999999', education:'Bcom', profession:'CA'},
@@ -11,6 +12,7 @@ const profileData = [
 
 const LatestProfiles = () => {
   const [profiles, setProfiles] = useState(profileData);
+  const navigate = useNavigate();
 
   return (
     <div className=' mb-[80px]'>
@@ -20,7 +22,7 @@ const LatestProfiles = () => {
         <div className='w-[80%] m-auto mt-[50px] flex flex-wrap lg:flex-nowrap justify-between '>
           {
             profiles.map((item, i) => (
-              <div className='cursor-pointer rounded-2xl hover:shadow-lg hover:shadow-red-300 p-4' key={i}>
+              <div className='cursor-pointer rounded-2xl hover:shadow-lg hover:shadow-gray-300 p-4' key={i}>
                   <div className=''>
                     <img className='w-[200px] h-[200px] m-auto rounded-full' src={item.profile} alt={item.name} />
                   </div>
@@ -36,7 +38,7 @@ const LatestProfiles = () => {
           }
         </div>
 
-        <button className='w-fit mt-12 py-4 px-10 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl'>अधिक प्रोफाईल पहा</button>
+        <button onClick={()=>navigate('/profile')} className='w-fit mt-12 py-4 px-10 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl'>अधिक प्रोफाईल पहा</button>
 
         
     </div>
