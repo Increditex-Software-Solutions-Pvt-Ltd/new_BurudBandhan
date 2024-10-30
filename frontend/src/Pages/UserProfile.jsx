@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import { getUser } from "../Redux/User/user.actions";
 import UpdateProfileModal from '../Components/UserProfile/UpdateProfileModal';
@@ -8,6 +8,22 @@ import ChangePasswordModal from '../Components/UserProfile/ChangePasswordModal';
 const UserProfile = () => {
   const dispatch = useDispatch();
   const {isAuthenticated, user, error, loading} = useSelector(store=>store.user);
+  const [updateModal, setUpdateModal] = useState(false);
+  const [changePasswordModal, setChangePasswordModal] = useState(false);
+
+  const onUpdateOpen = ()=>{
+    setUpdateModal(true);
+  }
+  const onUpdateClose = ()=>{
+    setUpdateModal(false);
+  }
+
+  const onChangePwdOpen = ()=>{
+    setChangePasswordModal(true);
+  }
+  const onChangePwdClose = ()=>{
+    setChangePasswordModal(false);
+  }
 
   useEffect(()=>{
     if(isAuthenticated){
@@ -41,14 +57,18 @@ const UserProfile = () => {
                 </div>
                 {/* update profile details */}
                 <div className='flex items-center gap-4 relative'>
-                  <button className=' 
+                  <button 
+                  onClick={onUpdateOpen}
+                  className=' 
                   rounded-xl 
                   px-4 py-2
                   bg-sky-600 hover:bg-sky-500 
                   text-white
                   font-semibold
                   '>Update Profile</button>
-                  <button className=' 
+                  <button 
+                  onClick={onChangePwdOpen}
+                  className=' 
                   rounded-xl 
                   px-4 py-2
                   bg-sky-600 hover:bg-sky-500
@@ -58,10 +78,10 @@ const UserProfile = () => {
                   >Change Password</button>
 
                   {/* update profile modal */}
-                  <UpdateProfileModal user={user} />
+                  {updateModal && <UpdateProfileModal onUpdateClose={onUpdateClose} user={user} />}
 
                   {/* change passoword modal */}
-                  {/* <ChangePasswordModal /> */}
+                  {changePasswordModal && <ChangePasswordModal onChangePwdClose={onChangePwdClose} />}
                 </div>
               </div>
 

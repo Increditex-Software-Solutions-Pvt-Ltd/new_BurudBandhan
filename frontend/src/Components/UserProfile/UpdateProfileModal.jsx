@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { MdClose } from "react-icons/md";
 
-const UpdateProfileModal = ({user}) => {
+const UpdateProfileModal = ({onUpdateClose, user}) => {
     const [updatedUser, setUpdatedUser] = useState(user);
     const dispatch = useDispatch();
     
@@ -35,7 +35,7 @@ const UpdateProfileModal = ({user}) => {
         text-[18px]
         '>
             <p className=''>Update User details</p>
-            <MdClose className='cursor-pointer' />
+            <MdClose onClick={onUpdateClose} className='cursor-pointer' />
         </div>
         <form
         className='
