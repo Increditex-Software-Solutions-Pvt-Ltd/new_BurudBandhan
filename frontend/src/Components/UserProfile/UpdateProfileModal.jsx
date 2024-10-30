@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { MdClose } from "react-icons/md";
+import { updateUser } from '../../Redux/User/user.actions';
 
 const UpdateProfileModal = ({onUpdateClose, user}) => {
     const [updatedUser, setUpdatedUser] = useState(user);
     const dispatch = useDispatch();
-    
+    const {message, error, loading} = useSelector(store=>store.user);
+
 
     const handleChange = (e) =>{
         const {name, value} = e.target;
@@ -14,8 +16,10 @@ const UpdateProfileModal = ({onUpdateClose, user}) => {
 
     const handleUpdate = (e)=>{
         e.preventDefault();
-        // add update logic here
+        dispatch(updateUser(updatedUser));
+        // setUpdatedUser(user);
     }
+
   return (
     <div className='
     w-[100%]
@@ -37,6 +41,10 @@ const UpdateProfileModal = ({onUpdateClose, user}) => {
             <p className=''>Update User details</p>
             <MdClose onClick={onUpdateClose} className='cursor-pointer' />
         </div>
+
+        {message && <p className='text-green-500'>{message}</p>}
+        {error && <p className='text-red-500'>{error}</p>}
+
         <form
         className='
         py-4
@@ -100,7 +108,7 @@ const UpdateProfileModal = ({onUpdateClose, user}) => {
                 text-white
                 rounded-xl
                 '
-                type='submit' value="Update" />
+                type='submit' value={loading? "Updating..." :"Update"} />
             </div>
         </form>
     </div>

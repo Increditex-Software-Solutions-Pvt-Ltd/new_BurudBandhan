@@ -90,7 +90,8 @@ export const userReducer = (state=iniState, {type, payload})=>{
         case UPDATE_USER_SUCCESS:
             return {
                 ...state,
-                user:payload,
+                user:payload.updatedUser,
+                message:payload.message,
                 loading:false,
                 error:null
             };
@@ -99,6 +100,7 @@ export const userReducer = (state=iniState, {type, payload})=>{
             return {
                 ...state,
                 loading:false,
+                message:null,
                 error:payload
             };
         

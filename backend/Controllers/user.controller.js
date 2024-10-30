@@ -105,7 +105,7 @@ const userController = {
 
         const updatedUser = await user.save();
 
-        res.json(updatedUser);
+        res.json({updatedUser, message:"User profile updated successfully!"});
       
     } catch (err){
         res.status(500).json({error: err.message});
