@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { MdClose } from "react-icons/md";
+import { changePassword } from '../../Redux/User/user.actions';
 
 const iniPassword = {
     oldPassword:"",
@@ -10,6 +11,7 @@ const iniPassword = {
 const ChangePasswordModal = ({onChangePwdClose}) => {
     const [password, setPassword] = useState(iniPassword);
     const dispatch = useDispatch();
+    const {message, error, loading} = useSelector(store=>store.user);
     
 
     const handleChange = (e) =>{
@@ -19,7 +21,9 @@ const ChangePasswordModal = ({onChangePwdClose}) => {
 
     const handleUpdate = (e)=>{
         e.preventDefault();
-        // add update logic here
+        dispatch(changePassword(password));
+        setPassword(iniPassword);
+    
     }
   return (
     <div className='
@@ -42,6 +46,8 @@ const ChangePasswordModal = ({onChangePwdClose}) => {
             <p className=''>Change Password</p>
             <MdClose onClick={onChangePwdClose} className='cursor-pointer' />
         </div>
+        {message && <p className='text-green-500'>{message}</p>}
+        {error && <p className='text-red-500'>{error}</p>}
         <form
         className='
         py-4
@@ -91,7 +97,7 @@ const ChangePasswordModal = ({onChangePwdClose}) => {
                 text-white
                 rounded-xl
                 '
-                type='submit' value="Update" />
+                type='submit' value= {loading? "Updating": "Update"} />
             </div>
         </form>
     </div>

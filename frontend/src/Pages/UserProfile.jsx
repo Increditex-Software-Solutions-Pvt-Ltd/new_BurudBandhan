@@ -28,7 +28,7 @@ const UserProfile = () => {
   useEffect(()=>{
     if(isAuthenticated){
       dispatch(getUser());
-      console.log(user);
+      // console.log(user);
     }
   },[dispatch]);
 
@@ -94,18 +94,21 @@ const UserProfile = () => {
               text-left 
               text-xl
               '>
-                <tr>
-                  <td className='p-2 font-semibold'>Full Name:</td>
-                  <td className='p-2'>{user.fullName}</td>
-                </tr>
-                <tr>
-                  <td className='p-2 font-semibold'>Email:</td>
-                  <td className='p-2'>{user.email}</td>
-                </tr>
-                <tr>
-                  <td className='p-2 font-semibold'>Gender</td>
-                  <td className='p-2'>{user.gender}</td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <td className='p-2 font-semibold'>Full Name:</td>
+                    <td className='p-2'>{user.fullName}</td>
+                  </tr>
+                  <tr>
+                    <td className='p-2 font-semibold'>Email:</td>
+                    <td className='p-2'>{user.email}</td>
+                  </tr>
+                  <tr>
+                    <td className='p-2 font-semibold'>Gender</td>
+                    <td className='p-2'>{user.gender}</td>
+                  </tr>
+                </tbody>
+                
               </table>
 
               

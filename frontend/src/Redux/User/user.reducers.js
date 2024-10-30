@@ -134,6 +134,7 @@ export const userReducer = (state=iniState, {type, payload})=>{
         case CHANGE_PASSWORD_FAIL:
             return{
                 ...state,
+                message:null,
                 loading:false,
                 error:payload
             };
