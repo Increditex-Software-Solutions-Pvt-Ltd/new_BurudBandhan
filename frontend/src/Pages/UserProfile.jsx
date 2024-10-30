@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import { getUser } from "../Redux/User/user.actions";
+import UpdateProfileModal from '../Components/UserProfile/UpdateProfileModal';
+import ChangePasswordModal from '../Components/UserProfile/ChangePasswordModal';
 
 
 const UserProfile = () => {
@@ -38,7 +40,7 @@ const UserProfile = () => {
                   <img className='border w-[180px] h-[180px]' src="person.png" alt="Profile photo" />
                 </div>
                 {/* update profile details */}
-                <div className='flex items-center gap-4'>
+                <div className='flex items-center gap-4 relative'>
                   <button className=' 
                   rounded-xl 
                   px-4 py-2
@@ -55,7 +57,11 @@ const UserProfile = () => {
                   '
                   >Change Password</button>
 
-                  
+                  {/* update profile modal */}
+                  <UpdateProfileModal user={user} />
+
+                  {/* change passoword modal */}
+                  {/* <ChangePasswordModal /> */}
                 </div>
               </div>
 
