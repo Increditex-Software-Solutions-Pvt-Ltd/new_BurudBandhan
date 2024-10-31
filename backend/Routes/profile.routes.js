@@ -30,4 +30,17 @@ profileRouter.patch("/:id", auth, profileController.updateProfile);
 // delete profile
 profileRouter.delete("/:id", auth, profileController.deleteProfile);
 
+// send request
+profileRouter.post('/sendRequest', auth, profileController.sendRequest);
+
+// accept request
+profileRouter.post('/acceptRequest', auth, profileController.acceptRequest);
+
+// reject request
+profileRouter.post('/rejectRequest', auth, profileController.rejectRequest);
+
+// view profile
+profileRouter.get('/viewProfile/:profileId/:targetProfileId', auth, profileController.viewProfile);
+
+
 module.exports = profileRouter;
