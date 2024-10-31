@@ -246,7 +246,23 @@ const profileController = {
         }
     },
     async sendRequest(req, res){
-        // send request code here
+        const { profileId, targetProfileId } = req.body;
+        
+        try{
+            const senderProfile = await Profile.findById(profileId);
+            const targetProfile = await Profile.findById(targetProfileId);
+
+            // check if the request already exists
+            if(!targetProfile.requests.includes(profileId)){
+                targetProfile.requests.push(profileId); // Add sender's profile ID to the receiver's requests list
+                await targetProfile.save();
+            }
+
+            res.status(200).json({message: "Request Sent succeffuly."});
+            
+        }catch(err){
+            res.status(500).json({message:err.message})
+        }
     },
     async acceptRequest(req, res){
         // accept request
