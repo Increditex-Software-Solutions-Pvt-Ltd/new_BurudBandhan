@@ -309,6 +309,21 @@ const profileController = {
     },
     async viewProfile(req, res){
         // view profile
+        const { profileId, targetProfileId } = req.params;
+
+        try{
+            const viewerProfile = await Profile.findById(profileId);
+            const targetProfile = await Profile.findById(targetProfileId);
+
+            // check if they are mutually connected 
+            if(viewerProfile.connections.includes(targetProfileId) && targetProfile.connections.includes(profileId)){
+                res.status(200).json(targetProfile); // Return the target profile details
+            } else{
+                res.status(403).json({message: "Access denied. You are not mutually connected."})
+            }
+        }catch(err){
+            res.status(500).json({message:err.message});
+        }
     }
 
 }
