@@ -246,6 +246,7 @@ const profileController = {
         }
     },
     async sendRequest(req, res){
+        // send request to other user
         const { profileId, targetProfileId } = req.body;
         
         try{
@@ -259,13 +260,36 @@ const profileController = {
             }
 
             res.status(200).json({message: "Request Sent succeffuly."});
-            
+
         }catch(err){
             res.status(500).json({message:err.message})
         }
     },
     async acceptRequest(req, res){
-        // accept request
+        // accept request 
+        const { profileId, requesterProfileId } = req.body; // profileId is the receiver's profile
+
+        try{
+            const receiverProfile = await Profile.findById(profileId);
+            const requesterProfile = await Profile.findById(requesterProfileId);
+
+            // Add each profile to the other's connections if not already connected
+            if (!receiverProfile.connections.includes(requesterProfileId)) {
+                receiverProfile.connections.push(requesterProfileId);
+                requesterProfile.connections.push(profileId);
+            }
+            
+            // Remove the request from the receiver's requests array
+            receiverProfile.requests = receiverProfile.requests.filter(id => id.toString() !== requesterProfileId);
+
+            await receiverProfile.save();
+            await requesterProfile.save();
+
+            res.status(200).json({message: "Connection accepted"});
+        }catch(err){
+            res.status(500).json({message:err.message});
+        }
+
     },
     async rejectRequest(req, res){
         // reject request
