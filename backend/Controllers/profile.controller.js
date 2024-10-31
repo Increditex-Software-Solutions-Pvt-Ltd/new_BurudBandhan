@@ -244,6 +244,18 @@ const profileController = {
         } catch(err){
             res.status(500).json({message: err.message});
         }
+    },
+    async sendRequest(req, res){
+        // send request code here
+    },
+    async acceptRequest(req, res){
+        // accept request
+    },
+    async rejectRequest(req, res){
+        // reject request
+    },
+    async viewProfile(req, res){
+        // view profile
     }
 
 }
