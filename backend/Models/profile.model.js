@@ -173,8 +173,17 @@ const profileSchema = new mongoose.Schema({
     user:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User",
+        required:true,
         unique:true
-    }
+    },
+    requests:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref: 'Profile'
+    }], // IDs of profiles who sent requests
+    connections:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref: 'Profile'
+    }] // IDs of mutually accepted profiles
        
 },{
     timestamps:true
