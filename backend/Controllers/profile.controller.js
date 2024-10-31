@@ -293,6 +293,19 @@ const profileController = {
     },
     async rejectRequest(req, res){
         // reject request
+        const { profileId, requestProfileId } = req.body;
+        try{
+            const receiverProfile = await Profile.findById(profileId);
+
+            // remove the requesterProfileId from the receiver's requests array
+            receiverProfile.requests = receiverProfile.requests.filter(id=>id.toString() !== requesterProfileId);
+            await receiverProfile.save();
+
+            res.status(200).json({message:"Request rejected successfully"});
+
+        }catch(err){
+            res.status(500).json({message:err.message});
+        }
     },
     async viewProfile(req, res){
         // view profile
