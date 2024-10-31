@@ -1,5 +1,5 @@
 import api from "../api"
-import { CREATE_PROFILE_FAIL, 
+import { ACCEPT_REQUEST_FAIL, ACCEPT_REQUEST_SUCCESS, CREATE_PROFILE_FAIL, 
     CREATE_PROFILE_SUCCESS, 
     DELETE_PROFILE_FAIL, 
     DELETE_PROFILE_SUCCESS, 
@@ -11,8 +11,14 @@ import { CREATE_PROFILE_FAIL,
     GET_PROFILE_BY_USERID_SUCCESS, 
     GET_PROFILE_FAIL, 
     GET_PROFILE_SUCCESS, 
+    REJECT_REQUEST_FAIL, 
+    REJECT_REQUEST_SUCCESS, 
+    SEND_REQUEST_FAIL, 
+    SEND_REQUEST_SUCCESS, 
     UPDATE_PROFILE_FAIL, 
-    UPDATE_PROFILE_SUCCESS } from "./profile.types";
+    UPDATE_PROFILE_SUCCESS, 
+    VIEW_PROFILE_FAIL, 
+    VIEW_PROFILE_SUCCESS} from "./profile.types";
 
 // create marriage profile for marriage
 export const createMarriageProfile = (profile)=> async (dispatch) =>{
@@ -96,5 +102,53 @@ export const deleteMarriageProfile = (profileId) => async (dispatch)=>{
         dispatch({type:DELETE_PROFILE_SUCCESS, payload:res.data.message});
     }catch(err){
         dispatch({type:DELETE_PROFILE_FAIL, payload:err.response?.data?.message || "Failed to delete profile!"});
+    }
+}
+
+
+// send request 
+export const sendRequest = (data)=>async(dispatch)=>{
+    try{
+        const res = await api.post(`/marriage-profile/sendRequest`, data);
+        dispatch({type:SEND_REQUEST_SUCCESS, payload:res.data});
+
+    }catch(err){
+        dispatch({type:SEND_REQUEST_FAIL, payload:err.response?.data?.message || "Failed to send request!"});
+    }
+}
+
+
+// accept request 
+export const acceptRequest = (data)=>async(dispatch)=>{
+    try{
+        const res = await api.post(`/marriage-profile/acceptRequest`, data);
+        dispatch({type:ACCEPT_REQUEST_SUCCESS, payload:res.data});
+
+    }catch(err){
+        dispatch({type:ACCEPT_REQUEST_FAIL, payload:err.response?.data?.message || "Failed to accept request!"});
+    }
+}
+
+
+// reject request 
+export const rejectRequest = (data)=>async(dispatch)=>{
+    try{
+        const res = await api.post(`/marriage-profile/rejectRequest`, data);
+        dispatch({type:REJECT_REQUEST_SUCCESS, payload:res.data});
+
+    }catch(err){
+        dispatch({type:REJECT_REQUEST_FAIL, payload:err.response?.data?.message || "Failed to reject request!"});
+    }
+}
+
+
+// view profile
+export const viewProfile = (profileId, targetProfileId)=>async(dispatch)=>{
+    try{
+        const res = await api.get(`/marriage-profile/viewProfile/${profileId}/${targetProfileId}`);
+        dispatch({type:VIEW_PROFILE_SUCCESS, payload:res.data});
+
+    }catch(err){
+        dispatch({type:VIEW_PROFILE_FAIL, payload:err.response?.data?.message || "Failed to view profile!"});
     }
 }
