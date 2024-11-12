@@ -6,8 +6,12 @@ import { useNavigate } from "react-router-dom";
 
 const ProfileCard = ({profile}) => {
   const dispatch = useDispatch();
-  const {isAuthenticated} = useSelector(store=>store.user);
+  const {isAuthenticated } = useSelector(store=>store.user);
   const navigate = useNavigate();
+
+  const handleSendRequest = ()=>{
+
+  }
  
   return (
     <div className='border border-gray-100 rounded-xl'>
@@ -62,16 +66,16 @@ const ProfileCard = ({profile}) => {
 
 
         {/* send request */}
-        {/* <div className='text-center my-6'>
+        <div className='text-center my-6'>
               <button className=' 
               py-2 px-4 
               rounded-lg
               bg-sky-600 hover:bg-sky-700
               text-white 
               '
-              onClick={()=>navigate(`/profile/${profile._id}`)}
+              onClick={handleSendRequest}
               >Send Request</button>
-        </div>  */}
+        </div> 
     </div>
   )
 }
